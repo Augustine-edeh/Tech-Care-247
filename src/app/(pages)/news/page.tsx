@@ -1,9 +1,3 @@
-import Header from "@/components/Header";
-import Main from "@/components/Main";
-import PatientDiagnosisInfo from "@/components/PatientDiagnosisInfo";
-import PatientProfile from "@/components/PatientProfile";
-import PatientsList from "@/components/PatientsList";
-
 const NewsPage = () => {
   return (
     <>
