@@ -62,8 +62,8 @@ const Navbar = () => {
           <div className="h-[19px] mx-5 flex justify-center gap-x-[9px]">
             <Image
               src={link.icon}
-              width={link.iconSize?.width || 16}
-              height={link.iconSize?.height || 17}
+              width={link.iconSize.width}
+              height={link.iconSize.height}
               alt={link.label.toLowerCase()}
             />
             <p className="font-manrope font-bold text-sm leading-[19px] text-unnamed-color-072635 text-left">
