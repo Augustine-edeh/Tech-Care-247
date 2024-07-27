@@ -1,11 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <nav className="nav hidden lg:flex items-center justify-between w-[663px] h-[63px]">
-      <a
+      <Link
         className="flex justify-center items-center gap-[9px] h-[41px]  focus:bg-unnamed-activestate-bg-1 hover:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]"
-        href="#"
+        href="/"
       >
         <div className="h-[19px] mx-5 flex justify-center gap-x-[9px]">
           <Image
@@ -19,11 +20,11 @@ const Navbar = () => {
             Overview
           </p>
         </div>
-      </a>
+      </Link>
 
-      <a
+      <Link
         className="flex justify-center items-center gap-[9px] h-[41px]  focus:bg-unnamed-activestate-bg-1 hover:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]"
-        href="#"
+        href="/"
       >
         <div className="h-[19px] mx-5 flex justify-center gap-x-[9px]">
           <Image
@@ -36,11 +37,11 @@ const Navbar = () => {
             Patients
           </p>
         </div>
-      </a>
+      </Link>
 
-      <a
+      <Link
         className="flex justify-center items-center gap-[9px] h-[41px]  focus:bg-unnamed-activestate-bg-1 hover:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]"
-        href="#"
+        href="/"
       >
         <div className="h-[19px] mx-5 flex justify-center gap-x-[9px]">
           <Image
@@ -53,11 +54,11 @@ const Navbar = () => {
             Schedule
           </p>
         </div>
-      </a>
+      </Link>
 
-      <a
+      <Link
         className="flex justify-center items-center gap-[9px] h-[41px]  focus:bg-unnamed-activestate-bg-1 hover:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]"
-        href="#"
+        href="/"
       >
         <div className="h-[19px] mx-5 flex justify-center gap-x-[9px]">
           <Image
@@ -70,11 +71,11 @@ const Navbar = () => {
             Message
           </p>
         </div>
-      </a>
+      </Link>
 
-      <a
+      <Link
         className="flex justify-center items-center gap-[9px] h-[41px]  focus:bg-unnamed-activestate-bg-1 hover:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]"
-        href="#"
+        href="/"
       >
         <div className="h-[19px] mx-5 flex justify-center gap-x-[9px]">
           <Image
@@ -87,9 +88,9 @@ const Navbar = () => {
             Transactions
           </p>
         </div>
-      </a>
+      </Link>
 
-      <a
+      <Link
         className="flex justify-center items-center gap-[9px] h-[41px]  focus:bg-unnamed-activestate-bg-1 hover:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]"
         href="news"
       >
@@ -99,7 +100,7 @@ const Navbar = () => {
             News
           </p>
         </div>
-      </a>
+      </Link>
     </nav>
   );
 };
