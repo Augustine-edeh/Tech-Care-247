@@ -88,6 +88,18 @@ const Navbar = () => {
           </p>
         </div>
       </a>
+
+      <a
+        className="flex justify-center items-center gap-[9px] h-[41px]  focus:bg-unnamed-activestate-bg-1 hover:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]"
+        href="#"
+      >
+        <div className="h-[19px] mx-5 flex justify-center gap-x-[9px]">
+          <Image src="/news.svg" width={200} height={200} alt="news" />
+          <p className="font-manrope font-bold text-sm leading-[19px] text-unnamed-color-072635 text-left">
+            News
+          </p>
+        </div>
+      </a>
     </nav>
   );
 };
