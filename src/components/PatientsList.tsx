@@ -10,7 +10,7 @@ type classNameType = {
 const PatientsList = ({ className }: classNameType) => {
   return (
     <section
-      className={`${className} bg-unnamed-color-ffffff w-[367p w- full h-[1076px h-[full mt-[14px] rounded-[16px] p-5 pr -1 pb -20 overflow-hidde bg-red-500`}
+      className={`${className} bg-unnamed-color-ffffff w-[367p w- full h-[1076px h-[full mt-[14px] rounded-[16px] p-5 pr -1 pb -20 overflow-hidde`}
     >
       <SearchPatients className="mb-10 mr-5" />
 
