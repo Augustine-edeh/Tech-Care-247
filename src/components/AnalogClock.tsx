@@ -15,7 +15,7 @@ const AnalogClock = () => {
 
   return (
     <div>
-      <Clock value={value} className="shadow-2xl rounded-full" />
+      <Clock value={value} className="shadow-2xl rounded-full" size={"18vw"} />
     </div>
   );
 };
