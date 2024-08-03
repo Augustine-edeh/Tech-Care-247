@@ -15,8 +15,7 @@ const AnalogClock = () => {
 
   return (
     <div>
-      <p>Current time:</p>
-      <Clock value={value} className="bg-blue-400" />
+      <Clock value={value} className="shadow-2xl rounded-full" />
     </div>
   );
 };

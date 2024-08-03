@@ -10,11 +10,12 @@ const Clock = () => {
       <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635">
         Clock
       </h3>
-      <section>
+
+      <section className="lg:hidden">
         <DigitalClock />
       </section>
 
-      <section className="">
+      <section className="hidden  lg:flex justify-center ">
         <AnalogClock />
       </section>
     </div>
