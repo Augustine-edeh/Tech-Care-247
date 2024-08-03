@@ -1,4 +1,6 @@
+import AnalogClock from "./AnalogClock";
 import DigitalClock from "./DigitalClock";
+import "react-clock/dist/Clock.css";
 
 const Clock = () => {
   return (
@@ -8,9 +10,12 @@ const Clock = () => {
       <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635">
         Clock
       </h3>
-
       <section>
         <DigitalClock />
+      </section>
+
+      <section className="">
+        <AnalogClock />
       </section>
     </div>
   );
