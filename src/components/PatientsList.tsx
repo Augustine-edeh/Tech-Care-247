@@ -1,13 +1,19 @@
+"use client";
+
 import Image from "next/image";
 import PatientCard from "./PatientCard";
 import SearchPatients from "./SearchPatients";
 import { patientsArray } from "@/data/patientsArray";
+import { ClassNameType } from "../../types/Ui";
+import { useEffect } from "react";
+import useStore from "@/store/patientsStore";
 
-type classNameType = {
-  className: string;
-};
+const PatientsList = ({ className }: ClassNameType) => {
+  useEffect(() => {}, []);
 
-const PatientsList = ({ className }: classNameType) => {
+  // Zustand state for `PatientsData`
+  const PatientsData = useStore((state: any) => state.setPatientsData);
+
   return (
     <section
       className={`${className} bg-unnamed-color-ffffff w-[367p w- full h-[1076px h-[full mt-[14px] rounded-[16px] p-5 pr -1 pb -20 overflow-hidde`}
