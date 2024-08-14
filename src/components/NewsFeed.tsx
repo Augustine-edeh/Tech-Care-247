@@ -36,8 +36,8 @@ const NewsFeed = () => {
         News Feed
       </h3>
       <h1 className="text-xl font-bold text-gray-900">Top Headlines</h1>
-      <ul className="space-y-4 mt-4">
-        {news.map((newsItem, index) => (
+      <ul className="space-y-4 mt-4 bg-sky-400 h-[calc(100dvh+130px)] overflow-y-scroll">
+        {news?.map((newsItem, index) => (
           <li key={index} className="border-b border-gray-200 pb-4">
             <a
               href={newsItem.url}
@@ -61,5 +61,4 @@ const NewsFeed = () => {
     </div>
   );
 };
-
 export default NewsFeed;
