@@ -17,6 +17,7 @@ export const fetchNews = async (): Promise<NewsArticle[]> => {
       params: {
         language: "en",
         category: "health",
+        pageSize: 100,
         apiKey: process.env.NEXT_PUBLIC_NEWS_API_KEY,
       },
     });
