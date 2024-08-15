@@ -6,7 +6,7 @@ import SearchPatients from "./SearchPatients";
 import { patientsArray } from "@/data/patientsArray";
 import { ClassNameType } from "../../types/Ui";
 import { useEffect } from "react";
-import useStore from "@/store/patientsStore";
+import useStore from "@/store/usePatientsStore";
 
 const PatientsList = ({ className }: ClassNameType) => {
   useEffect(() => {}, []);
