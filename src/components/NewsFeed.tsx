@@ -30,9 +30,10 @@ const NewsFeed = () => {
   if (isLoading) {
     return (
       <div className="order-2 lg:order-2 lg:col-span-8 xl:col-span-6 bg-white p-5 rounded-lg shadow-md">
-        <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-gray-800">
+        <h1 className="font-manrope font-extrabold text-2xl leading-[33px] text-gray-800">
           News Feed
-        </h3>
+        </h1>
+        <h3 className="text-xl font-bold text-gray-900">Top Headlines</h3>
         <p className="text-gray-600">Loading...</p>
       </div>
     );
@@ -41,9 +42,10 @@ const NewsFeed = () => {
   if (error) {
     return (
       <div className="order-2 lg:order-2 lg:col-span-8 xl:col-span-6 bg-white p-5 rounded-lg shadow-md">
-        <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-gray-800">
+        <h1 className="font-manrope font-extrabold text-2xl leading-[33px] text-gray-800">
           News Feed
-        </h3>
+        </h1>
+        <h2 className="text-xl font-bold text-gray-900">Top Headlines</h2>
         <p className="text-gray-600">Error: {error}</p>
       </div>
     );
@@ -51,10 +53,10 @@ const NewsFeed = () => {
 
   return (
     <div className="order-2 lg:order-2 lg:col-span-8 xl:col-span-6 bg-white p-5 rounded-lg shadow-md">
-      <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-gray-800">
+      <h1 className="font-manrope font-extrabold text-2xl leading-[33px] text-gray-800">
         News Feed
-      </h3>
-      <h1 className="text-xl font-bold text-gray-900">Top Headlines</h1>
+      </h1>
+      <h3 className="text-xl font-bold text-gray-900">Top Headlines</h3>
       <ul
         id="infiniteScrollContainer"
         className="space-y-4 mt-4 bg-sky-400 h-[calc(100dvh+130px)] overflow-y-scroll"
