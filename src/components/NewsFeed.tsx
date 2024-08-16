@@ -1,42 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { fetchNews } from "@/services/newsService";
-import { NewsArticle } from "../../types/NewsArticle";
 import { useNewsStore } from "@/store/useNewsStore";
-
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const NewsFeed = () => {
   const news = useNewsStore((state) => state.news);
+  const totalResults = useNewsStore((state) => state.totalResults);
   const isLoading = useNewsStore((state) => state.isLoading);
   const error = useNewsStore((state) => state.error);
   const fetchNewsData = useNewsStore((state) => state.fetchNewsData);
 
-  useEffect(() => {
-    fetchNewsData();
-  }, [fetchNewsData]);
-
-  // const [news, setNews] = useState<NewsArticle[] | null>(null);
+  const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  // useEffect(() => {
-  //   const getNews = async () => {
-  //     try {
-  //       const data = await fetchNews();
-  //       setNews(data);
-  //       console.log(data);
-  //     } catch (error) {
-  //       console.error("Error fetching news:", error);
-  //     }
-  //   };
-  //   getNews();
-  // }, []);
+  useEffect(() => {
+    fetchNewsData(page, 10); // Fetch initial news
+  }, [fetchNewsData, page]);
 
-  const fetchMorNewseData = () => {
-    if (news?.length < 200) {
-      // TODO: fetch more news data from the API
-      setNews((prevState) => [...prevState]);
+  const fetchMoreNews = async () => {
+    if (news.length < totalResults) {
+      setPage((prevPage) => prevPage + 1);
+      await fetchNewsData(page + 1, 10); // Fetch more news
     } else {
       setHasMore(false);
     }
@@ -75,17 +60,17 @@ const NewsFeed = () => {
         className="space-y-4 mt-4 bg-sky-400 h-[calc(100dvh+130px)] overflow-y-scroll"
       >
         <InfiniteScroll
-          dataLength={20} //This is important field to render the next data
-          next={fetchMorNewseData}
+          dataLength={news.length} // Length of current news array
+          next={fetchMoreNews}
           hasMore={hasMore}
-          loader={<h4>Loading...</h4>}
+          loader={<h4>Wait, please...</h4>}
           endMessage={
             <p style={{ textAlign: "center" }}>
               <b>Yay! You have seen it all</b>
             </p>
           }
         >
-          {news?.map((newsItem, index) => (
+          {news.map((newsItem, index) => (
             <li key={index} className="border-b border-gray-200 pb-4">
               <a
                 href={newsItem.url}
@@ -100,7 +85,7 @@ const NewsFeed = () => {
                 Source: {newsItem.source.name}
               </p>
               <p className="text-gray-500 text-sm">
-                Published on:
+                Published on:{" "}
                 {new Date(newsItem.publishedAt).toLocaleDateString()}
               </p>
             </li>
@@ -110,4 +95,5 @@ const NewsFeed = () => {
     </div>
   );
 };
+
 export default NewsFeed;
