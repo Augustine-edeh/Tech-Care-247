@@ -8,17 +8,20 @@ const MenuIcon = () => {
   const toggleIsOpen = useMobileNavStore((state) => state.toggleIsOpen);
 
   return (
-    <Image
-      src="/more_vert_FILL0_wght300_GRAD0_opsz24.svg"
-      width={4}
-      height={18}
-      alt="settings"
-      className="cursor-pointer"
+    <div
+      className="flex justify-center items-center cursor-pointer px-2"
       onClick={() => {
         console.log(isOpen);
         toggleIsOpen();
       }}
-    />
+    >
+      <Image
+        src="/more_vert_FILL0_wght300_GRAD0_opsz24.svg"
+        width={4}
+        height={18}
+        alt="settings"
+      />
+    </div>
   );
 };
 
