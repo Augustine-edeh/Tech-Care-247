@@ -2,6 +2,7 @@ import Image from "next/image";
 import Navbar from "./Navbar";
 import User from "./User";
 import Logo from "./Logo";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   return (
@@ -9,6 +10,7 @@ const Header = () => {
       <Logo />
       <Navbar />
       <User />
+      <MobileNav />
     </header>
   );
 };
