@@ -22,11 +22,6 @@ const UserCard = () => {
           </p>
         </div>
       </section>
-
-      {/* <section className="flex gap-x-3 pl-3">
-        <SettingsIcon />
-        <MenuIcon />
-      </section> */}
     </div>
   );
 };

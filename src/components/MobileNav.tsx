@@ -10,7 +10,6 @@ import User from "./UserCard";
 import MenuIcon from "./MenuIcon";
 
 const MobileNav = () => {
-  const isOpen = useMobileNavStore((state) => state.isOpen);
   const toggleIsOpen = useMobileNavStore((state) => state.toggleIsOpen);
   const pathname = usePathname();
 

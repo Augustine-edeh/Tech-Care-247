@@ -12,7 +12,6 @@ import MenuIcon from "./MenuIcon";
 
 const Header = () => {
   const isOpen = useMobileNavStore((state) => state.isOpen);
-  const toggleIsOpen = useMobileNavStore((state) => state.toggleIsOpen);
 
   return (
     <header className="flex items-center justify-between px-[20px] md:px-[33px] h-[72px] bg-unnamed-color-ffffff rounded-[70px]">
