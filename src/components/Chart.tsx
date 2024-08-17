@@ -14,7 +14,7 @@ import {
 import { Line } from "react-chartjs-2";
 import { fetchPatientData } from "@/services/patientService";
 import { PatientDataType } from "../../types/Patient";
-import useStore from "@/store/patientsStore";
+import useStore from "@/store/usePatientsStore";
 
 // Register the components
 ChartJS.register(
