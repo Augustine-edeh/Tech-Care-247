@@ -1,18 +1,21 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect } from "react";
 import PatientCard from "./PatientCard";
 import SearchPatients from "./SearchPatients";
-import { patientsArray } from "@/data/patientsArray";
+import usePatientsStore from "@/store/usePatientsStore";
 import { ClassNameType } from "../../types/Ui";
-import { useEffect } from "react";
-import useStore from "@/store/usePatientsStore";
 
 const PatientsList = ({ className }: ClassNameType) => {
-  useEffect(() => {}, []);
+  const patients = usePatientsStore((state) => state.patients);
+  const isLoading = usePatientsStore((state) => state.isLoading);
+  const fetchPatientsData = usePatientsStore(
+    (state) => state.fetchPatientsData
+  );
 
-  // Zustand state for `PatientsData`
-  const PatientsData = useStore((state: any) => state.setPatientsData);
+  useEffect(() => {
+    fetchPatientsData(); // Fetch patients data on component mount
+  }, [fetchPatientsData]);
 
   return (
     <section
@@ -20,18 +23,24 @@ const PatientsList = ({ className }: ClassNameType) => {
     >
       <SearchPatients className="mb-10 mr-5" />
 
-      <ul className="patient-list flex flex-col gap-y- h-fu  overflow-y-scroll h-[1076px] overflow-x-hidden w-full">
-        {patientsArray.map((patient, index) => (
-          <li key={index}>
-            <PatientCard
-              profile_picture={patient.profile_picture}
-              name={patient.name}
-              gender={patient.gender}
-              age={patient.age}
-            />
-          </li>
-        ))}
-      </ul>
+      {isLoading ? (
+        <div className="flex justify-center items-center h-full">
+          <p>Loading...</p>
+        </div>
+      ) : (
+        <ul className="patient-list flex flex-col gap-y- h-fu  overflow-y-scroll h-[1076px] overflow-x-hidden w-full">
+          {patients?.map((patient, index) => (
+            <li key={index}>
+              <PatientCard
+                profile_picture={patient.profile_picture}
+                name={patient.name}
+                gender={patient.gender}
+                age={patient.age}
+              />
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   );
 };

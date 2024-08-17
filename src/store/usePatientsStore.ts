@@ -1,13 +1,35 @@
 import { create } from "zustand";
+import { fetchPatientData } from "@/services/patientsService";
+import { PatientDataType } from "../../types/Patient";
 
-interface PatientsStore {
-  patientsData: any; // TODO: Replace `any` with actual type later
-  setPatientsData: (data: any) => void; // TODO: Replace `any` with the actual type of your patients data later
+interface PatientsState {
+  patients: PatientDataType[];
+  isLoading: boolean;
+  error: string | null;
+  fetchPatientsData: () => Promise<void>;
+  setPatientsData: (data: PatientDataType[]) => void;
 }
 
-export const useStore = create<PatientsStore>((set) => ({
-  patientsData: null,
-  setPatientsData: (data) => set({ patientsData: data }),
+export const usePatientsStore = create<PatientsState>((set) => ({
+  patients: [],
+  isLoading: false,
+  error: null,
+  fetchPatientsData: async () => {
+    set({ isLoading: true });
+    try {
+      const patientsData = await fetchPatientData();
+      set({
+        patients: patientsData,
+        isLoading: false,
+        error: null,
+      });
+    } catch (error) {
+      set({ isLoading: false, error: (error as Error).message });
+    }
+  },
+  setPatientsData: (data) => {
+    set({ patients: data });
+  },
 }));
 
-export default useStore;
+export default usePatientsStore;

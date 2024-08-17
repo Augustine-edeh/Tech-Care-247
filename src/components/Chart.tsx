@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,9 +12,9 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
-import { fetchPatientData } from "@/services/patientService";
+import { fetchPatientData } from "@/services/patientsService";
 import { PatientDataType } from "../../types/Patient";
-import useStore from "@/store/usePatientsStore";
+import usePatientsStore from "@/store/usePatientsStore";
 
 // Register the components
 ChartJS.register(
@@ -28,24 +28,13 @@ ChartJS.register(
 );
 
 const Chart = () => {
-  const setPatientsData = useStore((state: any) => state.setPatientsData);
-
-  // State to hold patient data
-  const [patientData, setPatientData] = useState<PatientDataType | null>(null);
+  const { patients, setPatientsData, isLoading, error } = usePatientsStore();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const data = await fetchPatientData();
         console.log(data); // Log the complete data structure
-
-        // Find the specific patient data
-        const jessicaData = data.find(
-          (patient) => patient.name === "Jessica Taylor"
-        );
-
-        console.log("Jessica's Data: ", jessicaData); // Log Jessica's data
-        setPatientData(jessicaData || null);
 
         // Update Zustand Store
         setPatientsData(data);
@@ -57,10 +46,22 @@ const Chart = () => {
     fetchData();
   }, [setPatientsData]);
 
-  if (!patientData) {
+  const patientData = patients.find(
+    (patient) => patient.name === "Jessica Taylor"
+  );
+
+  if (isLoading || !patientData) {
     return (
       <div className="flex justify-center">
         <p>Loading...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex justify-center">
+        <p>Error: {error}</p>
       </div>
     );
   }
