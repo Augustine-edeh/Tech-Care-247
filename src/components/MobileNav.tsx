@@ -6,7 +6,8 @@ import useMobileNavStore from "@/store/useMobileNavStore";
 import { navLinks } from "@/data/navLinks";
 import Link from "next/link";
 import Image from "next/image";
-import User from "./User";
+import User from "./UserCard";
+import MenuIcon from "./MenuIcon";
 
 const MobileNav = () => {
   const isOpen = useMobileNavStore((state) => state.isOpen);
@@ -14,8 +15,11 @@ const MobileNav = () => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-zinc-200 fixed top-5 right-5 h-[calc(100dvh-50px)] min-w-60">
-      <div className="h-8 px-3 flex justify-end items-center bg-zinc-300 font-bold">
+    <div className="bg-zinc-200 md:hidden fixed top-5 right-5 h-[calc(100dvh-50px)] min-w-60 rounded-md overflow-hidden">
+      <div
+        className="h-8 px-3 flex justify-end items-center bg-zinc-300 font-bold"
+        onClick={toggleIsOpen}
+      >
         X
       </div>
       <nav>
@@ -46,8 +50,9 @@ const MobileNav = () => {
         ))}
       </nav>
 
-      <section className="absolute bottom-0 w-full bg-red-200">
+      <section className="absolute bottom-0 w-full flex  justify-between p-3 border-t-2 border-gray-300">
         <User />
+        <MenuIcon />
       </section>
     </div>
   );
