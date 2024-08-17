@@ -2,12 +2,12 @@ import Image from "next/image";
 import SettingsIcon from "./SettingsIcon";
 import MenuIcon from "./MenuIcon";
 
-const User = () => {
+const UserCard = () => {
   return (
-    <div className="flex items-center w-[241p] h-[44px] divide-x-2">
+    <div className="flex items-center w-[241p] h-[44px]">
       <section className="flex pr-3 gap-x-2 cursor-pointer">
         <Image
-          src="/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc@2x.png"
+          src="/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png"
           width={44}
           height={44}
           alt="doctor"
@@ -22,13 +22,8 @@ const User = () => {
           </p>
         </div>
       </section>
-
-      <section className="flex gap-x-3 pl-3">
-        <SettingsIcon />
-        <MenuIcon />
-      </section>
     </div>
   );
 };
 
-export default User;
+export default UserCard;

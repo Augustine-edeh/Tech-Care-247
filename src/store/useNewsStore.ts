@@ -1,4 +1,4 @@
-import create from "zustand";
+import { create } from "zustand";
 import { fetchNews } from "@/services/newsService";
 import { NewsArticle } from "../../types/NewsArticle";
 
