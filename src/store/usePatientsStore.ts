@@ -4,14 +4,17 @@ import { PatientDataType } from "../../types/Patient";
 
 interface PatientsState {
   patients: PatientDataType[];
+  selectedPatient: PatientDataType | null;
   isLoading: boolean;
   error: string | null;
   fetchPatientsData: () => Promise<void>;
   setPatientsData: (data: PatientDataType[]) => void;
+  setSelectedPatient: (patient: PatientDataType) => void;
 }
 
 export const usePatientsStore = create<PatientsState>((set) => ({
   patients: [],
+  selectedPatient: null,
   isLoading: false,
   error: null,
   fetchPatientsData: async () => {
@@ -30,6 +33,8 @@ export const usePatientsStore = create<PatientsState>((set) => ({
   setPatientsData: (data) => {
     set({ patients: data });
   },
+  setSelectedPatient: (patient: PatientDataType) =>
+    set({ selectedPatient: patient }),
 }));
 
 export default usePatientsStore;
