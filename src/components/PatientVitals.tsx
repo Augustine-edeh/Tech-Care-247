@@ -34,16 +34,11 @@ const PatientVitals = () => {
 
       {/* Vital card (temperature) */}
       <div className="flex flex-col gap-y-4 w-[228px] h-[242px] p-4 rounded-xl bg-[#FFE6E9]">
-        <Image
-          src="/temperature.svg"
-          width={96}
-          height={96}
-          alt="respiratory rate"
-        />
+        <Image src="/temperature.svg" width={96} height={96} alt="indicator" />
 
         <div>
           <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 text-left capitalize">
-            {`Respiratory rate`}
+            {`Temperature`}
           </p>
           <p className="font-manrope font-extrabold text-[30px] leading-[41px] text-unnamed-color-072635 text-left">
             {`98.6`}&deg; F
@@ -63,16 +58,11 @@ const PatientVitals = () => {
 
       {/* Vital card (heart rate) */}
       <div className="flex flex-col gap-y-4 w-[228px] h-[242px] p-4 rounded-xl bg-[#FFE6F1]">
-        <Image
-          src="/HeartBPM.svg"
-          width={96}
-          height={96}
-          alt="respiratory rate"
-        />
+        <Image src="/HeartBPM.svg" width={96} height={96} alt="indicator" />
 
         <div>
           <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 text-left capitalize">
-            {`Respiratory rate`}
+            {`Heart rate`}
           </p>
           <p className="font-manrope font-extrabold text-[30px] leading-[41px] text-unnamed-color-072635 text-left">
             {`78 bpm`}
