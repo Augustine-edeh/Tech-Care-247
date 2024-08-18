@@ -28,7 +28,8 @@ ChartJS.register(
 );
 
 const Chart = () => {
-  const { patients, setPatientsData, isLoading, error } = usePatientsStore();
+  const { patients, setPatientsData, isLoading, error, selectedPatient } =
+    usePatientsStore();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -66,8 +67,18 @@ const Chart = () => {
     );
   }
 
+  // // Prepare data for the chart
+  // const bloodPressureHistory = patientData.diagnosis_history
+  //   .map((entry) => ({
+  //     date: `${entry.month.substring(0, 3)}, ${entry.year}`,
+  //     systolic: entry.blood_pressure.systolic.value,
+  //     diastolic: entry.blood_pressure.diastolic.value,
+  //   }))
+  //   .filter((entry, index) => index < 6)
+  //   .reverse();
+
   // Prepare data for the chart
-  const bloodPressureHistory = patientData.diagnosis_history
+  const bloodPressureHistory = selectedPatient?.diagnosis_history
     .map((entry) => ({
       date: `${entry.month.substring(0, 3)}, ${entry.year}`,
       systolic: entry.blood_pressure.systolic.value,
@@ -76,9 +87,9 @@ const Chart = () => {
     .filter((entry, index) => index < 6)
     .reverse();
 
-  const labels = bloodPressureHistory.map((entry) => entry.date);
-  const systolicData = bloodPressureHistory.map((entry) => entry.systolic);
-  const diastolicData = bloodPressureHistory.map((entry) => entry.diastolic);
+  const labels = bloodPressureHistory?.map((entry) => entry.date);
+  const systolicData = bloodPressureHistory?.map((entry) => entry.systolic);
+  const diastolicData = bloodPressureHistory?.map((entry) => entry.diastolic);
 
   // Chart data and options
   const chartData = {
