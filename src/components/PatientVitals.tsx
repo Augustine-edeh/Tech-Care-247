@@ -5,6 +5,26 @@ import usePatientsStore from "@/store/usePatientsStore";
 
 const PatientVitals = () => {
   const selectedPatient = usePatientsStore((state) => state.selectedPatient);
+  const respiratory_rate_value = usePatientsStore(
+    (state) =>
+      state.selectedPatient?.diagnosis_history[0].respiratory_rate.value
+  );
+  const temperature_value = usePatientsStore(
+    (state) => state.selectedPatient?.diagnosis_history[0].temperature.value
+  );
+  const heart_rate_value = usePatientsStore(
+    (state) => state.selectedPatient?.diagnosis_history[0].heart_rate.value
+  );
+  const respiratory_rate_levels = usePatientsStore(
+    (state) =>
+      state.selectedPatient?.diagnosis_history[0].respiratory_rate.levels
+  );
+  const temperature_levels = usePatientsStore(
+    (state) => state.selectedPatient?.diagnosis_history[0].temperature.levels
+  );
+  const heart_rate_levels = usePatientsStore(
+    (state) => state.selectedPatient?.diagnosis_history[0].heart_rate.levels
+  );
 
   return (
     <section className="flex flex-wrap justify-center gap-5 md:justify-between">
@@ -22,21 +42,21 @@ const PatientVitals = () => {
             {`Respiratory rate`}
           </p>
           <p className="font-manrope font-extrabold text-[30px] leading-[41px] text-unnamed-color-072635 text-left">
-            {`${selectedPatient?.diagnosis_history[0].respiratory_rate.value} bpm`}
+            {`${
+              respiratory_rate_value === undefined
+                ? "--"
+                : respiratory_rate_value
+            } bpm`}
           </p>
         </div>
 
         <div className="flex gap-2">
-          {selectedPatient?.diagnosis_history[0].respiratory_rate.levels ===
-          "Normal" ? (
+          {respiratory_rate_levels === "Normal" ? (
             ""
           ) : (
             <Image
               src={`/Arrow${
-                selectedPatient?.diagnosis_history[0].respiratory_rate
-                  .levels === "Lower than Average"
-                  ? "Down"
-                  : "Up"
+                respiratory_rate_levels === "Lower than Average" ? "Down" : "Up"
               }.svg`}
               width={10}
               height={5}
@@ -59,22 +79,18 @@ const PatientVitals = () => {
             {`Temperature`}
           </p>
           <p className="font-manrope font-extrabold text-[30px] leading-[41px] text-unnamed-color-072635 text-left">
-            {`${selectedPatient?.diagnosis_history[0].temperature.value}`}
+            {`${temperature_value === undefined ? "--" : temperature_value}`}
             &deg; F
           </p>
         </div>
 
         <div className="flex gap-2">
-          {selectedPatient?.diagnosis_history[0].temperature.levels ===
-          "Normal" ? (
+          {temperature_levels === "Normal" ? (
             ""
           ) : (
             <Image
               src={`/Arrow${
-                selectedPatient?.diagnosis_history[0].temperature.levels ===
-                "Lower than Average"
-                  ? "Down"
-                  : "Up"
+                temperature_levels === "Lower than Average" ? "Down" : "Up"
               }.svg`}
               width={10}
               height={5}
@@ -83,7 +99,7 @@ const PatientVitals = () => {
           )}
 
           <p className="font-manrope font-normal text-sm leading-[19px] text-unnamed-color-072635 text-left">
-            {selectedPatient?.diagnosis_history[0].temperature.levels}
+            {temperature_levels}
           </p>
         </div>
       </div>
@@ -97,21 +113,17 @@ const PatientVitals = () => {
             {`Heart rate`}
           </p>
           <p className="font-manrope font-extrabold text-[30px] leading-[41px] text-unnamed-color-072635 text-left">
-            {`${selectedPatient?.diagnosis_history[0].heart_rate.value} bpm`}
+            {`${heart_rate_value === undefined ? "--" : heart_rate_value} bpm`}
           </p>
         </div>
 
         <div className="flex gap-2">
-          {selectedPatient?.diagnosis_history[0].heart_rate.levels ===
-          "Normal" ? (
+          {heart_rate_levels === "Normal" ? (
             ""
           ) : (
             <Image
               src={`/Arrow${
-                selectedPatient?.diagnosis_history[0].heart_rate.levels ===
-                "Lower than Average"
-                  ? "Down"
-                  : "Up"
+                heart_rate_levels === "Lower than Average" ? "Down" : "Up"
               }.svg`}
               width={10}
               height={5}
@@ -120,7 +132,7 @@ const PatientVitals = () => {
           )}
 
           <p className="font-manrope font-normal text-sm leading-[19px] text-unnamed-color-072635 text-left">
-            {selectedPatient?.diagnosis_history[0].heart_rate.levels}
+            {heart_rate_levels}
           </p>
         </div>
       </div>
