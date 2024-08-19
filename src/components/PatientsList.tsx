@@ -12,6 +12,9 @@ const PatientsList = ({ className }: ClassNameType) => {
   const fetchPatientsData = usePatientsStore(
     (state) => state.fetchPatientsData
   );
+  const setSelectedPatient = usePatientsStore(
+    (state) => state.setSelectedPatient
+  );
 
   useEffect(() => {
     fetchPatientsData(); // Fetch patients data on component mount
@@ -30,7 +33,7 @@ const PatientsList = ({ className }: ClassNameType) => {
       ) : (
         <ul className="patient-list flex flex-col gap-y- h-fu  overflow-y-scroll h-[1076px] overflow-x-hidden w-full">
           {patients?.map((patient, index) => (
-            <li key={index}>
+            <li key={index} onClick={() => setSelectedPatient(patient)}>
               <PatientCard
                 profile_picture={patient.profile_picture}
                 name={patient.name}
