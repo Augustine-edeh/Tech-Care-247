@@ -47,7 +47,7 @@ const Chart = () => {
     };
 
     fetchData();
-  }, [patients]);
+  }, [setPatientsData]);
 
   const patientData = patients.find(
     (patient) => patient.name === "Jessica Taylor"
