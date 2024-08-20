@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,6 +12,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+
 import { Line } from "react-chartjs-2";
 import { fetchPatientData } from "@/services/patientsService";
 import { PatientDataType } from "../../types/Patient";
@@ -45,7 +47,7 @@ const Chart = () => {
     };
 
     fetchData();
-  }, [setPatientsData]);
+  }, [patients]);
 
   const patientData = patients.find(
     (patient) => patient.name === "Jessica Taylor"
