@@ -1,11 +1,32 @@
+"use client";
+
 import Image from "next/image";
 import Chart from "./Chart";
 import DiagnosticListTable from "./DiagnosticListTable";
 import LabResults from "./LabResults";
 import PatientVitals from "./PatientVitals";
 import { ClassNameType } from "../../types/Ui";
+import usePatientsStore from "@/store/usePatientsStore";
 
 const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
+  const selectedPatient = usePatientsStore((state) => state.selectedPatient);
+
+  const Systolic_value =
+    selectedPatient?.diagnosis_history[0].blood_pressure.systolic.value;
+
+  const Systolic_levels =
+    selectedPatient?.diagnosis_history[0].blood_pressure.systolic.levels;
+
+  const diastolic_value =
+    selectedPatient?.diagnosis_history[0].blood_pressure.diastolic.value;
+
+  const diastolic_levels =
+    selectedPatient?.diagnosis_history[0].blood_pressure.diastolic.levels;
+
+  // const heart_rate_value = usePatientsStore(
+  //   (state) => state.selectedPatient?.diagnosis_history[0].heart_rate.value
+  // );
+
   return (
     <div className={`${className} flex flex-col gap-8 mt-[14px]`}>
       {/* Diagnosis History card */}
@@ -49,18 +70,30 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
                   <h1>Systolic</h1>
                 </div>
 
-                <p>{`${160}`}</p>
+                <p>
+                  {`${Systolic_value === undefined ? "- -" : Systolic_value}`}
+                </p>
 
                 <div className="flex items-center gap-x-2">
-                  <Image
-                    src="/ArrowUp.svg"
-                    width={10}
-                    height={10}
-                    alt="indicator"
-                  />
-                  <p>{`${"Higher than Average"}`}</p>
+                  {Systolic_levels === "Normal" ? (
+                    ""
+                  ) : (
+                    <Image
+                      src={`/Arrow${
+                        Systolic_levels === "Lower than Average" ? "Down" : "Up"
+                      }.svg`}
+                      width={10}
+                      height={5}
+                      alt="indicator"
+                    />
+                  )}
+
+                  <p>{`${
+                    Systolic_levels === undefined ? "- -" : Systolic_levels
+                  }`}</p>
                 </div>
               </div>
+
               <hr className="h-[1px] bg-unnamed-color-cbc8d4" />
 
               <div className="flex flex-col gap-y-2">
@@ -68,15 +101,32 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
                   <p className="h-4 w-4 rounded-full bg-[#8C6FE6]" />
                   <h1>Diastolic</h1>
                 </div>
-                <p>{`${78}`}</p>
+
+                <p>
+                  {`${diastolic_value === undefined ? "- -" : diastolic_value}`}
+                </p>
+
                 <div className="flex items-center gap-x-2">
-                  <Image
-                    src="/ArrowDown.svg"
-                    width={10}
-                    height={10}
-                    alt="indicator"
-                  />
-                  <p>{`${"Lower than Average"}`}</p>
+                  {diastolic_levels === "Normal" ? (
+                    ""
+                  ) : (
+                    <Image
+                      src={`/Arrow${
+                        diastolic_levels === "Lower than Average"
+                          ? "Down"
+                          : "Up"
+                      }.svg`}
+                      width={10}
+                      height={5}
+                      alt="indicator"
+                    />
+                  )}
+
+                  <p>
+                    {`${
+                      diastolic_levels === undefined ? "- -" : diastolic_levels
+                    }`}
+                  </p>
                 </div>
               </div>
             </section>
