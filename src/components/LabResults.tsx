@@ -20,9 +20,9 @@ const LabResults = ({ className }: ClassNameType) => {
 
       <ul className="mt-4 grid gap-y-[5px]">
         {lab_results?.map((result, index) => (
-          <li
+          <button
             key={index}
-            className="flex justify-between items-center h-10 bg-emerald-300"
+            className="flex justify-between items-center h-10 hover:bg-[#F6F7F8] focus:bg-[#F6F7F8] cursor-default outline-none "
           >
             <p className="font-manrope text-sm leading-[18px] text-unnamed-color-072635 text-left capitalize">
               {result}
@@ -32,8 +32,10 @@ const LabResults = ({ className }: ClassNameType) => {
               width={20}
               height={20}
               alt="download result"
+              title="download result"
+              className="cursor-pointer"
             />
-          </li>
+          </button>
         ))}
       </ul>
     </section>
