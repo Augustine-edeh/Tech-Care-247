@@ -8,12 +8,9 @@ import PatientEmergencyContact from "./PatientEmergencyContact";
 import PatientInsuranceProvider from "./PatientInsuranceProvider";
 import LabResults from "./LabResults";
 import usePatientsStore from "@/store/usePatientsStore";
+import { ClassNameType } from "../../types/Ui";
 
-type classNameType = {
-  className: string;
-};
-
-const PatientProfile = ({ className }: classNameType) => {
+const PatientProfile = ({ className }: ClassNameType) => {
   const profile_picture = usePatientsStore(
     (state) => state.selectedPatient?.profile_picture
   );

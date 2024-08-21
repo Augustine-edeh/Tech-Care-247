@@ -3,12 +3,9 @@ import Chart from "./Chart";
 import DiagnosticListTable from "./DiagnosticListTable";
 import LabResults from "./LabResults";
 import PatientVitals from "./PatientVitals";
+import { ClassNameType } from "../../types/Ui";
 
-type classNameType = {
-  className: string;
-};
-
-const PatientDiagnosisInfo = ({ className }: classNameType) => {
+const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
   return (
     <div className={`${className} flex flex-col gap-8 mt-[14px]`}>
       {/* Diagnosis History card */}
