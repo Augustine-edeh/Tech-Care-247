@@ -30,108 +30,107 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
   return (
     <div className={`${className} flex flex-col gap-8 mt-[14px]`}>
       {/* Diagnosis History card */}
-      <section className="bg-unnamed-color-ffffff w-[766p py-5 h-[673px rounded-[16px]">
-        <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635 mx-5">
+      <section className="bg-unnamed-color-ffffff w-[766p p-5 h-[673px rounded-[16px] bg-red-500">
+        <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635 ">
           Diagnosis History
         </h3>
 
-        <div className="sm:mx-5 mt-10 mb-5">
-          {/* <Chart /> */}
+        {/* <div className="sm:mx- 5 mt-10 mb-5"> */}
+        {/* <Chart /> */}
 
-          <div className="grid grid-cols-12 justify-center items-cente sm:items-start gap-[39px] p-[16px] h-[298px] md:h-[360px] rounded-xl bg-[#F4F0FE]">
-            <section className="col-span-12 md:col-span-8 flex flex-col gap-y-5">
-              <div className="flex justify-between items-center">
-                <h1 className="font-bold text-lg text-[#072635]">
-                  Blood Pressure
-                </h1>
+        <div className="grid grid-cols-12 justify-center items-cente r sm:items-start sm:gap-10 p-3 sm:p-4 h-[298px] md:h-[360px] rounded-xl bg-[#F4F0FE] mt-10 mb-5">
+          <section className="col-span-12 md:col-span-8 flex flex-col gap-y-5">
+            <div className="flex justify-between items-center">
+              <h1 className="font-bold text-lg text-[#072635]">
+                Blood Pressure
+              </h1>
 
-                <div className="flex gap-2">
-                  <p>Last 6 months</p>
+              <div className="flex gap-2">
+                <p>Last 6 months</p>
+                <Image
+                  src="/expand_more_FILL0_wght300_GRAD0_opsz24.svg"
+                  width={10}
+                  height={10}
+                  alt="month"
+                />
+              </div>
+            </div>
+
+            <div className="h-full">
+              {/* <Line data={chartData} options={options} /> */}
+
+              <Chart />
+            </div>
+          </section>
+
+          <section className="hidden md:col-span-4 md:flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-2">
+                <p className="size-4 rounded-full bg-[#E66FD2]" />
+                <h1>Systolic</h1>
+              </div>
+
+              <p>
+                {`${Systolic_value === undefined ? "- -" : Systolic_value}`}
+              </p>
+
+              <div className="flex items-center gap-x-2">
+                {Systolic_levels === "Normal" ? (
+                  ""
+                ) : (
                   <Image
-                    src="/expand_more_FILL0_wght300_GRAD0_opsz24.svg"
+                    src={`/Arrow${
+                      Systolic_levels === "Lower than Average" ? "Down" : "Up"
+                    }.svg`}
                     width={10}
-                    height={10}
-                    alt="month"
+                    height={5}
+                    alt="indicator"
                   />
-                </div>
+                )}
+
+                <p>{`${
+                  Systolic_levels === undefined ? "- -" : Systolic_levels
+                }`}</p>
+              </div>
+            </div>
+
+            <hr className="h-[1px] bg-unnamed-color-cbc8d4" />
+
+            <div className="flex flex-col gap-y-2">
+              <div className="flex items-center gap-x-2">
+                <p className="size-4 rounded-full bg-[#8C6FE6]" />
+                <h1>Diastolic</h1>
               </div>
 
-              <div className="h-full">
-                {/* <Line data={chartData} options={options} /> */}
+              <p>
+                {`${diastolic_value === undefined ? "- -" : diastolic_value}`}
+              </p>
 
-                <Chart />
-              </div>
-            </section>
-
-            <section className="hidden md:col-span-4 md:flex flex-col gap-y-4">
-              <div className="flex flex-col gap-y-2">
-                <div className="flex items-center gap-x-2">
-                  <p className="h-4 w-4 rounded-full bg-[#E66FD2]" />
-                  <h1>Systolic</h1>
-                </div>
+              <div className="flex items-center gap-x-2">
+                {diastolic_levels === "Normal" ? (
+                  ""
+                ) : (
+                  <Image
+                    src={`/Arrow${
+                      diastolic_levels === "Lower than Average" ? "Down" : "Up"
+                    }.svg`}
+                    width={10}
+                    height={5}
+                    alt="indicator"
+                  />
+                )}
 
                 <p>
-                  {`${Systolic_value === undefined ? "- -" : Systolic_value}`}
+                  {`${
+                    diastolic_levels === undefined ? "- -" : diastolic_levels
+                  }`}
                 </p>
-
-                <div className="flex items-center gap-x-2">
-                  {Systolic_levels === "Normal" ? (
-                    ""
-                  ) : (
-                    <Image
-                      src={`/Arrow${
-                        Systolic_levels === "Lower than Average" ? "Down" : "Up"
-                      }.svg`}
-                      width={10}
-                      height={5}
-                      alt="indicator"
-                    />
-                  )}
-
-                  <p>{`${
-                    Systolic_levels === undefined ? "- -" : Systolic_levels
-                  }`}</p>
-                </div>
               </div>
-
-              <hr className="h-[1px] bg-unnamed-color-cbc8d4" />
-
-              <div className="flex flex-col gap-y-2">
-                <div className="flex items-center gap-x-2">
-                  <p className="h-4 w-4 rounded-full bg-[#8C6FE6]" />
-                  <h1>Diastolic</h1>
-                </div>
-
-                <p>
-                  {`${diastolic_value === undefined ? "- -" : diastolic_value}`}
-                </p>
-
-                <div className="flex items-center gap-x-2">
-                  {diastolic_levels === "Normal" ? (
-                    ""
-                  ) : (
-                    <Image
-                      src={`/Arrow${
-                        diastolic_levels === "Lower than Average"
-                          ? "Down"
-                          : "Up"
-                      }.svg`}
-                      width={10}
-                      height={5}
-                      alt="indicator"
-                    />
-                  )}
-
-                  <p>
-                    {`${
-                      diastolic_levels === undefined ? "- -" : diastolic_levels
-                    }`}
-                  </p>
-                </div>
-              </div>
-            </section>
-          </div>
+            </div>
+          </section>
         </div>
+
+        {/* </div> */}
 
         <div className="mx-5">
           <PatientVitals />
