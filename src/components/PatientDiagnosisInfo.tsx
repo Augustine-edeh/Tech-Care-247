@@ -121,9 +121,7 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
           </section>
         </div>
 
-        <div className="mx-5">
-          <PatientVitals />
-        </div>
+        <PatientVitals />
       </section>
 
       {/* Diagnostic List card */}
