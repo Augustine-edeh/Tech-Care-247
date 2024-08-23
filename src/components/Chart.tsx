@@ -69,16 +69,6 @@ const Chart = () => {
     );
   }
 
-  // // Prepare data for the chart
-  // const bloodPressureHistory = patientData.diagnosis_history
-  //   .map((entry) => ({
-  //     date: `${entry.month.substring(0, 3)}, ${entry.year}`,
-  //     systolic: entry.blood_pressure.systolic.value,
-  //     diastolic: entry.blood_pressure.diastolic.value,
-  //   }))
-  //   .filter((entry, index) => index < 6)
-  //   .reverse();
-
   // Prepare data for the chart
   const bloodPressureHistory = selectedPatient?.diagnosis_history
     .map((entry) => ({
