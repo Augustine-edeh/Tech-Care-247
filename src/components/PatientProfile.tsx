@@ -14,6 +14,7 @@ const PatientProfile = ({ className }: ClassNameType) => {
   const profile_picture = usePatientsStore(
     (state) => state.selectedPatient?.profile_picture
   );
+  const patientName = usePatientsStore((state) => state.selectedPatient?.name);
 
   return (
     <div className={`${className} flex flex-col gap-8`}>
@@ -26,7 +27,7 @@ const PatientProfile = ({ className }: ClassNameType) => {
             alt={`profile-photo`}
           />
 
-          <h3 className="font-manrope font-extrabold text-3xl leading-[33px] text-unnamed-color-072635">{`Jessica Taylor`}</h3>
+          <h3 className="font-manrope font-extrabold text-3xl leading-[33px] text-unnamed-color-072635">{`${patientName}`}</h3>
         </div>
 
         <ul className="hidden lg:flex flex-col gap-y-6 my-[29px]">
