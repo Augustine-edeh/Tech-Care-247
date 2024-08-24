@@ -26,6 +26,7 @@ const DiagnosticListTable = () => {
             </th>
           </tr>
         </thead>
+
         <tbody>
           {diagnostics?.map((diagnosis, index) => (
             <tr key={index} className="border-b">
