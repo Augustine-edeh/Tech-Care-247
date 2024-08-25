@@ -70,8 +70,8 @@ const NewsFeed = () => {
           next={fetchMoreNews}
           hasMore={hasMore}
           scrollableTarget={"infiniteScrollContainer"}
-          loader={Loader}
-          endMessage={EndMessage}
+          loader={<Loader />}
+          endMessage={<EndMessage />}
         >
           {news.map((newsItem, index) => (
             <li key={index} className="border-b border-gray-200 pb-4">
