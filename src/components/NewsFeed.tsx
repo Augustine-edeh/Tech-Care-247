@@ -15,7 +15,7 @@ const NewsFeed = () => {
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
-    fetchNewsData(page, 10); // Fetch initial news
+    fetchNewsData(page, 20); // Fetch initial news
   }, [fetchNewsData, page]);
 
   const fetchMoreNews = async () => {
@@ -65,6 +65,7 @@ const NewsFeed = () => {
           dataLength={news.length} // Length of current news array
           next={fetchMoreNews}
           hasMore={hasMore}
+          scrollableTarget={"infiniteScrollContainer"}
           loader={<h4>Wait, please...</h4>}
           endMessage={
             <p style={{ textAlign: "center" }}>
@@ -87,7 +88,7 @@ const NewsFeed = () => {
                 Source: {newsItem.source.name}
               </p>
               <p className="text-gray-500 text-sm">
-                Published on:{" "}
+                Published on:
                 {new Date(newsItem.publishedAt).toLocaleDateString()}
               </p>
             </li>
