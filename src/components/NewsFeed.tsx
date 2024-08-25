@@ -19,12 +19,14 @@ const NewsFeed = () => {
   }, [fetchNewsData, page]);
 
   const fetchMoreNews = async () => {
-    if (news.length < totalResults) {
-      setPage((prevPage) => prevPage + 1);
-      await fetchNewsData(page + 1, 10); // Fetch more news
-    } else {
-      setHasMore(false);
-    }
+    setTimeout(async () => {
+      if (news.length < totalResults) {
+        setPage((prevPage) => prevPage + 1);
+        await fetchNewsData(page + 1, 10); // Fetch more news
+      } else {
+        setHasMore(false);
+      }
+    }, 5000);
   };
 
   if (isLoading) {
