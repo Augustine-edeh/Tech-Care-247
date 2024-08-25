@@ -10,10 +10,6 @@ const DateRangeSelector = () => {
 
   return (
     <div className="flex items-center gap-x-1">
-      {/* <label htmlFor="dateRange" className="font-medium text-gray-700">
-        Last
-      </label> */}
-
       <label htmlFor="dateRange" className="font-medium text-gray-700">
         Last
       </label>
