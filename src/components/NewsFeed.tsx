@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useNewsStore } from "@/store/useNewsStore";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Loader from "./infiniteScroll/Loader";
+import EndMessage from "./infiniteScroll/EndMessage";
 
 const NewsFeed = () => {
   const news = useNewsStore((state) => state.news);
@@ -68,12 +70,8 @@ const NewsFeed = () => {
           next={fetchMoreNews}
           hasMore={hasMore}
           scrollableTarget={"infiniteScrollContainer"}
-          loader={<h4>Wait, please...</h4>}
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          }
+          loader={Loader}
+          endMessage={EndMessage}
         >
           {news.map((newsItem, index) => (
             <li key={index} className="border-b border-gray-200 pb-4">
