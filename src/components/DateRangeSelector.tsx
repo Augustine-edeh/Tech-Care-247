@@ -18,7 +18,7 @@ const DateRangeSelector = () => {
         id="dateRange"
         value={timeRange}
         onChange={handleChange}
-        className="peer bg-transparent px-2 py-1 rounded"
+        className="bg-transparent px-2 py-1 rounded cursor-pointer"
       >
         <option value="6">6 months</option>
         <option value="5">5 months</option>
