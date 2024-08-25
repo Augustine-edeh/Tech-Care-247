@@ -63,7 +63,7 @@ const NewsFeed = () => {
       <h3 className="text-xl font-bold text-gray-900">Top Headlines</h3>
       <ul
         id="infiniteScrollContainer"
-        className="space-y-4 mt-4 bg-sky-400 h-[calc(100dvh+130px)] overflow-y-scroll"
+        className="space-y-4 mt-4 h-[calc(100dvh+130px)] overflow-y-scroll"
       >
         <InfiniteScroll
           dataLength={news.length} // Length of current news array
