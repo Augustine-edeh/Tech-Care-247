@@ -7,12 +7,6 @@ const DiagnosticListTable = () => {
     (state) => state.selectedPatient?.diagnostic_list
   );
   return (
-    // <ul>
-    //   {diagnostic_list?.map((diagnostic, index) => (
-    //     <li key={index}>{`diagnostic ${index}`}</li>
-    //   ))}
-    // </ul>
-
     <div className="mt-10">
       <table className="bg-white ">
         <thead className="text-gray-700">
