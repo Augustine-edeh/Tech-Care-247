@@ -13,15 +13,15 @@ const DiagnosticListTable = () => {
     //   ))}
     // </ul>
 
-    <div className="overflow-x- auto">
-      <table className="min-w-full bg-white ">
+    <div className="mt-10">
+      <table className="bg-white ">
         <thead className="text-gray-700">
           <tr className="">
-            <th className="py-3 px-4 text-left bg-gray-200 rounded-l-3xl">
+            <th className="py-3 px-4 text-left bg-[#F6F7F8] rounded-l-3xl">
               Problem/Diagnosis
             </th>
-            <th className="py-3 px-4 text-left bg-gray-200">Description</th>
-            <th className="py-3 px-4 text-left bg-gray-200 rounded-r-3xl">
+            <th className="py-3 px-4 text-left bg-[#F6F7F8]">Description</th>
+            <th className="py-3 px-4 text-left bg-[#F6F7F8] rounded-r-3xl">
               Status
             </th>
           </tr>
