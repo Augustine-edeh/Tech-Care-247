@@ -30,8 +30,14 @@ ChartJS.register(
 );
 
 const Chart = () => {
-  const { patients, setPatientsData, isLoading, error, selectedPatient } =
-    usePatientsStore();
+  const {
+    patients,
+    setPatientsData,
+    isLoading,
+    error,
+    selectedPatient,
+    timeRange,
+  } = usePatientsStore();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,7 +82,7 @@ const Chart = () => {
       systolic: entry.blood_pressure.systolic.value,
       diastolic: entry.blood_pressure.diastolic.value,
     }))
-    .filter((entry, index) => index < 6)
+    .filter((entry, index) => index < Number(timeRange))
     .reverse();
 
   const labels = bloodPressureHistory?.map((entry) => entry.date);

@@ -9,20 +9,26 @@ const DateRangeSelector = () => {
   };
 
   return (
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center gap-x-1">
+      {/* <label htmlFor="dateRange" className="font-medium text-gray-700">
+        Last
+      </label> */}
+
       <label htmlFor="dateRange" className="font-medium text-gray-700">
-        Select Date Range:
+        Last
       </label>
+
       <select
         id="dateRange"
         value={timeRange}
         onChange={handleChange}
-        className="p-2 border border-gray-300 rounded-md"
+        className="peer bg-transparent px-2 py-1 rounded"
       >
-        <option value="Last 6 months">Last 6 months</option>
-        <option value="Last 1 year">Last 1 year</option>
-        <option value="Last 2 years">Last 2 years</option>
-        <option value="Last 5 years">Last 5 years</option>
+        <option value="6">6 months</option>
+        <option value="5">5 months</option>
+        <option value="4">4 months</option>
+        <option value="3">3 months</option>
+        <option value="2">2 months</option>
       </select>
     </div>
   );
