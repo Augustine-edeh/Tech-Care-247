@@ -7,9 +7,11 @@ interface PatientsState {
   selectedPatient: PatientDataType | null;
   isLoading: boolean;
   error: string | null;
+  timeRange: string;
   fetchPatientsData: () => Promise<void>;
   setPatientsData: (data: PatientDataType[]) => void;
   setSelectedPatient: (patient: PatientDataType) => void;
+  setTimeRange: (range: string) => void;
 }
 
 export const usePatientsStore = create<PatientsState>((set) => ({
@@ -17,6 +19,7 @@ export const usePatientsStore = create<PatientsState>((set) => ({
   selectedPatient: null,
   isLoading: false,
   error: null,
+  timeRange: "Last 6 months",
   fetchPatientsData: async () => {
     set({ isLoading: true });
     try {
@@ -35,6 +38,7 @@ export const usePatientsStore = create<PatientsState>((set) => ({
   },
   setSelectedPatient: (patient: PatientDataType) =>
     set({ selectedPatient: patient }),
+  setTimeRange: (range: string) => set({ timeRange: range }),
 }));
 
 export default usePatientsStore;

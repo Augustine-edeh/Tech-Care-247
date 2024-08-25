@@ -7,6 +7,7 @@ import LabResults from "./LabResults";
 import PatientVitals from "./PatientVitals";
 import { ClassNameType } from "../../types/Ui";
 import usePatientsStore from "@/store/usePatientsStore";
+import DateRangeSelector from "./DateRangeSelector";
 
 const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
   const selectedPatient = usePatientsStore((state) => state.selectedPatient);
@@ -39,13 +40,15 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
               </h1>
 
               <div className="flex gap-2">
-                <p>Last 6 months</p>
+                {/* <p>Last 6 months</p>
                 <Image
                   src="/expand_more_FILL0_wght300_GRAD0_opsz24.svg"
                   width={10}
                   height={10}
                   alt="month"
-                />
+                /> */}
+
+                <DateRangeSelector />
               </div>
             </div>
 
