@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useNewsStore } from "@/store/useNewsStore";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Loader from "./infiniteScroll/Loader";
+import EndMessage from "./infiniteScroll/EndMessage";
 
 const NewsFeed = () => {
   const news = useNewsStore((state) => state.news);
@@ -15,16 +17,18 @@ const NewsFeed = () => {
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
-    fetchNewsData(page, 10); // Fetch initial news
+    fetchNewsData(page, 20); // Fetch initial news
   }, [fetchNewsData, page]);
 
   const fetchMoreNews = async () => {
-    if (news.length < totalResults) {
-      setPage((prevPage) => prevPage + 1);
-      await fetchNewsData(page + 1, 10); // Fetch more news
-    } else {
-      setHasMore(false);
-    }
+    setTimeout(async () => {
+      if (news.length < totalResults) {
+        setPage((prevPage) => prevPage + 1);
+        await fetchNewsData(page + 1, 10); // Fetch more news
+      } else {
+        setHasMore(false);
+      }
+    }, 5000);
   };
 
   if (isLoading) {
@@ -59,18 +63,15 @@ const NewsFeed = () => {
       <h3 className="text-xl font-bold text-gray-900">Top Headlines</h3>
       <ul
         id="infiniteScrollContainer"
-        className="space-y-4 mt-4 bg-sky-400 h-[calc(100dvh+130px)] overflow-y-scroll"
+        className="space-y-4 mt-4 h-[calc(100dvh+130px)] overflow-y-scroll"
       >
         <InfiniteScroll
           dataLength={news.length} // Length of current news array
           next={fetchMoreNews}
           hasMore={hasMore}
-          loader={<h4>Wait, please...</h4>}
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          }
+          scrollableTarget={"infiniteScrollContainer"}
+          loader={<Loader />}
+          endMessage={<EndMessage />}
         >
           {news.map((newsItem, index) => (
             <li key={index} className="border-b border-gray-200 pb-4">
@@ -87,7 +88,7 @@ const NewsFeed = () => {
                 Source: {newsItem.source.name}
               </p>
               <p className="text-gray-500 text-sm">
-                Published on:{" "}
+                Published on:
                 {new Date(newsItem.publishedAt).toLocaleDateString()}
               </p>
             </li>

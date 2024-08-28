@@ -19,7 +19,7 @@ export const usePatientsStore = create<PatientsState>((set) => ({
   selectedPatient: null,
   isLoading: false,
   error: null,
-  timeRange: "Last 6 months",
+  timeRange: "6",
   fetchPatientsData: async () => {
     set({ isLoading: true });
     try {

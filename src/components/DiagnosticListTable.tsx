@@ -8,7 +8,7 @@ const DiagnosticListTable = () => {
   );
   return (
     <div className="mt-10">
-      <table className="bg-white ">
+      <table className="bg-white w-full">
         <thead className="text-gray-700">
           <tr className="">
             <th className="py-3 px-4 text-left bg-[#F6F7F8] rounded-l-3xl">
