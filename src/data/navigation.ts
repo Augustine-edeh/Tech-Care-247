@@ -35,4 +35,6 @@ export const navLinks = [
     label: "News",
     iconSize: { width: 16, height: 17 },
   },
-];
+] as const;
+
+export const NAV_TABS = ["Patients", "Overview", "Diagnosis"] as const;
