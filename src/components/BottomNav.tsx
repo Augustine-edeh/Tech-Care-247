@@ -2,7 +2,7 @@ import { Users, Calendar, MessageSquare } from "lucide-react";
 
 const BottomNav = () => {
   return (
-    <nav className="bg-white border-t py-2">
+    <nav className="xl:hidden bg-white border-t py-2">
       <div className="flex justify-around">
         {[
           { icon: Users, label: "Patients" },
