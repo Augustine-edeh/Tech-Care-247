@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { NAV_TABS } from "@/data/navigation";
+import useActiveTabStore from "@/store/useActiveTabStore";
 
 const NavTab = () => {
-  const [activeTab, setActiveTab] =
-    useState<(typeof NAV_TABS)[number]>("patients");
+  const activeTab = useActiveTabStore((state) => state.activeTab);
+  const setActiveTab = useActiveTabStore((state) => state.setActiveTab);
 
   return (
     <div className="lg:hidden flex bg-unnamed-color-ffffff border-y">
