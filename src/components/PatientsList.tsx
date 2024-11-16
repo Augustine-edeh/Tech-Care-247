@@ -22,7 +22,7 @@ const PatientsList = ({ className }: ClassNameType) => {
 
   return (
     <section
-      className={`${className} bg-unnamed-color-ffffff w-[367p w- full h-[1076px h-[full mt-[14px] rounded-[16px] p-5 pr -1 pb -20 overflow-hidde`}
+      className={`${className} bg-unnamed-color-ffffff mt-[14px] rounded-[16px] p-5`}
     >
       <SearchPatients className="mb-10 mr-5" />
 
@@ -31,7 +31,7 @@ const PatientsList = ({ className }: ClassNameType) => {
           <p>Loading...</p>
         </div>
       ) : (
-        <ul className="patient-list flex flex-col gap-y- h-fu  overflow-y-scroll h-[1076px] overflow-x-hidden w-full">
+        <ul className="patient-list flex flex-col overflow-y-scroll h-[1076px] overflow-x-hidden w-full">
           {patients?.map((patient, index) => (
             <li key={index} onClick={() => setSelectedPatient(patient)}>
               <PatientCard
