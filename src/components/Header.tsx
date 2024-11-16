@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <header className="">
-      <div className="flex items-center justify-between px-[20px] md:px-[33px] h-[72px] bg-unnamed-color-ffffff bg-red-200 lg:rounded-[70px]">
+      <div className="flex items-center justify-between px-[20px] md:px-[33px] h-[72px] bg-unnamed-color-ffffff lg:rounded-[70px]">
         <Logo />
         <Navbar />
         <div className="flex divide-x-2">
