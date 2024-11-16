@@ -1,13 +1,4 @@
-import {
-  Menu,
-  Bell,
-  Users,
-  Calendar,
-  MessageSquare,
-  CreditCard,
-  Newspaper,
-  BarChart2,
-} from "lucide-react";
+import { Users, Calendar, MessageSquare } from "lucide-react";
 
 const BottomNav = () => {
   return (
@@ -16,9 +7,7 @@ const BottomNav = () => {
         {[
           { icon: Users, label: "Patients" },
           { icon: Calendar, label: "Schedule" },
-          { icon: MessageSquare, label: "Message" },
-          { icon: CreditCard, label: "Transactions" },
-          { icon: Newspaper, label: "News" },
+          { icon: MessageSquare, label: "Messages" },
         ].map(({ icon: Icon, label }) => (
           <button
             key={label}
