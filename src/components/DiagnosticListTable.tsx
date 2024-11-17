@@ -7,7 +7,10 @@ const DiagnosticListTable = () => {
     (state) => state.selectedPatient?.diagnostic_list
   );
   return (
-    <div className="mt-10">
+    <div className="mt-10 bg-unnamed-color-ffffff">
+      <h2 className="font-manrope font-extrabold text-3xl leading-33 text-unnamed-color-072635">
+        Diagnostic List
+      </h2>
       <table className="bg-white w-full">
         <thead className="text-gray-700">
           <tr className="">

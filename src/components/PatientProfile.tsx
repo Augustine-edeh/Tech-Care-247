@@ -9,6 +9,7 @@ import PatientInsuranceProvider from "./PatientInsuranceProvider";
 import LabResults from "./LabResults";
 import usePatientsStore from "@/store/usePatientsStore";
 import { ClassNameType } from "../../types/Ui";
+import DiagnosticListTable from "./DiagnosticListTable";
 
 const PatientProfile = ({ className }: ClassNameType) => {
   const profile_picture = usePatientsStore(
@@ -46,9 +47,12 @@ const PatientProfile = ({ className }: ClassNameType) => {
 
   //   <LabResults className="hidden lg:block" />
   // </div>
+
   return (
-    <div className="${className} flex flex-1 flex-col h-full bg-yellow-200 xl:rounded-2xl p-5">
-      <div className="bg-white rounded-lg shadow-sm">
+    <div
+      className={`${className} flex flex-1 flex-col h-full bg-yellow-200 xl:rounded-2xl p-5 gap-5 overflow-y-auto`}
+    >
+      {/* <div className="bg-white rounded-lg shadow-sm">
         <div className="p-4 border-b">
           <h3 className="font-semibold">Diagnostic List</h3>
         </div>
@@ -65,6 +69,14 @@ const PatientProfile = ({ className }: ClassNameType) => {
             </div>
           ))}
         </div>
+      </div> */}
+
+      <div>
+        <DiagnosticListTable />
+      </div>
+
+      <div>
+        <LabResults />
       </div>
     </div>
   );
