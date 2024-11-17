@@ -4,6 +4,7 @@ import useActiveTabStore from "@/store/useActiveTabStore";
 import PatientsList from "./PatientsList";
 import PatientDiagnosisInfo from "./PatientDiagnosisInfo";
 import PatientCard from "./PatientCard";
+import PatientProfile from "./PatientProfile";
 
 const Main = () => {
   const activeTab = useActiveTabStore((state) => state.activeTab);
@@ -23,8 +24,7 @@ const Main = () => {
       )}
 
       {activeTab === "diagnosis" && (
-        <PatientCard />
-
+        <PatientProfile />
         // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
       )}
     </main>
