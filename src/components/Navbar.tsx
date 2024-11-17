@@ -10,7 +10,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="nav hidden lg:flex items-center justify-between w-[663px] h-[63px]">
+    <nav className="nav hidden xl:flex items-center justify-between w-[663px] h-[63px]">
       {navLinks.map((link) => (
         <Link
           key={link.href}
