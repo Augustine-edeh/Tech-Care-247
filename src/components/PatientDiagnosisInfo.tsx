@@ -24,120 +24,220 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
   const diastolic_levels =
     selectedPatient?.diagnosis_history[0].blood_pressure.diastolic.levels;
 
+  const sampleData = [
+    { month: "Oct", systolic: 140, diastolic: 85 },
+    { month: "Nov", systolic: 135, diastolic: 82 },
+    { month: "Dec", systolic: 138, diastolic: 84 },
+    { month: "Jan", systolic: 132, diastolic: 80 },
+    { month: "Feb", systolic: 136, diastolic: 83 },
+  ];
+
+  const vitals = [
+    {
+      title: "Respiratory Rate",
+      value: "25 bpm",
+      status: "Normal",
+      bgColor: "bg-blue-50",
+      textColor: "text-blue-700",
+    },
+    {
+      title: "Temperature",
+      value: "102° F",
+      status: "Higher than Average",
+      bgColor: "bg-red-50",
+      textColor: "text-red-700",
+    },
+    {
+      title: "Heart Rate",
+      value: "69 bpm",
+      status: "Lower than Average",
+      bgColor: "bg-pink-50",
+      textColor: "text-pink-700",
+    },
+  ];
+
   return (
-    <div className={`${className} flex flex-col gap-8 mt-[14px]`}>
-      {/* Diagnosis History card */}
-      <section className="bg-unnamed-color-ffffff w-[766p p-5 h-[673px rounded-[16px]">
-        <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635 ">
-          Diagnosis History
-        </h3>
+    //   <div className={`${className} flex flex-col gap-8 mt-[14px]`}>
+    //   {/* Diagnosis History card */}
+    //   <section className="bg-unnamed-color-ffffff w-[766p p-5 h-[673px rounded-[16px]">
+    //     <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635 ">
+    //       Diagnosis History
+    //     </h3>
+    //     <div className="grid grid-cols-12 justify-center items-cente r sm:items-start sm:gap-10 p-3 sm:p-4 h-[298px] md:h-[360px] rounded-xl bg-[#F4F0FE] mt-10 mb-5">
+    //       <section className="col-span-12 md:col-span-8 flex flex-col gap-y-5">
+    //         <div className="flex justify-between items-center">
+    //           <h1 className="font-bold text-lg text-[#072635]">
+    //             Blood Pressure
+    //           </h1>
+    //           <div className="flex gap-2">
+    //             <p>Last 6 months</p>
+    //             <Image
+    //               src="/expand_more_FILL0_wght300_GRAD0_opsz24.svg"
+    //               width={10}
+    //               height={10}
+    //               alt="month"
+    //             />
+    //             <DateRangeSelector />
+    //           </div>
+    //         </div>
+    //         <div className="h-full">
+    //           <Chart />
+    //         </div>
+    //       </section>
+    //       <section className="hidden md:col-span-4 md:flex flex-col gap-y-4">
+    //         <div className="flex flex-col gap-y-2">
+    //           <div className="flex items-center gap-x-2">
+    //             <p className="size-4 rounded-full bg-[#E66FD2]" />
+    //             <h1>Systolic</h1>
+    //           </div>
 
-        <div className="grid grid-cols-12 justify-center items-cente r sm:items-start sm:gap-10 p-3 sm:p-4 h-[298px] md:h-[360px] rounded-xl bg-[#F4F0FE] mt-10 mb-5">
-          <section className="col-span-12 md:col-span-8 flex flex-col gap-y-5">
-            <div className="flex justify-between items-center">
-              <h1 className="font-bold text-lg text-[#072635]">
-                Blood Pressure
-              </h1>
+    //           <p>
+    //             {`${Systolic_value === undefined ? "- -" : Systolic_value}`}
+    //           </p>
 
-              <div className="flex gap-2">
-                {/* <p>Last 6 months</p>
-                <Image
-                  src="/expand_more_FILL0_wght300_GRAD0_opsz24.svg"
-                  width={10}
-                  height={10}
-                  alt="month"
-                /> */}
+    //           <div className="flex items-center gap-x-2">
+    //             {Systolic_levels === "Normal" ? (
+    //               ""
+    //             ) : (
+    //               <Image
+    //                 src={`/Arrow${
+    //                   Systolic_levels === "Lower than Average" ? "Down" : "Up"
+    //                 }.svg`}
+    //                 width={10}
+    //                 height={5}
+    //                 alt="indicator"
+    //               />
+    //             )}
 
-                <DateRangeSelector />
-              </div>
+    //             <p>{`${
+    //               Systolic_levels === undefined ? "- -" : Systolic_levels
+    //             }`}</p>
+    //           </div>
+    //         </div>
+
+    //         <hr className="h-[1px] bg-unnamed-color-cbc8d4" />
+
+    //         <div className="flex flex-col gap-y-2">
+    //           <div className="flex items-center gap-x-2">
+    //             <p className="size-4 rounded-full bg-[#8C6FE6]" />
+    //             <h1>Diastolic</h1>
+    //           </div>
+
+    //           <p>
+    //             {`${diastolic_value === undefined ? "- -" : diastolic_value}`}
+    //           </p>
+
+    //           <div className="flex items-center gap-x-2">
+    //             {diastolic_levels === "Normal" ? (
+    //               ""
+    //             ) : (
+    //               <Image
+    //                 src={`/Arrow${
+    //                   diastolic_levels === "Lower than Average"
+    //                     ? "Down"
+    //                     : "Up"
+    //                 }.svg`}
+    //                 width={10}
+    //                 height={5}
+    //                 alt="indicator"
+    //               />
+    //             )}
+
+    //             <p>
+    //               {`${
+    //                 diastolic_levels === undefined ? "- -" : diastolic_levels
+    //               }`}
+    //             </p>
+    //           </div>
+    //         </div>
+    //       </section>
+    //     </div>
+    //     <PatientVitals />
+    //   </section>
+    //   {/* Diagnostic List card */}
+    //   <section className="bg-unnamed-color-ffffff w-[766px h-[349px h-full rounded-[16px] p-5">
+    //     <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635">
+    //       Diagnostic List
+    //     </h3>
+
+    //     <DiagnosticListTable />
+    //   </section>
+    //   <LabResults className="lg:hidden" />
+    // </div>
+
+    <>
+      {/* New VERSION */}
+      <div
+        className={`${className} flex flex-1 flex-col h-full bg-yellow-200 xl:rounded-2xl p-5 gap-6`}
+      >
+        {/* Patient Quick View */}
+        <div className="bg-white rounded-lg p-4 shadow-sm">
+          <div className="flex items-center gap-4">
+            <div className="h-16 w-16 bg-blue-100 rounded-full flex items-center justify-center">
+              <span className="text-xl font-medium">TJ</span>
             </div>
-
-            <div className="h-full">
-              <Chart />
+            <div>
+              <h2 className="text-lg font-semibold">Thomas Johnson</h2>
+              <p className="text-sm text-gray-500">Male, 46 years</p>
             </div>
-          </section>
-
-          <section className="hidden md:col-span-4 md:flex flex-col gap-y-4">
-            <div className="flex flex-col gap-y-2">
-              <div className="flex items-center gap-x-2">
-                <p className="size-4 rounded-full bg-[#E66FD2]" />
-                <h1>Systolic</h1>
-              </div>
-
-              <p>
-                {`${Systolic_value === undefined ? "- -" : Systolic_value}`}
-              </p>
-
-              <div className="flex items-center gap-x-2">
-                {Systolic_levels === "Normal" ? (
-                  ""
-                ) : (
-                  <Image
-                    src={`/Arrow${
-                      Systolic_levels === "Lower than Average" ? "Down" : "Up"
-                    }.svg`}
-                    width={10}
-                    height={5}
-                    alt="indicator"
-                  />
-                )}
-
-                <p>{`${
-                  Systolic_levels === undefined ? "- -" : Systolic_levels
-                }`}</p>
-              </div>
-            </div>
-
-            <hr className="h-[1px] bg-unnamed-color-cbc8d4" />
-
-            <div className="flex flex-col gap-y-2">
-              <div className="flex items-center gap-x-2">
-                <p className="size-4 rounded-full bg-[#8C6FE6]" />
-                <h1>Diastolic</h1>
-              </div>
-
-              <p>
-                {`${diastolic_value === undefined ? "- -" : diastolic_value}`}
-              </p>
-
-              <div className="flex items-center gap-x-2">
-                {diastolic_levels === "Normal" ? (
-                  ""
-                ) : (
-                  <Image
-                    src={`/Arrow${
-                      diastolic_levels === "Lower than Average" ? "Down" : "Up"
-                    }.svg`}
-                    width={10}
-                    height={5}
-                    alt="indicator"
-                  />
-                )}
-
-                <p>
-                  {`${
-                    diastolic_levels === undefined ? "- -" : diastolic_levels
-                  }`}
-                </p>
-              </div>
-            </div>
-          </section>
+          </div>
         </div>
 
-        <PatientVitals />
-      </section>
+        {/* {activeTab === "overview" && ( */}
+        <div className="flex-1 overflow-y-auto space-y-6">
+          {/* Vital Signs */}
+          <div className="grid gap-4">
+            {vitals.map((vital, index) => (
+              <div key={index} className={`${vital.bgColor} p-4 rounded-lg`}>
+                <div className="flex justify-between items-center">
+                  <h3 className="font-medium">{vital.title}</h3>
+                  <span className="text-sm text-gray-600">{vital.status}</span>
+                </div>
+                <p className={`text-2xl font-bold mt-2 ${vital.textColor}`}>
+                  {vital.value}
+                </p>
+              </div>
+            ))}
+          </div>
 
-      {/* Diagnostic List card */}
-      <section className="bg-unnamed-color-ffffff w-[766px h-[349px h-full rounded-[16px] p-5">
-        <h3 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635">
-          Diagnostic List
-        </h3>
+          {/* Blood Pressure Graph */}
+          <div className="bg-white rounded-lg p-4 shadow-sm">
+            <h3 className="font-semibold mb-4">Blood Pressure</h3>
+            <div className="h-48 bg-gray-50 rounded flex items-center justify-center">
+              {/* <BarChart2 className="h-8 w-8 text-gray-400" /> */}
+            </div>
+            <div className="mt-4 flex justify-between text-sm text-gray-500">
+              {sampleData.map((data, index) => (
+                <div key={index} className="text-center">
+                  <div>{data.month}</div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-        <DiagnosticListTable />
-      </section>
-
-      <LabResults className="lg:hidden" />
-    </div>
+          {/* Diagnostic List Preview */}
+          <div className="bg-white rounded-lg shadow-sm">
+            <div className="p-4 border-b">
+              <h3 className="font-semibold">Recent Diagnosis</h3>
+            </div>
+            <div className="p-4">
+              <div className="space-y-4">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <h4 className="font-medium">Heart Murmur</h4>
+                    <p className="text-sm text-gray-500">Under observation</p>
+                  </div>
+                  <span className="px-3 py-1 bg-yellow-50 text-yellow-700 rounded-full text-sm">
+                    Pending
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* )} */}
+      </div>
+    </>
   );
 };
 
