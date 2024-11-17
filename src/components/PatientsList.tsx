@@ -22,18 +22,32 @@ const PatientsList = ({ className }: ClassNameType) => {
 
   return (
     <div
-      className={`${className} flex flex-col flex-1 bg-yellow-200 xl:rounded-[16px] p-5`}
+      className={`${className} flex flex-1 flex-col h-full bg-yellow-200 xl:rounded-2xl p-5`}
     >
-      <SearchPatients className="mb-10 mr-5" />
+      {/* Fixed Search Bar */}
+      <div className="mb-5">
+        <SearchPatients />
+      </div>
 
-      {/* This div now only uses flex-1 for height control */}
+      {/* Scrollable List */}
       <div className="flex-1 overflow-y-auto bg-red-500">
         {isLoading ? (
           <div className="flex justify-center items-center h-full">
             <p>Loading...</p>
           </div>
         ) : (
-          <p>YeA!!!!!!!</p>
+          <ul className="patient-list flex flex-col overflow-y-scroll h- [1076px] w-full">
+            {patients?.map((patient, index) => (
+              <li key={index} onClick={() => setSelectedPatient(patient)}>
+                <PatientCard
+                  profile_picture={patient.profile_picture}
+                  name={patient.name}
+                  gender={patient.gender}
+                  age={patient.age}
+                />
+              </li>
+            ))}
+          </ul>
         )}
       </div>
     </div>
