@@ -7,7 +7,7 @@ const NavTab = () => {
   const setActiveTab = useActiveTabStore((state) => state.setActiveTab);
 
   return (
-    <div className="lg:hidden flex bg-unnamed-color-ffffff border-y">
+    <div className="xl:hidden flex bg-unnamed-color-ffffff border-y">
       {NAV_TABS.map((tab) => (
         <button
           key={tab}
