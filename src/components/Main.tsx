@@ -11,22 +11,24 @@ const Main = () => {
 
   return (
     <main className="flex flex-1 h-screen bg-blue-200 overflow-hidden">
-      {activeTab === "patients" && (
-        <PatientsList className={""} />
+      <div className="w-full xl:hidden">
+        {activeTab === "patients" && (
+          <PatientsList />
 
-        // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
-      )}
+          // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
+        )}
 
-      {activeTab === "overview" && (
-        <PatientDiagnosisInfo />
+        {activeTab === "overview" && (
+          <PatientDiagnosisInfo />
 
-        // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
-      )}
+          // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
+        )}
 
-      {activeTab === "diagnosis" && (
-        <PatientProfile />
-        // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
-      )}
+        {activeTab === "diagnosis" && (
+          <PatientProfile />
+          // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
+        )}
+      </div>
     </main>
   );
 };
