@@ -28,7 +28,7 @@ const LabResults = ({ className }: ClassNameType) => {
               {result}
             </p>
             <Image
-              src="/download_FILL0_wght300_GRAD0_opsz24 (1).svg"
+              src="/download_FILL0_wght300_GRAD0_opsz24.svg"
               width={20}
               height={20}
               alt="download result"
