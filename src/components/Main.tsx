@@ -29,6 +29,14 @@ const Main = () => {
           // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
         )}
       </div>
+
+      <div className="hidden xl:grid grid-cols-12 gap-10 bg-green-500 w-full m-1">
+        <div className="col-span-3 bg-red-500 overflow-hidden">
+          {<PatientsList />}
+        </div>
+        <div className="col-span-6 bg-blue-500"></div>
+        <div className="col-span-3 bg-purple-500"></div>
+      </div>
     </main>
   );
 };
