@@ -206,7 +206,7 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
         </div>
 
         {/* Desktop Screen View */}
-        <section className="hidden xl:block">
+        <section className="hidden xl:block overflow-y-auto">
           <h2 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635 ">
             Diagnosis History
           </h2>
@@ -299,7 +299,10 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
                 </div>
               </section>
             </div>
+
             <PatientVitals />
+
+            <DiagnosticListTable />
           </div>
 
           {/* <div>
