@@ -2,9 +2,9 @@
 
 import { useEffect } from "react";
 import PatientCard from "./PatientCard";
-import SearchPatients from "./SearchPatients";
+import SearchPatients from "../ui/SearchPatients";
 import usePatientsStore from "@/store/usePatientsStore";
-import { ClassNameType } from "../../types/Ui";
+import { ClassNameType } from "../../../types/Ui";
 
 const PatientsList = ({ className }: ClassNameType) => {
   const patients = usePatientsStore((state) => state.patients);

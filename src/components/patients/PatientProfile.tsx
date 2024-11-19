@@ -8,7 +8,7 @@ import PatientEmergencyContact from "./PatientEmergencyContact";
 import PatientInsuranceProvider from "./PatientInsuranceProvider";
 import LabResults from "./LabResults";
 import usePatientsStore from "@/store/usePatientsStore";
-import { ClassNameType } from "../../types/Ui";
+import { ClassNameType } from "../../../types/Ui";
 import DiagnosticListTable from "./DiagnosticListTable";
 
 const PatientProfile = ({ className }: ClassNameType) => {

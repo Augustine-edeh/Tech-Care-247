@@ -1,15 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Navbar from "./Navbar";
-import User from "./UserCard";
-import Logo from "./Logo";
-import MobileNav from "./MobileNav";
+import Navbar from "../Navbar";
+import User from "../ui/UserCard";
+import Logo from "../ui/Logo";
+import MobileNav from "../MobileNav";
 
 import useMobileNavStore from "@/store/useMobileNavStore";
-import SettingsIcon from "./SettingsIcon";
-import MenuIcon from "./MenuIcon";
-import NavTab from "./NavTab";
+import SettingsIcon from "../ui/SettingsIcon";
+import MenuIcon from "../ui/MenuIcon";
+import NavTab from "../NavTab";
 
 const Header = () => {
   const isOpen = useMobileNavStore((state) => state.isOpen);

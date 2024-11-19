@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ClassNameType } from "../../types/Ui";
+import { ClassNameType } from "../../../types/Ui";
 import { Search } from "lucide-react";
 
 const SearchPatients = ({ className }: ClassNameType) => {

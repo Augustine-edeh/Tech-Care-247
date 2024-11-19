@@ -1,5 +1,5 @@
-import Header from "@/components/Header";
-import PatientsList from "@/components/PatientsList";
+import Header from "@/components/layout/Header";
+import PatientsList from "@/components/patients/PatientsList";
 
 const NewsLayout = ({ children }: { children: React.ReactNode }) => {
   return (

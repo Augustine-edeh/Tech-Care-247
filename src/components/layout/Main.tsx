@@ -1,10 +1,10 @@
 "use client";
 
 import useActiveTabStore from "@/store/useActiveTabStore";
-import PatientsList from "./PatientsList";
-import PatientDiagnosisInfo from "./PatientDiagnosisInfo";
-import PatientCard from "./PatientCard";
-import PatientProfile from "./PatientProfile";
+import PatientsList from "../patients/PatientsList";
+import PatientDiagnosisInfo from "../patients/PatientDiagnosisInfo";
+import PatientCard from "../patients/PatientCard";
+import PatientProfile from "../patients/PatientProfile";
 
 const Main = () => {
   const activeTab = useActiveTabStore((state) => state.activeTab);

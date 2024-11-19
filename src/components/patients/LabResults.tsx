@@ -3,7 +3,7 @@
 import usePatientsStore from "@/store/usePatientsStore";
 import Image from "next/image";
 import React from "react";
-import { ClassNameType } from "../../types/Ui";
+import { ClassNameType } from "../../../types/Ui";
 
 const LabResults = ({ className }: ClassNameType) => {
   const lab_results = usePatientsStore(
