@@ -32,10 +32,14 @@ const Main = () => {
 
       <div className="hidden xl:grid grid-cols-12 gap-10 bg-green-500 w-full m-1">
         <div className="col-span-3 bg-red-500 overflow-hidden">
-          {<PatientsList />}
+          <PatientsList />
         </div>
-        <div className="col-span-6 bg-blue-500"></div>
-        <div className="col-span-3 bg-purple-500"></div>
+        <div className="col-span-6 bg-blue-500 overflow-hidden">
+          <PatientDiagnosisInfo />
+        </div>
+        <div className="col-span-3 bg-purple-500 overflow-hidden">
+          <PatientProfile />
+        </div>
       </div>
     </main>
   );
