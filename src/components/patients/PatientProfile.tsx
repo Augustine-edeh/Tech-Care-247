@@ -19,9 +19,10 @@ const PatientProfile = ({ className }: ClassNameType) => {
 
   return (
     <div
-      className={`${className} flex flex-1 flex-col h-full bg-yellow-200 xl:rounded-2xl p-5 gap-5`}
+      className={`${className} flex flex-1 flex-col h-full xl:rounded-2xl gap-5`}
     >
-      <div className="xl:hidden flex flex-col gap-5 overflow-auto">
+      {/* Mobile view */}
+      <div className="xl:hidden flex flex-col gap-5 overflow-auto p-5">
         <div>
           <DiagnosticListTable />
         </div>
@@ -31,7 +32,8 @@ const PatientProfile = ({ className }: ClassNameType) => {
         </div>
       </div>
 
-      <div className="bg-black p-1 hidden xl:flex flex-col gap-6 overflow-y-auto">
+      {/* Desktop view */}
+      <div className="hidden xl:flex flex-col gap-6 overflow-y-auto">
         <section className="bg-unnamed-color-ffffff min-w-[367px h-[760px rounded-2xl p-5">
           <div className="flex flex-col items-center gap-y-6 mt-3 mb- mb-[29px]">
             <Image

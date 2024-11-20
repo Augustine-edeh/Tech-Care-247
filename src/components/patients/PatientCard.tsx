@@ -18,7 +18,7 @@ const PatientCard = ({
       href="#"
       className="flex items-center h- 20 w-[353px bg-unnamed-color-ffffff outline-none focus:bg-unnamed-activestate-bg-2 hover:bg-unnamed-activestate-bg-2/40"
     >
-      <div className="flex justify-between w-[317px w-full h-[48px] m-4 bg-red-5">
+      <div className="flex justify-between w-[317px w-full h-[48px] m-4">
         <section className="flex gap-x-3">
           <Image
             src={profile_picture}
