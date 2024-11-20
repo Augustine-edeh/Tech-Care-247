@@ -11,9 +11,7 @@ const LabResults = ({ className }: ClassNameType) => {
   );
 
   return (
-    <section
-      className={`${className} bg-unnamed-color-ffffff w-[367p] h-[296px h- full rounded-2xl p-5 mt-`}
-    >
+    <section className={`${className} bg-unnamed-color-ffffff rounded-2xl p-5`}>
       <h3 className="font-manrope font-extrabold text-3xl leading-[33px] text-unnamed-color-072635">
         Lab Results
       </h3>
@@ -22,7 +20,7 @@ const LabResults = ({ className }: ClassNameType) => {
         {lab_results?.map((result, index) => (
           <button
             key={index}
-            className="flex justify-between items-center h-10 hover:bg-unnamed-page-bg focus:bg-unnamed-page-bg cursor-default outline-none "
+            className="flex justify-between items-center h-10 hover:bg-unnamed-page-bg focus:bg-unnamed-page-bg cursor-default outline-none"
           >
             <p className="font-manrope text-sm leading-[18px] text-unnamed-color-072635 text-left capitalize">
               {result}
