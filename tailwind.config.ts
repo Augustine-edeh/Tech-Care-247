@@ -28,6 +28,7 @@ const config: Config = {
           "color-878787": "#878787",
           "color-ffffff": "#ffffff",
           "color-ff6200": "#ff6200",
+          "page-bg": "#F6F7F8",
         },
       },
       fontFamily: {

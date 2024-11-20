@@ -22,7 +22,7 @@ const LabResults = ({ className }: ClassNameType) => {
         {lab_results?.map((result, index) => (
           <button
             key={index}
-            className="flex justify-between items-center h-10 hover:bg-[#F6F7F8] focus:bg-[#F6F7F8] cursor-default outline-none "
+            className="flex justify-between items-center h-10 hover:bg-unnamed-page-bg focus:bg-unnamed-page-bg cursor-default outline-none "
           >
             <p className="font-manrope text-sm leading-[18px] text-unnamed-color-072635 text-left capitalize">
               {result}
