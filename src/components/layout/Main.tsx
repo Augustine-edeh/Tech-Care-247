@@ -13,22 +13,11 @@ const Main = () => {
     <main className="flex flex-1 h-screen overflow-hidden">
       {/* Mobile view */}
       <div className="w-full xl:hidden">
-        {activeTab === "patients" && (
-          <PatientsList />
+        {activeTab === "patients" && <PatientsList />}
 
-          // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
-        )}
+        {activeTab === "overview" && <PatientDiagnosisInfo />}
 
-        {activeTab === "overview" && (
-          <PatientDiagnosisInfo />
-
-          // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
-        )}
-
-        {activeTab === "diagnosis" && (
-          <PatientProfile />
-          // <PatientsList className={"order-1 flex-1 xl:block xl:col-span-3"} />
-        )}
+        {activeTab === "diagnosis" && <PatientProfile />}
       </div>
 
       {/* Desktop View */}
