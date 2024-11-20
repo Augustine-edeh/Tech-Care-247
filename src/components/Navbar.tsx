@@ -4,18 +4,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
-import { navLinks } from "@/data/navLinks";
+import { navLinks } from "@/data/navigation";
 
 const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="nav hidden lg:flex items-center justify-between w-[663px] h-[63px]">
+    <nav className="nav hidden xl:flex items-center justify-between w-[663px] h-[63px]">
       {navLinks.map((link) => (
         <Link
           key={link.href}
           className={clsx(
-            "flex justify-center items-center gap-[9px] h-[41px] hover:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]",
+            "flex justify-center items-center gap-[9px] h-[41px] hover:bg-unnamed-activestate-bg-2 focus:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]",
             {
               "bg-unnamed-activestate-bg-1 hover:bg-unnamed-activestate-bg-1":
                 pathname === link.href,

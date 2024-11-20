@@ -1,3 +1,5 @@
+export const NAV_TABS = ["patients", "overview", "diagnosis"] as const;
+
 export const navLinks = [
   {
     href: "/",
@@ -35,4 +37,4 @@ export const navLinks = [
     label: "News",
     iconSize: { width: 16, height: 17 },
   },
-];
+] as const;

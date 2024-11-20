@@ -3,12 +3,12 @@
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import useMobileNavStore from "@/store/useMobileNavStore";
-import { navLinks } from "@/data/navLinks";
+import { navLinks } from "@/data/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import User from "./UserCard";
-import MenuIcon from "./MenuIcon";
-import CloseMobileMenuHandle from "./CloseMobileMenuHandle";
+import User from "./ui/UserCard";
+import MenuIcon from "./ui/MenuIcon";
+import CloseMobileMenuHandle from "./ui/CloseMobileMenuHandle";
 
 const MobileNav = () => {
   const pathname = usePathname();

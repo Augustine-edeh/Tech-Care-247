@@ -1,6 +1,4 @@
 import Image from "next/image";
-import SettingsIcon from "./SettingsIcon";
-import MenuIcon from "./MenuIcon";
 
 const UserCard = () => {
   return (

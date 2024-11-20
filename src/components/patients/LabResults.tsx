@@ -3,7 +3,7 @@
 import usePatientsStore from "@/store/usePatientsStore";
 import Image from "next/image";
 import React from "react";
-import { ClassNameType } from "../../types/Ui";
+import { ClassNameType } from "../../../types/Ui";
 
 const LabResults = ({ className }: ClassNameType) => {
   const lab_results = usePatientsStore(
@@ -12,7 +12,7 @@ const LabResults = ({ className }: ClassNameType) => {
 
   return (
     <section
-      className={`${className} bg-unnamed-color-ffffff w-[367p] h-[296px h-full rounded-[16px] p-5 mt-`}
+      className={`${className} bg-unnamed-color-ffffff w-[367p] h-[296px h- full rounded-2xl p-5 mt-`}
     >
       <h3 className="font-manrope font-extrabold text-3xl leading-[33px] text-unnamed-color-072635">
         Lab Results
@@ -28,7 +28,7 @@ const LabResults = ({ className }: ClassNameType) => {
               {result}
             </p>
             <Image
-              src="/download_FILL0_wght300_GRAD0_opsz24 (1).svg"
+              src="/download_FILL0_wght300_GRAD0_opsz24.svg"
               width={20}
               height={20}
               alt="download result"

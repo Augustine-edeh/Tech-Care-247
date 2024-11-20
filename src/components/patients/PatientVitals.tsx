@@ -27,30 +27,33 @@ const PatientVitals = () => {
   );
 
   return (
-    <section className="flex justify-between items-center flex-wrap gap-5">
+    <section className="flex flex-col xl:flex-row justify-between items-center gap-5">
       {/* Vital card (respiratory rate) */}
-      <div className="flex flex-col gap-y-4 w-[calc(100dvh-58dvh)] sm:w-[228px] h-[242px] p-4 rounded-xl bg-[#E0F3FA]">
-        <Image
-          src="/respiratory rate.svg"
-          width={96}
-          height={96}
-          alt="respiratory rate"
-        />
+      <div className="flex xl:flex-col justify-between gap-y-4 w-full xl:w-[228px] p-4 rounded-xl bg-[#E0F3FA]">
+        <div className="flex flex-col gap-y-4">
+          <Image
+            src="/respiratory rate.svg"
+            width={96}
+            height={96}
+            alt="respiratory rate"
+            className="hidden xl:block"
+          />
 
-        <div>
-          <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 text-left capitalize">
-            {`Respiratory rate`}
-          </p>
-          <p className="font-manrope font-extrabold text-[30px] leading-[41px] text-unnamed-color-072635 text-left">
-            {`${
-              respiratory_rate_value === undefined
-                ? "--"
-                : respiratory_rate_value
-            } bpm`}
-          </p>
+          <div>
+            <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 text-left capitalize">
+              {`Respiratory rate`}
+            </p>
+            <p className="font-manrope font-bold xl:font-extrabold text-2xl mt-1 xl:mt-0 xl:text-[30px] leading-10 text-unnamed-color-072635">
+              {`${
+                respiratory_rate_value === undefined
+                  ? "--"
+                  : respiratory_rate_value
+              } bpm`}
+            </p>
+          </div>
         </div>
 
-        <div className="flex gap-2">
+        <div className="h-fit flex gap-2">
           {respiratory_rate_levels === "Normal" ? (
             ""
           ) : (
@@ -71,20 +74,28 @@ const PatientVitals = () => {
       </div>
 
       {/* Vital card (temperature) */}
-      <div className="flex flex-col gap-y-4 w-[calc(100dvh-63dvh)] sm:w-[228px] h-[242px] p-4 rounded-xl bg-[#FFE6E9]">
-        <Image src="/temperature.svg" width={96} height={96} alt="indicator" />
+      <div className="flex xl:flex-col justify-between gap-y-4 w-full xl:w-[228px] p-4 rounded-xl bg-[#FFE6E9]">
+        <div className="flex flex-col gap-y-4">
+          <Image
+            src="/temperature.svg"
+            width={96}
+            height={96}
+            alt="indicator"
+            className="hidden xl:block"
+          />
 
-        <div>
-          <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 text-left capitalize">
-            {`Temperature`}
-          </p>
-          <p className="font-manrope font-extrabold text-[30px] leading-[41px] text-unnamed-color-072635 text-left">
-            {`${temperature_value === undefined ? "--" : temperature_value}`}
-            &deg; F
-          </p>
+          <div>
+            <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 text-left capitalize">
+              {`Temperature`}
+            </p>
+            <p className="font-manrope font-bold xl:font-extrabold text-2xl mt-1 xl:mt-0 xl:text-[30px] leading-10 text-unnamed-color-072635">
+              {`${temperature_value === undefined ? "--" : temperature_value}`}
+              &deg; F
+            </p>
+          </div>
         </div>
 
-        <div className="flex gap-2">
+        <div className="h-fit flex gap-2">
           {temperature_levels === "Normal" ? (
             ""
           ) : (
@@ -105,19 +116,28 @@ const PatientVitals = () => {
       </div>
 
       {/* Vital card (heart rate) */}
-      <div className="flex flex-col gap-y-4 w-[calc(100dvh-68dvh)] sm:w-[228px] h-[242px] p-4 rounded-xl bg-[#FFE6F1]">
-        <Image src="/HeartBPM.svg" width={96} height={96} alt="indicator" />
-
-        <div>
-          <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 text-left capitalize">
-            {`Heart rate`}
-          </p>
-          <p className="font-manrope font-extrabold text-[30px] leading-[41px] text-unnamed-color-072635 text-left">
-            {`${heart_rate_value === undefined ? "--" : heart_rate_value} bpm`}
-          </p>
+      <div className="flex xl:flex-col justify-between gap-y-4 w-full xl:w-[228px] p-4 rounded-xl bg-[#FFE6F1]">
+        <div className="flex flex-col gap-y-4">
+          <Image
+            src="/HeartBPM.svg"
+            width={96}
+            height={96}
+            alt="indicator"
+            className="hidden xl:block"
+          />
+          <div>
+            <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 text-left capitalize">
+              {`Heart rate`}
+            </p>
+            <p className="font-manrope font-bold xl:font-extrabold text-2xl mt-1 xl:mt-0 xl:text-[30px] leading-10 text-unnamed-color-072635">
+              {`${
+                heart_rate_value === undefined ? "--" : heart_rate_value
+              } bpm`}
+            </p>
+          </div>
         </div>
 
-        <div className="flex gap-2">
+        <div className="h-fit flex gap-2">
           {heart_rate_levels === "Normal" ? (
             ""
           ) : (

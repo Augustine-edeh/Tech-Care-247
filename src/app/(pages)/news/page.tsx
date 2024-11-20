@@ -1,5 +1,5 @@
-import NewsFeed from "@/components/NewsFeed";
-import Clock from "@/components/Clock";
+import NewsFeed from "@/components/news/NewsFeed";
+import Clock from "@/components/ui/Clock";
 
 const NewsPage = () => {
   return (
