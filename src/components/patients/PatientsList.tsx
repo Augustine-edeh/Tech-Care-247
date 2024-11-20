@@ -24,7 +24,7 @@ const PatientsList = ({ className }: ClassNameType) => {
     <div
       className={`${className} flex flex-1 flex-col h-full xl:rounded-2xl p-5`}
     >
-      <div className="bg-unnamed-color-ffffff flex flex-1 flex-col h-full">
+      <div className="bg-unnamed-color-ffffff flex flex-1 flex-col h-full rounded-2xl xl:rounded-none p-3 xl:p-0">
         {/* Fixed Search Bar */}
         <div className="mb-5">
           <SearchPatients />
