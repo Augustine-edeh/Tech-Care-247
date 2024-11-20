@@ -12,17 +12,17 @@ const LabResults = ({ className }: ClassNameType) => {
 
   return (
     <section
-      className={`${className} bg-unnamed-color-ffffff w-[367p] h-[296px h- full rounded-2xl p-5 mt-`}
+      className={`${className} flex flex-col gap-4 xl:gap-3 bg-unnamed-color-ffffff rounded-2xl p-5  xl:py-3`}
     >
-      <h3 className="font-manrope font-extrabold text-3xl leading-[33px] text-unnamed-color-072635">
+      <h3 className="font-manrope font-extrabold text-3xl leading-8 text-unnamed-color-072635">
         Lab Results
       </h3>
 
-      <ul className="mt-4 grid gap-y-[5px]">
+      <ul className="grid gap-y-1 overflow-y-auto">
         {lab_results?.map((result, index) => (
           <button
             key={index}
-            className="flex justify-between items-center h-10 hover:bg-unnamed-page-bg focus:bg-unnamed-page-bg cursor-default outline-none "
+            className="flex justify-between items-center h-10 hover:bg-unnamed-page-bg focus:bg-unnamed-page-bg cursor-default outline-none"
           >
             <p className="font-manrope text-sm leading-[18px] text-unnamed-color-072635 text-left capitalize">
               {result}

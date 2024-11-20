@@ -33,9 +33,9 @@ const PatientProfile = ({ className }: ClassNameType) => {
       </div>
 
       {/* Desktop view */}
-      <div className="hidden xl:flex flex-col gap-6 overflow-y-auto">
-        <section className="bg-unnamed-color-ffffff min-w-[367px h-[760px rounded-2xl p-5">
-          <div className="flex flex-col items-center gap-y-6 mt-3 mb- mb-[29px]">
+      <div className="hidden xl:flex flex-col gap-6 h-full">
+        <section className="bg-unnamed-color-ffffff rounded-2xl px-5 py-4 h-4/5">
+          <div className="flex flex-col items-center gap-y-6">
             <Image
               src={`${profile_picture ? profile_picture : "/null"}`}
               width={200}
@@ -44,21 +44,21 @@ const PatientProfile = ({ className }: ClassNameType) => {
             />
             <h3 className="font-manrope font-extrabold text-3xl leading-[33px] text-unnamed-color-072635">{`${patientName}`}</h3>
           </div>
-          <ul className="hidden lg:flex flex-col gap-y-6 my-[29px]">
+          <ul className="hidden lg:flex flex-col gap-y-4 mt-7">
             <PatientDOB />
             <PatientGender />
             <PatientContactInfo />
             <PatientEmergencyContact />
             <PatientInsuranceProvider />
           </ul>
-          <div className=" text-center w-[300px] mx-auto">
-            <button className="w-[220px] h-[41px] rounded-[41px] bg-unnamed-activestate-bg-1 font-manrope font-bold text-base leading-[19px] text-unnamed-color-072635 my-[11px]">
+          <div className="flex justify-center items-center mt-4">
+            <button className="px-5 py-3 rounded-[41px] bg-unnamed-activestate-bg-1 font-manrope font-bold text-base leading-[19px] text-unnamed-color-072635">
               Show All Information
             </button>
           </div>
         </section>
 
-        <LabResults />
+        <LabResults className="h-1/5 overflow-hidden" />
       </div>
     </div>
   );
