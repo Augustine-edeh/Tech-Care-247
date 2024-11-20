@@ -15,11 +15,13 @@ const DiagnosticListTable = () => {
       <table className="bg-white w-full">
         <thead className="text-gray-700">
           <tr className="">
-            <th className="py-3 px-4 text-left bg-[#F6F7F8] rounded-l-3xl">
+            <th className="py-3 px-4 text-left bg-unnamed-page-bg rounded-l-3xl">
               Problem/Diagnosis
             </th>
-            <th className="py-3 px-4 text-left bg-[#F6F7F8]">Description</th>
-            <th className="py-3 px-4 text-left bg-[#F6F7F8] rounded-r-3xl">
+            <th className="py-3 px-4 text-left bg-unnamed-page-bg">
+              Description
+            </th>
+            <th className="py-3 px-4 text-left bg-unnamed-page-bg rounded-r-3xl">
               Status
             </th>
           </tr>
