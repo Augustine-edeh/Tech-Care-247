@@ -29,7 +29,7 @@ const PatientVitals = () => {
   return (
     <section className="flex flex-col xl:flex-row justify-between items-center gap-5">
       {/* Vital card (respiratory rate) */}
-      <div className="flex xl:flex-col justify-between gap-y-4 w-full xl:w-[228px] p-4 rounded-xl bg-[#E0F3FA]">
+      <div className="flex xl:flex-col justify-between gap-y-4 w-full xl:w-56 px-4 py-2 rounded-xl bg-[#E0F3FA]">
         <div className="flex flex-col gap-y-4">
           <Image
             src="/respiratory rate.svg"
@@ -74,7 +74,7 @@ const PatientVitals = () => {
       </div>
 
       {/* Vital card (temperature) */}
-      <div className="flex xl:flex-col justify-between gap-y-4 w-full xl:w-[228px] p-4 rounded-xl bg-[#FFE6E9]">
+      <div className="flex xl:flex-col justify-between gap-y-4 w-full xl:w-56 px-4 py-2 rounded-xl bg-[#FFE6E9]">
         <div className="flex flex-col gap-y-4">
           <Image
             src="/temperature.svg"
@@ -116,7 +116,7 @@ const PatientVitals = () => {
       </div>
 
       {/* Vital card (heart rate) */}
-      <div className="flex xl:flex-col justify-between gap-y-4 w-full xl:w-[228px] p-4 rounded-xl bg-[#FFE6F1]">
+      <div className="flex xl:flex-col justify-between gap-y-4 w-full xl:w-56 px-4 py-2 rounded-xl bg-[#FFE6F1]">
         <div className="flex flex-col gap-y-4">
           <Image
             src="/HeartBPM.svg"
