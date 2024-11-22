@@ -29,3 +29,10 @@ export interface PatientDataType {
   diagnostic_list: Diagnostic[];
   lab_results: string[];
 }
+
+export type PatientCardProps = {
+  profile_picture: string;
+  name: string;
+  gender: string;
+  age: number;
+};

@@ -15,7 +15,7 @@ const Header = () => {
   const isOpen = useMobileNavStore((state) => state.isOpen);
 
   return (
-    <header className="">
+    <header>
       <div className="flex items-center justify-between px-5 md:px-8 h-[72px] bg-unnamed-color-ffffff lg:rounded-[70px]">
         <Logo />
         <Navbar />
