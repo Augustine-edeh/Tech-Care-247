@@ -9,6 +9,7 @@ import { ClassNameType } from "../../../types/Ui";
 const PatientsList = ({ className }: ClassNameType) => {
   const patients = usePatientsStore((state) => state.patients);
   const isLoading = usePatientsStore((state) => state.isLoading);
+  const error = usePatientsStore((state) => state.error);
   const fetchPatientsData = usePatientsStore(
     (state) => state.fetchPatientsData
   );
@@ -17,8 +18,10 @@ const PatientsList = ({ className }: ClassNameType) => {
   );
 
   useEffect(() => {
-    fetchPatientsData(); // Fetch patients data on component mount
-  }, [fetchPatientsData]);
+    if (patients.length === 0) {
+      fetchPatientsData();
+    }
+  }, [patients.length, fetchPatientsData]);
 
   return (
     <div
@@ -35,9 +38,13 @@ const PatientsList = ({ className }: ClassNameType) => {
             <div className="flex justify-center items-center h-full">
               <p>Loading...</p>
             </div>
+          ) : error ? (
+            <div className="flex justify-center items-center h-full">
+              <p className="text-red-500">Failed to load data: {error}</p>
+            </div>
           ) : (
             <ul className="patient-list flex flex-col overflow-y-scroll h- [1076px] w-full">
-              {patients?.map((patient, index) => (
+              {patients.map((patient, index) => (
                 <li key={index} onClick={() => setSelectedPatient(patient)}>
                   <PatientCard
                     profile_picture={patient.profile_picture}

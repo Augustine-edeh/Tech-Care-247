@@ -14,13 +14,19 @@ interface PatientsState {
   setTimeRange: (range: string) => void;
 }
 
-export const usePatientsStore = create<PatientsState>((set) => ({
+export const usePatientsStore = create<PatientsState>((set, get) => ({
   patients: [],
   selectedPatient: null,
   isLoading: false,
   error: null,
   timeRange: "6",
+
+  // Fetches patient data and stores it in the state
   fetchPatientsData: async () => {
+    const { patients } = get();
+    // Avoid re-fetching if data already exists
+    if (patients.length > 0) return;
+
     set({ isLoading: true });
     try {
       const patientsData = await fetchPatientData();
@@ -33,12 +39,21 @@ export const usePatientsStore = create<PatientsState>((set) => ({
       set({ isLoading: false, error: (error as Error).message });
     }
   },
+
+  // Manually sets patient data
   setPatientsData: (data) => {
     set({ patients: data });
   },
-  setSelectedPatient: (patient: PatientDataType) =>
-    set({ selectedPatient: patient }),
-  setTimeRange: (range: string) => set({ timeRange: range }),
+
+  // Sets the currently selected patient
+  setSelectedPatient: (patient: PatientDataType) => {
+    set({ selectedPatient: patient });
+  },
+
+  // Updates the time range for filtering or charting
+  setTimeRange: (range: string) => {
+    set({ timeRange: range });
+  },
 }));
 
 export default usePatientsStore;
