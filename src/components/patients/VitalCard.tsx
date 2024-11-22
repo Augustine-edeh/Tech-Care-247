@@ -1,16 +1,25 @@
 import Image from "next/image";
+import { VitalCardProps } from "../../../types/VitalCardProps";
 
-const VitalCard = ({ label, value, levels, unit, bgColor, iconSrc }) => {
+const VitalCard = ({
+  label,
+  value,
+  levels,
+  unit = "",
+  bgColor,
+  iconSrc,
+}: VitalCardProps) => {
   return (
     <div
       className={`flex xl:flex-col justify-between gap-y-4 w-full xl:w-56 px-4 py-2 rounded-xl ${bgColor}`}
     >
+      {/* Icon and Value Section */}
       <div className="flex flex-col gap-y-4">
         <Image
           src={iconSrc}
           width={96}
           height={96}
-          alt={label}
+          alt={`${label} icon`}
           className="hidden xl:block"
         />
 
@@ -24,13 +33,14 @@ const VitalCard = ({ label, value, levels, unit, bgColor, iconSrc }) => {
         </div>
       </div>
 
-      <div className="h-fit flex gap-2">
-        {levels === "Normal" ? null : (
+      {/* Levels Indicator Section */}
+      <div className="h-fit flex gap-2 items-center">
+        {levels && levels !== "Normal" && (
           <Image
             src={`/Arrow${levels === "Lower than Average" ? "Down" : "Up"}.svg`}
             width={10}
             height={5}
-            alt="indicator"
+            alt={`${levels} indicator`}
           />
         )}
         <p className="font-manrope font-normal text-sm leading-[19px] text-unnamed-color-072635 text-left">
@@ -40,4 +50,5 @@ const VitalCard = ({ label, value, levels, unit, bgColor, iconSrc }) => {
     </div>
   );
 };
+
 export default VitalCard;

@@ -1,17 +1,3 @@
-export interface PatientDataType {
-  name: string;
-  gender: string;
-  age: number;
-  profile_picture: string;
-  date_of_birth: string;
-  phone_number: string;
-  emergency_contact: string;
-  insurance_type: string;
-  diagnosis_history: Diagnosis[];
-  diagnostic_list: Diagnostic[];
-  lab_results: string[];
-}
-
 interface Diagnosis {
   month: string;
   year: number;
@@ -28,4 +14,18 @@ interface Diagnostic {
   name: string;
   description: string;
   status: string;
+}
+
+export interface PatientDataType {
+  name: string;
+  gender: string;
+  age: number;
+  profile_picture: string;
+  date_of_birth: string;
+  phone_number: string;
+  emergency_contact: string;
+  insurance_type: string;
+  diagnosis_history: Diagnosis[];
+  diagnostic_list: Diagnostic[];
+  lab_results: string[];
 }
