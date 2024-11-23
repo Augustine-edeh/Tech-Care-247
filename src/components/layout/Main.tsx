@@ -3,7 +3,6 @@
 import useActiveTabStore from "@/store/useActiveTabStore";
 import PatientsList from "../patients/PatientsList";
 import PatientDiagnosisInfo from "../patients/PatientDiagnosisInfo";
-import PatientCard from "../patients/PatientCard";
 import PatientProfile from "../patients/PatientProfile";
 
 const Main = () => {

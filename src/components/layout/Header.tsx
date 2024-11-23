@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Navbar from "../Navbar";
 import User from "../ui/UserCard";
 import Logo from "../ui/Logo";

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NAV_TABS } from "@/data/navigation";
 import useActiveTabStore from "@/store/useActiveTabStore";
 
