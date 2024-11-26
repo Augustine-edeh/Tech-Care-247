@@ -16,11 +16,8 @@ const NewsPage = () => {
       <main className="flex flex-1 h-screen overflow-hidden">
         {/* Mobile view */}
         <div className="w-full xl:hidden">
-          {activeTab === "patients" && <PatientsList />}
-
-          {activeTab === "overview" && <PatientDiagnosisInfo />}
-
-          {activeTab === "diagnosis" && <PatientProfile />}
+          <Clock />
+          <NewsFeed />
         </div>
 
         {/* Desktop View */}
