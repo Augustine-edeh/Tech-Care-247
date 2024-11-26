@@ -4,7 +4,7 @@ import "react-clock/dist/Clock.css";
 
 const Clock = () => {
   return (
-    <div className="bg-green-400 h-full p-5">
+    <div className="bg-unnamed-color-ffffff h-full p-5">
       <h3 className="font-manrope font-extrabold text-2xl leading-8 text-unnamed-color-072635 mb-10">
         Clock
       </h3>
