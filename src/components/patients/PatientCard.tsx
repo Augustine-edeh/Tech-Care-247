@@ -1,3 +1,4 @@
+import useNavigateToOverviewTab from "@/hooks/useNavigateToOverviewTab";
 import Image from "next/image";
 
 type patientCardType = {
@@ -13,6 +14,7 @@ const PatientCard = ({
   gender,
   age,
 }: patientCardType) => {
+  const navigateToOverviewTab = useNavigateToOverviewTab();
   return (
     <a
       href="#"
