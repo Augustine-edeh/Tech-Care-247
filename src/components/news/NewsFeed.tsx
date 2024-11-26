@@ -56,14 +56,16 @@ const NewsFeed = () => {
   }
 
   return (
-    <div className="order-2 lg:order-2 lg:col-span-8 xl:col-span-6 bg-white p-5 rounded-lg shadow-md">
-      <h1 className="font-manrope font-extrabold text-2xl leading-[33px] text-gray-800">
-        News Feed
-      </h1>
-      <h3 className="text-xl font-bold text-gray-900">Top Headlines</h3>
+    <div className="flex flex-col h-full bg-unnamed-color-ffffff p-5">
+      <div>
+        <h1 className="font-manrope font-extrabold text-2xl leading-8 text-gray-800">
+          News Feed
+        </h1>
+        <h3 className="text-xl font-bold text-gray-900">Top Headlines</h3>
+      </div>
       <ul
         id="infiniteScrollContainer"
-        className="space-y-4 mt-4 h-[calc(100dvh+130px)] overflow-y-scroll"
+        className="space-y-4 mt-4 overflow-y-auto flex-1"
       >
         <InfiniteScroll
           dataLength={news.length} // Length of current news array

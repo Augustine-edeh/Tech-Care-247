@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Chart from "../Chart";
 import DiagnosticListTable from "./DiagnosticListTable";
-import LabResults from "./LabResults";
 import PatientVitals from "./PatientVitals";
 import { ClassNameType } from "../../../types/Ui";
 import usePatientsStore from "@/store/usePatientsStore";

@@ -2,7 +2,6 @@
 
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import useMobileNavStore from "@/store/useMobileNavStore";
 import { navLinks } from "@/data/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,7 +13,7 @@ const MobileNav = () => {
   const pathname = usePathname();
 
   return (
-    <div className="bg-zinc-200 md:hidden fixed top-5 right-5 h-[calc(100dvh-50px)] min-w-60 rounded-md overflow-hidden">
+    <div className="bg-zinc-200 lg:hidden fixed top-5 right-5 h-[calc(100dvh-50px)] min-w-60 rounded-md overflow-hidden">
       <CloseMobileMenuHandle />
       <nav>
         {navLinks.map((link) => (

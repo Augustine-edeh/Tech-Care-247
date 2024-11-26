@@ -15,7 +15,6 @@ import {
 
 import { Line } from "react-chartjs-2";
 import { fetchPatientData } from "@/services/patientsService";
-import { PatientDataType } from "../../types/Patient";
 import usePatientsStore from "@/store/usePatientsStore";
 
 // Register the components
@@ -43,7 +42,7 @@ const Chart = () => {
     const fetchData = async () => {
       try {
         const data = await fetchPatientData();
-        console.log(data); // Log the complete data structure
+        // console.log(data); // Log the complete data structure
 
         // Update Zustand Store
         setPatientsData(data);

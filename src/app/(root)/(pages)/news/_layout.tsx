@@ -1,23 +1,24 @@
 "use client";
 
+import Header from "@/components/layout/Header";
+import PatientDiagnosisInfo from "@/components/patients/PatientDiagnosisInfo";
+import PatientProfile from "@/components/patients/PatientProfile";
+import PatientsList from "@/components/patients/PatientsList";
 import useActiveTabStore from "@/store/useActiveTabStore";
-import PatientsList from "../patients/PatientsList";
-import PatientDiagnosisInfo from "../patients/PatientDiagnosisInfo";
-import PatientProfile from "../patients/PatientProfile";
 
-const Main = () => {
+const NewsLayout = ({ children }: { children: React.ReactNode }) => {
   const activeTab = useActiveTabStore((state) => state.activeTab);
 
   return (
     <main className="flex flex-1 h-screen overflow-hidden">
       {/* Mobile view */}
-      <div className="w-full xl:hidden">
+      {/* <div className="w-full xl:hidden">
         {activeTab === "patients" && <PatientsList />}
 
         {activeTab === "overview" && <PatientDiagnosisInfo />}
 
         {activeTab === "diagnosis" && <PatientProfile />}
-      </div>
+      </div> */}
 
       {/* Desktop View */}
       <div className="hidden xl:grid grid-cols-12 gap-10 w-full">
@@ -35,4 +36,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default NewsLayout;
