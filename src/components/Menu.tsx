@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/data/navigation";
@@ -13,6 +14,24 @@ import useMobileNavStore from "@/store/useMobileNavStore";
 const Menu = () => {
   const pathname = usePathname();
   const toggleIsOpen = useMobileNavStore((state) => state.toggleIsOpen);
+  const isOpen = useMobileNavStore((state) => state.isOpen);
+
+  useEffect(() => {
+    // Close menu when Escape key is pressed
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        toggleIsOpen();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, toggleIsOpen]);
 
   return (
     <>
@@ -53,7 +72,7 @@ const Menu = () => {
           ))}
         </nav>
 
-        <section className="absolute bottom-0 w-full flex  justify-between p-3 border-t-2 border-gray-300">
+        <section className="absolute bottom-0 w-full flex justify-between p-3 border-t-2 border-gray-300">
           <User />
           <MenuIcon />
         </section>
