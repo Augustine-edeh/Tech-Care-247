@@ -10,7 +10,7 @@ import MenuIcon from "./ui/MenuIcon";
 import CloseMobileMenuHandle from "./ui/CloseMobileMenuHandle";
 import useMobileNavStore from "@/store/useMobileNavStore";
 
-const MobileNav = () => {
+const Menu = () => {
   const pathname = usePathname();
   const toggleIsOpen = useMobileNavStore((state) => state.toggleIsOpen);
 
@@ -62,4 +62,4 @@ const MobileNav = () => {
   );
 };
 
-export default MobileNav;
+export default Menu;

@@ -3,7 +3,7 @@
 import Navbar from "../Navbar";
 import User from "../ui/UserCard";
 import Logo from "../ui/Logo";
-import MobileNav from "../MobileNav";
+import Menu from "../Menu";
 
 import useMobileNavStore from "@/store/useMobileNavStore";
 import SettingsIcon from "../ui/SettingsIcon";
@@ -26,7 +26,7 @@ const Header = () => {
           </section>
         </div>
 
-        {isOpen && <MobileNav />}
+        {isOpen && <Menu />}
       </div>
 
       <NavTab />
