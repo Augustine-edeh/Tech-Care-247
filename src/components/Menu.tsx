@@ -10,6 +10,7 @@ import User from "./ui/UserCard";
 import MenuIcon from "./ui/MenuIcon";
 import CloseMobileMenuHandle from "./ui/CloseMobileMenuHandle";
 import useMobileNavStore from "@/store/useMobileNavStore";
+import Navbar from "./Navbar";
 
 const Menu = () => {
   const pathname = usePathname();
@@ -42,9 +43,12 @@ const Menu = () => {
       />
 
       {/* Menu */}
-      <div className="bg-zinc-200 lg:hidden fixed top-5 right-5 h-[calc(100dvh-50px)] min-w-60 rounded-md overflow-hidden z-40">
-        <CloseMobileMenuHandle />
-        <nav>
+      <div className="bg-unnamed-color-ffffff zinc-200 xl:hidden fixed top-0 right-0 h-full w-80 z-40">
+        <div>
+          <CloseMobileMenuHandle />
+        </div>
+
+        {/* <nav className="bg-yellow-300">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -70,7 +74,8 @@ const Menu = () => {
               </div>
             </Link>
           ))}
-        </nav>
+        </nav> */}
+        <Navbar />
 
         <section className="absolute bottom-0 w-full flex justify-between p-3 border-t-2 border-gray-300">
           <User />
