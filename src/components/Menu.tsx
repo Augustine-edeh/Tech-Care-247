@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/data/navigation";
@@ -9,10 +10,30 @@ import User from "./ui/UserCard";
 import MenuIcon from "./ui/MenuIcon";
 import CloseMobileMenuHandle from "./ui/CloseMobileMenuHandle";
 import useMobileNavStore from "@/store/useMobileNavStore";
+import Navbar from "./Navbar";
+import { LogOut } from "lucide-react";
 
 const Menu = () => {
   const pathname = usePathname();
   const toggleIsOpen = useMobileNavStore((state) => state.toggleIsOpen);
+  const isOpen = useMobileNavStore((state) => state.isOpen);
+
+  useEffect(() => {
+    // Close menu when Escape key is pressed
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        toggleIsOpen();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, toggleIsOpen]);
 
   return (
     <>
@@ -23,39 +44,19 @@ const Menu = () => {
       />
 
       {/* Menu */}
-      <div className="bg-zinc-200 lg:hidden fixed top-5 right-5 h-[calc(100dvh-50px)] min-w-60 rounded-md overflow-hidden z-40">
-        <CloseMobileMenuHandle />
-        <nav>
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              className={clsx(
-                "flex items-center gap-[9px] h-[41px] hover:bg-unnamed-activestate-bg-2 outline-none rounded-[41px]",
-                {
-                  "bg-unnamed-activestate-bg-1 hover:bg-unnamed-activestate-bg-1":
-                    pathname === link.href,
-                }
-              )}
-              href={link.href}
-            >
-              <div className="h-[19px] mx-5 flex justify-center gap-x-[9px]">
-                <Image
-                  src={link.icon}
-                  width={link.iconSize.width}
-                  height={link.iconSize.height}
-                  alt={link.label.toLowerCase()}
-                />
-                <p className="font-manrope font-bold text-sm leading-[19px] text-unnamed-color-072635 text-left">
-                  {link.label}
-                </p>
-              </div>
-            </Link>
-          ))}
-        </nav>
+      <div className="bg-unnamed-color-ffffff zinc-200 xl:hidden fixed top-0 right-0 h-full w-80 z-40">
+        <div className="flex justify-between border-b-2 p-5 mb-5">
+          <User variant="menu" />
+          <CloseMobileMenuHandle />
+        </div>
 
-        <section className="absolute bottom-0 w-full flex  justify-between p-3 border-t-2 border-gray-300">
-          <User />
-          <MenuIcon />
+        <Navbar />
+
+        <section className="absolute bottom-0 w-full p-3 border-t-2 border-gray-300">
+          <button className="flex items-center gap-3 px-4 py-4 w-full bg-gray-900 text-white rounded-md">
+            <LogOut />
+            <span>Logout</span>
+          </button>
         </section>
       </div>
     </>

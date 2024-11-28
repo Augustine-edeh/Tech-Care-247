@@ -17,7 +17,9 @@ const Header = () => {
     <header>
       <div className="flex items-center justify-between px-5 md:px-8 h-[72px] bg-unnamed-color-ffffff lg:rounded-[70px]">
         <Logo />
-        <Navbar />
+        <div className="hidden xl:flex">
+          <Navbar />
+        </div>
         <div className="flex divide-x-2">
           <User />
           <section className="flex gap-x-3 pl-3">
