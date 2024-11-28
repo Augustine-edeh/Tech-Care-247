@@ -1,8 +1,11 @@
 import Image from "next/image";
+import clsx from "clsx";
 
-const UserCard = () => {
+import UserCardProps from "../../../types/UserCard";
+
+const UserCard = ({ variant = "default" }: UserCardProps) => {
   return (
-    <div className="flex items-center h- [44px] bg-red -500">
+    <div className="flex items-center">
       <section className="flex items-center pr-3 gap-x-2 cursor-pointer">
         <Image
           src="/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png"
@@ -12,7 +15,13 @@ const UserCard = () => {
           className="xl:size-14 rounded-full"
         />
 
-        <div className="hidden xl:flex flex-col justify-center">
+        {/* Conditionally render the text section only when variant is "menu" */}
+        <div
+          className={clsx(
+            "xl:flex flex-col justify-center",
+            variant === "default" && "hidden" // Show hidden when variant is "default"
+          )}
+        >
           <p className="font-manrope font-bold text-sm leading-[19px] text-unnamed-color-072635 text-left">
             Dr. Jose Simmons
           </p>
