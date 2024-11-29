@@ -30,7 +30,7 @@ const Navbar = () => {
               height={link.iconSize.height}
               alt={link.label.toLowerCase()}
             />
-            <p className="font-manrope font-bold text-sm leading-[19px] text-unnamed-color-072635 text- left">
+            <p className="font-manrope font-bold text-sm leading-5 text-unnamed-color-072635 text- left">
               {link.label}
             </p>
           </div>

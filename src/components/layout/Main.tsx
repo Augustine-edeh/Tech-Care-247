@@ -1,16 +1,14 @@
 "use client";
 
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import useActiveTabStore from "@/store/useActiveTabStore";
 import PatientsList from "../patients/PatientsList";
 import PatientDiagnosisInfo from "../patients/PatientDiagnosisInfo";
 import PatientProfile from "../patients/PatientProfile";
-import NewsFeed from "../news/NewsFeed";
 
 const Main = () => {
   const activeTab = useActiveTabStore((state) => state.activeTab);
   const pathname = usePathname();
-  const router = useRouter();
 
   // Synchronize active tab with root path
   const isRootRoute = pathname === "/";
@@ -24,8 +22,6 @@ const Main = () => {
         {isRootRoute && activeTab === "overview" && <PatientDiagnosisInfo />}
 
         {isRootRoute && activeTab === "diagnosis" && <PatientProfile />}
-
-        {/* {isRootRoute && activeTab === "news" && <NewsFeed />} */}
       </div>
 
       {/* Desktop View */}
