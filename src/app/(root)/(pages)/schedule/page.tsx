@@ -1,18 +1,9 @@
 "use client";
 
-import NewsFeed from "@/components/news/NewsFeed";
 import Clock from "@/components/ui/Clock";
-import PatientDiagnosisInfo from "@/components/patients/PatientDiagnosisInfo";
-import PatientProfile from "@/components/patients/PatientProfile";
 import PatientsList from "@/components/patients/PatientsList";
-import useActiveTabStore from "@/store/useActiveTabStore";
-import { usePathname } from "next/navigation";
 
 const SchedulePage = () => {
-  const activeTab = useActiveTabStore((state) => state.activeTab);
-  const pathname = usePathname();
-  const isRootRoute = pathname === "/";
-
   return (
     <>
       <main className="flex flex-1 h-screen overflow-hidden">
