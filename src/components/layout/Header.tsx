@@ -28,7 +28,7 @@ const Header = () => {
           </section>
         </div>
 
-        {isOpen && <Menu />}
+        <Menu />
       </div>
 
       <NavTab />
