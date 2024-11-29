@@ -12,7 +12,7 @@ const LabResults = ({ className }: ClassNameType) => {
 
   return (
     <section
-      className={`${className} flex flex-col gap-4 xl:gap-3 bg-unnamed-color-ffffff rounded-2xl p-5  xl:py-3`}
+      className={`${className} flex flex-col gap-4 xl:gap-3 bg-unnamed-color-ffffff rounded-2xl p-5 xl:py-3`}
     >
       <h3 className="font-manrope font-extrabold text-3xl leading-8 text-unnamed-color-072635">
         Lab Results

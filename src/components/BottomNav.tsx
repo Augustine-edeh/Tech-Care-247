@@ -1,9 +1,12 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
-import { Users, Calendar, Newspaper } from "lucide-react";
+import { Home, Calendar, Newspaper } from "lucide-react";
+import useActiveTabStore from "@/store/useActiveTabStore";
 
 const BottomNav = () => {
+  const setActiveTab = useActiveTabStore((state) => state.setActiveTab);
+
   const router = useRouter();
   const currentPath = usePathname(); // Get the current route path
 
@@ -13,8 +16,8 @@ const BottomNav = () => {
   };
 
   const navItems = [
-    { icon: Users, label: "Patients", path: "/" },
-    { icon: Calendar, label: "Schedule", path: "/" },
+    { icon: Home, label: "Home", path: "" },
+    { icon: Calendar, label: "Schedule", path: "schedule" },
     { icon: Newspaper, label: "News", path: "news" },
   ];
 
@@ -29,10 +32,16 @@ const BottomNav = () => {
                 ? "text-blue-600 font-bold"
                 : "text-gray-400 hover:text-blue-600"
             }`}
-            onClick={() => navigateTo(path)}
+            onClick={() => {
+              navigateTo(path);
+
+              if (path === "schedule") {
+                // setActiveTab("schedule");
+              }
+            }}
             aria-label={label}
           >
-            <Icon className="h-5 w-5" />
+            <Icon className="size-5" />
             <span className="text-xs mt-1">{label}</span>
           </button>
         ))}

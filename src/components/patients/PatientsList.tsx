@@ -43,7 +43,7 @@ const PatientsList = ({ className }: ClassNameType) => {
               <p className="text-red-500">Failed to load data: {error}</p>
             </div>
           ) : (
-            <ul className="patient-list flex flex-col overflow-y-scroll h- [1076px] w-full">
+            <ul className="patient-list flex flex-col overflow-y-scroll w-full">
               {patients.map((patient, index) => (
                 <li key={index} onClick={() => setSelectedPatient(patient)}>
                   <PatientCard

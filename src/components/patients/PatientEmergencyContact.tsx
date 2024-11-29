@@ -12,10 +12,10 @@ const PatientEmergencyContact = () => {
       <Image src={`/PhoneIcon.svg`} width={42} height={42} alt="phone icon" />
 
       <div className="flex flex-col">
-        <p className="font-manrope font-medium text-sm leading-[19px] text-unnamed-color-072635 text-left capitalize">
+        <p className="font-manrope font-medium text-sm leading-5 text-unnamed-color-072635 text-left capitalize">
           Emergency Contacts
         </p>
-        <p className="font-manrope font-bold text-sm leading-[19px] text-unnamed-color-072635 text-left capitalize">
+        <p className="font-manrope font-bold text-sm leading-5 text-unnamed-color-072635 text-left capitalize">
           {`${emergency_contact}`}
         </p>
       </div>

@@ -19,10 +19,10 @@ const PatientInsuranceProvider = () => {
       />
 
       <div className="flex flex-col">
-        <p className="font-manrope font-medium text-sm leading-[19px] text-unnamed-color-072635 text-left capitalize">
+        <p className="font-manrope font-medium text-sm leading-5 text-unnamed-color-072635 text-left capitalize">
           Insurance Provider
         </p>
-        <p className="font-manrope font-bold text-sm leading-[19px] text-unnamed-color-072635 text-left capitalize">{`${insurance_provider}`}</p>
+        <p className="font-manrope font-bold text-sm leading-5 text-unnamed-color-072635 text-left capitalize">{`${insurance_provider}`}</p>
       </div>
     </div>
   );

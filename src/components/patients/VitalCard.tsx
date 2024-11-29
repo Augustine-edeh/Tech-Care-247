@@ -24,7 +24,7 @@ const VitalCard = ({
         />
 
         <div>
-          <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 text-left capitalize">
+          <p className="font-manrope font-medium text-base leading-[22px] text-unnamed-color-072635 capitalize">
             {label}
           </p>
           <p className="font-manrope font-bold xl:font-extrabold text-2xl mt-1 xl:mt-0 xl:text-[30px] leading-10 text-unnamed-color-072635">
@@ -34,7 +34,7 @@ const VitalCard = ({
       </div>
 
       {/* Levels Indicator Section */}
-      <div className="h-fit flex gap-2 items-center">
+      <div className="h-fit flex items-center gap-2">
         {levels && levels !== "Normal" && (
           <Image
             src={`/Arrow${levels === "Lower than Average" ? "Down" : "Up"}.svg`}
@@ -43,7 +43,7 @@ const VitalCard = ({
             alt={`${levels} indicator`}
           />
         )}
-        <p className="font-manrope font-normal text-sm leading-[19px] text-unnamed-color-072635 text-left">
+        <p className="font-manrope font-normal text-sm leading-5 text-unnamed-color-072635">
           {levels || "--"}
         </p>
       </div>

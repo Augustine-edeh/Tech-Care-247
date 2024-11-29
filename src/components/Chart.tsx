@@ -42,7 +42,6 @@ const Chart = () => {
     const fetchData = async () => {
       try {
         const data = await fetchPatientData();
-        // console.log(data); // Log the complete data structure
 
         // Update Zustand Store
         setPatientsData(data);
