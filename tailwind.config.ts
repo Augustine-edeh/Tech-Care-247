@@ -30,6 +30,8 @@ const config: Config = {
           "color-ff6200": "#ff6200",
           "page-bg": "#F6F7F8",
         },
+        primaryBlue: "#006AAC",
+        secondaryBlue: "#3191C9",
       },
       fontFamily: {
         manrope: ["Manrope", "sans-serif"],

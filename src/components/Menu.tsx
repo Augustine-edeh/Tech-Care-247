@@ -53,7 +53,7 @@ const Menu = () => {
         <Navbar />
 
         <section className="absolute bottom-0 w-full p-3 border-t-2 border-gray-300">
-          <button className="flex items-center gap-3 px-4 py-4 w-full bg-gray-900 text-white rounded-md">
+          <button className="flex items-center gap-3 px-4 py-4 w-full bg-primaryBlue hover:bg-secondaryBlue  text-white rounded-md">
             <LogOut />
             <span>Logout</span>
           </button>
