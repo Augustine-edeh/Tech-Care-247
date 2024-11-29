@@ -35,7 +35,7 @@ const Menu = () => {
           <>
             {/* Backdrop */}
             <motion.div
-              className="fixed inset-0 bg-black z-10"
+              className="fixed xl:hidden inset-0 bg-black z-10"
               onClick={toggleIsOpen}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -45,7 +45,7 @@ const Menu = () => {
 
             {/* Menu */}
             <motion.div
-              className="bg-white fixed top-0 right-0 h-full w-80 z-40"
+              className="bg-white fixed xl:hidden top-0 right-0 h-full w-80 z-40"
               initial={{ x: "100%" }} // Start off-screen to the right
               animate={{ x: 0 }} // Slide in
               exit={{ x: "100%" }} // Slide out
@@ -56,7 +56,8 @@ const Menu = () => {
                 <CloseMobileMenuHandle />
               </div>
 
-              <Navbar />
+              {/* Pass toggleIsOpen to Navbar */}
+              <Navbar onNavItemClick={toggleIsOpen} />
 
               <section className="absolute bottom-0 w-full p-3 border-t-2 border-gray-300">
                 <button className="flex items-center gap-3 px-4 py-4 w-full bg-primaryBlue hover:bg-secondaryBlue text-white rounded-md">
