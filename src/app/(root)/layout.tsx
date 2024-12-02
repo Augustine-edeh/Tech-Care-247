@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-dvh`}>
-        <div className="h-screen flex flex-col lg:gap-y-5 lg:p-5 bg-unnamed-page-bg">
+        <div className="h-screen flex flex-col gap-y-1 lg:gap-y-5 lg:p-5 bg-unnamed-page-bg">
           <Header />
           {children}
           <BottomNav />
