@@ -1,18 +1,20 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import Navbar from "../Navbar";
 import User from "../ui/UserCard";
 import Logo from "../ui/Logo";
 import Menu from "../Menu";
-
 import SettingsIcon from "../ui/SettingsIcon";
 import MenuIcon from "../ui/MenuIcon";
 import NavTab from "../NavTab";
 
 const Header = () => {
+  const pathname = usePathname();
+
   return (
     <header>
-      <div className="flex items-center justify-between px-5 md:px-8 h-[72px] bg-unnamed-color-ffffff lg:rounded-[70px]">
+      <div className="flex items-center justify-between px-5 md:px-8 h-[72px] bg-unnamed-color-ffffff lg:rounded-[70px] border-b xl:border-none">
         <Logo />
         <div className="hidden xl:flex">
           <Navbar />
@@ -26,7 +28,7 @@ const Header = () => {
         </div>
         <Menu />
       </div>
-      <NavTab />
+      {pathname === "/" && <NavTab />}
     </header>
   );
 };
