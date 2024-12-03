@@ -4,7 +4,10 @@ import { useState, useRef } from "react";
 import { ClassNameType } from "../../../types/Ui";
 import { Search, X } from "lucide-react";
 
-const SearchPatients = ({ className }: ClassNameType) => {
+const SearchPatients = ({
+  className,
+  onSearch,
+}: ClassNameType & { onSearch: (query: string) => void }) => {
   const [isSearchClicked, setIsSearchClicked] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -12,7 +15,13 @@ const SearchPatients = ({ className }: ClassNameType) => {
     setIsSearchClicked((prev) => !prev);
     if (!isSearchClicked) {
       setTimeout(() => inputRef.current?.focus(), 150); // Focus input when visible
+    } else {
+      onSearch(""); // Clear search when closed
     }
+  };
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    onSearch(event.target.value);
   };
 
   return (
@@ -27,6 +36,7 @@ const SearchPatients = ({ className }: ClassNameType) => {
             className="h-full px-4 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
             placeholder="Search patients..."
             aria-label="Search patients"
+            onChange={handleInputChange}
           />
         ) : (
           <h3 className="font-manrope font-extrabold text-xl leading-8 text-gray-800 transition-all duration-300">
