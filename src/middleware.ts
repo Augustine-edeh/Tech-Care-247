@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
 
   if (request.nextUrl.pathname === "/patients") {
     // Rewrite `/patients` requests to the index route
-    return NextResponse.rewrite(new URL("/", request.url));
+    return NextResponse.rewrite(new URL("", request.url));
   }
 
   // Optional: return undefined to continue the request as usual for other routes
