@@ -42,7 +42,7 @@ const PatientProfile = ({ className }: ClassNameType) => {
               height={200}
               alt={`profile-photo`}
             />
-            <h3 className="font-manrope font-extrabold text-3xl leading-[33px] text-unnamed-color-072635">{`${patientName}`}</h3>
+            <h3 className="font-manrope font-extrabold text-3xl leading-33 text-unnamed-color-072635">{`${patientName}`}</h3>
           </div>
           <ul className="hidden lg:flex flex-col gap-y-4 mt-7">
             <PatientDOB />
@@ -52,7 +52,7 @@ const PatientProfile = ({ className }: ClassNameType) => {
             <PatientInsuranceProvider />
           </ul>
           <div className="flex justify-center items-center mt-4">
-            <button className="px-5 py-3 rounded-[41px] bg-unnamed-activestate-bg-1 font-manrope font-bold text-base leading-[19px] text-unnamed-color-072635">
+            <button className="px-5 py-3 rounded-[41px] bg-unnamed-activestate-bg-1 font-manrope font-bold text-base leading-5 text-unnamed-color-072635">
               Show All Information
             </button>
           </div>

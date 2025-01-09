@@ -1,35 +1,39 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import useActiveTabStore from "@/store/useActiveTabStore";
 import PatientsList from "../patients/PatientsList";
 import PatientDiagnosisInfo from "../patients/PatientDiagnosisInfo";
-import PatientCard from "../patients/PatientCard";
 import PatientProfile from "../patients/PatientProfile";
 
 const Main = () => {
   const activeTab = useActiveTabStore((state) => state.activeTab);
+  const pathname = usePathname();
+
+  // Synchronize active tab with root path
+  const isRootRoute = pathname === "/";
 
   return (
     <main className="flex flex-1 h-screen overflow-hidden">
-      {/* Mobile view */}
+      {/* Mobile View */}
       <div className="w-full xl:hidden">
-        {activeTab === "patients" && <PatientsList />}
+        {isRootRoute && activeTab === "patients" && <PatientsList />}
 
-        {activeTab === "overview" && <PatientDiagnosisInfo />}
+        {isRootRoute && activeTab === "overview" && <PatientDiagnosisInfo />}
 
-        {activeTab === "diagnosis" && <PatientProfile />}
+        {isRootRoute && activeTab === "diagnosis" && <PatientProfile />}
       </div>
 
       {/* Desktop View */}
       <div className="hidden xl:grid grid-cols-12 gap-10 w-full">
         <div className="col-span-3 overflow-hidden rounded-2xl bg-unnamed-color-ffffff">
-          <PatientsList />
+          {isRootRoute && <PatientsList />}
         </div>
         <div className="col-span-6 overflow-hidden rounded-2xl">
-          <PatientDiagnosisInfo />
+          {isRootRoute && <PatientDiagnosisInfo />}
         </div>
         <div className="col-span-3 overflow-hidden rounded-2xl">
-          <PatientProfile />
+          {isRootRoute && <PatientProfile />}
         </div>
       </div>
     </main>

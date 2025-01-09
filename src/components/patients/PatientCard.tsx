@@ -1,4 +1,6 @@
+import useNavigateToOverviewTab from "@/hooks/useNavigateToOverviewTab";
 import Image from "next/image";
+import Link from "next/link";
 
 type patientCardType = {
   profile_picture: string;
@@ -13,12 +15,15 @@ const PatientCard = ({
   gender,
   age,
 }: patientCardType) => {
+  const navigateToOverviewTab = useNavigateToOverviewTab();
+
   return (
-    <a
+    <Link
       href="#"
-      className="flex items-center h- 20 w-[353px bg-unnamed-color-ffffff outline-none focus:bg-unnamed-activestate-bg-2 hover:bg-unnamed-activestate-bg-2/40"
+      onClick={navigateToOverviewTab}
+      className="flex items-center bg-unnamed-color-ffffff outline-none focus:bg-unnamed-activestate-bg-2 hover:bg-unnamed-activestate-bg-2/40"
     >
-      <div className="flex justify-between w-[317px w-full h-[48px] m-4">
+      <div className="flex justify-between w-full h-12 m-4">
         <section className="flex gap-x-3">
           <Image
             src={profile_picture}
@@ -29,10 +34,10 @@ const PatientCard = ({
           />
 
           <div className="flex flex-col justify-center">
-            <p className="font-manrope font-bold text-sm leading-[19px] text-unnamed-color-072635 text-left">
+            <p className="font-manrope font-bold text-sm leading text-unnamed-color-072635 text-left">
               {name}
             </p>
-            <p className="font-manrope font-normal text-sm leading-[19px] text-unnamed-color-707070 text-left">
+            <p className="font-manrope font-normal text-sm leading-5 text-unnamed-color-707070">
               {`${gender}, ${age}`}
             </p>
           </div>
@@ -45,7 +50,7 @@ const PatientCard = ({
           alt="more info"
         />
       </div>
-    </a>
+    </Link>
   );
 };
 

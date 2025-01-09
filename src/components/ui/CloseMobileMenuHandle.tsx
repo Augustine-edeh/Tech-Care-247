@@ -1,14 +1,16 @@
 import useMobileNavStore from "@/store/useMobileNavStore";
+import { X } from "lucide-react";
 
 const CloseMobileMenuHandle = () => {
   const toggleIsOpen = useMobileNavStore((state) => state.toggleIsOpen);
 
   return (
-    <div className="ml-auto h-8 px-3 flex justify-end items-center bg-zinc-300 font-bold">
-      <button className="px-2" onClick={toggleIsOpen}>
-        X
-      </button>
-    </div>
+    <button
+      className="active:bg-zinc-300/60 hover:bg-zinc-300/60 size-10 p-1 rounded-full"
+      onClick={toggleIsOpen}
+    >
+      <X className="size-full rounded-full" />
+    </button>
   );
 };
 

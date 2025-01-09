@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Chart from "../Chart";
 import DiagnosticListTable from "./DiagnosticListTable";
-import LabResults from "./LabResults";
 import PatientVitals from "./PatientVitals";
 import { ClassNameType } from "../../../types/Ui";
 import usePatientsStore from "@/store/usePatientsStore";
@@ -40,7 +39,7 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
         {/* Patient Quick View */}
         <div className="xl:hidden bg-white rounded-lg p-4 shadow-sm">
           <div className="flex items-center gap-4">
-            <div className="h-16 w-16 bg-blue-100 rounded-full flex items-center justify-center">
+            <div className="size-16 bg-blue-100 rounded-full flex items-center justify-center">
               <span className="text-xl font-medium">{patientInitials}</span>
             </div>
             <div>
@@ -66,7 +65,7 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
       {/* Desktop Screen View */}
       <section className="hidden xl:flex flex-col gap-12 overflow-y-auto">
         <div className="rounded-2xl p-5 bg-unnamed-color-ffffff">
-          <h2 className="font-manrope font-extrabold text-2xl leading-[33px] text-unnamed-color-072635 mb-10">
+          <h2 className="font-manrope font-extrabold text-2xl leading-33 text-unnamed-color-072635 mb-10">
             Diagnosis History
           </h2>
           <div className="flex flex-col">
@@ -77,22 +76,13 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
                     <h1 className="font-bold text-lg text-[#072635]">
                       Blood Pressure
                     </h1>
-                    <div className="flex gap-2">
-                      {/* <p>Last 6 months</p> */}
-                      {/* <Image
-                      src="/expand_more_FILL0_wght300_GRAD0_opsz24.svg"
-                      width={10}
-                      height={10}
-                      alt="month"
-                    /> */}
-                      <DateRangeSelector />
-                    </div>
+                    <DateRangeSelector />
                   </div>
                   <div className="h-full">
                     <Chart />
                   </div>
                 </section>
-                <section className="w-1/3 hidden md:col-span-4 md:flex flex-col gap-y-4">
+                <section className="w-1/3 flex flex-col col-span-4 gap-y-4">
                   <div className="flex flex-col gap-y-2">
                     <div className="flex items-center gap-x-2">
                       <p className="size-4 rounded-full bg-[#E66FD2]" />
