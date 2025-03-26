@@ -48,10 +48,10 @@ const PatientProfile = ({ className }: ClassNameType) => {
             <PatientDOB />
             <PatientGender />
             <PatientContactInfo />
-            <PatientEmergencyContact />
+            {/* <PatientEmergencyContact /> */}
             <PatientInsuranceProvider />
           </ul>
-          <div className="flex justify-center items-center mt-4">
+          <div className="flex justify-center items-center mt-5">
             <button className="px-5 py-3 rounded-[41px] bg-unnamed-activestate-bg-1 font-manrope font-bold text-base leading-5 text-unnamed-color-072635">
               Show All Information
             </button>
