@@ -63,7 +63,8 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
       </div>
 
       {/* Desktop Screen View */}
-      <section className="hidden xl:flex flex-col gap-12 overflow-y-auto">
+      <section className="hidden xl:flex flex-col gap-12 overflow-y-auto h-screen">
+        {/* First Div (auto height based on content) */}
         <div className="rounded-2xl p-5 bg-unnamed-color-ffffff">
           <h2 className="font-manrope font-extrabold text-2xl leading-33 text-unnamed-color-072635 mb-10">
             Diagnosis History
@@ -88,13 +89,11 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
                       <p className="size-4 rounded-full bg-[#E66FD2]" />
                       <h1>Systolic</h1>
                     </div>
-                    <p>{`${
-                      Systolic_value === undefined ? "- -" : Systolic_value
-                    }`}</p>
+                    <p>
+                      {Systolic_value === undefined ? "- -" : Systolic_value}
+                    </p>
                     <div className="flex items-center gap-x-2">
-                      {Systolic_levels === "Normal" ? (
-                        ""
-                      ) : (
+                      {Systolic_levels !== "Normal" && (
                         <Image
                           src={`/Arrow${
                             Systolic_levels === "Lower than Average"
@@ -106,9 +105,11 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
                           alt="indicator"
                         />
                       )}
-                      <p>{`${
-                        Systolic_levels === undefined ? "- -" : Systolic_levels
-                      }`}</p>
+                      <p>
+                        {Systolic_levels === undefined
+                          ? "- -"
+                          : Systolic_levels}
+                      </p>
                     </div>
                   </div>
                   <hr className="h-[1px] bg-unnamed-color-cbc8d4" />
@@ -118,14 +119,10 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
                       <h1>Diastolic</h1>
                     </div>
                     <p>
-                      {`${
-                        diastolic_value === undefined ? "- -" : diastolic_value
-                      }`}
+                      {diastolic_value === undefined ? "- -" : diastolic_value}
                     </p>
                     <div className="flex items-center gap-x-2">
-                      {diastolic_levels === "Normal" ? (
-                        ""
-                      ) : (
+                      {diastolic_levels !== "Normal" && (
                         <Image
                           src={`/Arrow${
                             diastolic_levels === "Lower than Average"
@@ -138,11 +135,9 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
                         />
                       )}
                       <p>
-                        {`${
-                          diastolic_levels === undefined
-                            ? "- -"
-                            : diastolic_levels
-                        }`}
+                        {diastolic_levels === undefined
+                          ? "- -"
+                          : diastolic_levels}
                       </p>
                     </div>
                   </div>
@@ -153,7 +148,8 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
           </div>
         </div>
 
-        <div className="rounded-2xl p-5 bg-unnamed-color-ffffff">
+        {/* Second Div (fills remaining space) */}
+        <div className="rounded-2xl p-5 bg-unnamed-color-ffffff flex-1">
           <DiagnosticListTable />
         </div>
       </section>
