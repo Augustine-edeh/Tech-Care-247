@@ -1,4 +1,5 @@
 import Main from "@/components/layout/Main";
+import PatientProfile from "@/components/patients/PatientProfile";
 import PatientsList from "@/components/patients/PatientsList";
 import Clock from "@/components/ui/Clock";
 import { MessageCirclePlus } from "lucide-react";
@@ -26,11 +27,11 @@ const PatientsPage = () => {
 
         {/* Desktop View */}
         <div className="hidden xl:grid grid-cols-12 gap-10 w-full">
-          <div className="col-span-3 overflow-hidden rounded-2xl bg-unnamed-color-ffffff">
+          <div className="col-span-7 overflow-hidden rounded-2xl bg-unnamed-color-ffffff">
             <PatientsList />
           </div>
 
-          <div className="flex flex-col col-span-6 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
+          {/* <div className="flex flex-col col-span-6 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
             <h3 className="font-manrope font-extrabold text-xl leading-8 text-unnamed-color-072635">
               Patients
             </h3>
@@ -41,10 +42,11 @@ const PatientsPage = () => {
               </p>
               <p className="opacity-45">All patients will be listed here.</p>
             </div>
-          </div>
+          </div> */}
 
-          <div className="col-span-3 overflow-hidden rounded-2xl">
-            <Clock />
+          <div className="col-span-5 overflow-hidden rounded-2xl">
+            {/* <Clock /> */}
+            <PatientProfile />
           </div>
         </div>
       </main>
