@@ -23,6 +23,16 @@ const SchedulePage = () => {
     // You can open a modal here to add an event
   };
 
+  const handleEventClick = (clickInfo: EventClickArg) => {
+    if (
+      confirm(
+        `Are you sure you want to delete the event '${clickInfo.event.title}'?`
+      )
+    ) {
+      clickInfo.event.remove();
+    }
+  };
+
   return (
     <>
       <main className="flex flex-1 h-screen overflow-hidden">
@@ -57,6 +67,7 @@ const SchedulePage = () => {
                   { title: "Event 1", date: "2025-03-26" },
                   { title: "Event 2", date: "2025-03-29" },
                 ]}
+                eventClick={handleEventClick}
               />
             </div>
           </div>
