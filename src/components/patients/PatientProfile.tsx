@@ -34,7 +34,7 @@ const PatientProfile = ({ className }: ClassNameType) => {
 
       {/* Desktop view */}
       <div className="hidden xl:flex flex-col gap-6 h-full">
-        <section className="bg-unnamed-color-ffffff rounded-2xl px-5 py-4 h-4/5">
+        <section className="bg-unnamed-color-ffffff rounded-2xl p-5 h-4/5">
           <div className="flex flex-col items-center gap-y-6">
             <Image
               src={`${profile_picture ? profile_picture : "/null"}`}
@@ -42,7 +42,9 @@ const PatientProfile = ({ className }: ClassNameType) => {
               height={200}
               alt={`profile-photo`}
             />
-            <h3 className="font-manrope font-extrabold text-3xl leading-33 text-unnamed-color-072635">{`${patientName}`}</h3>
+            <h3 className="font-manrope font-extrabold text-3xl leading-33 text-unnamed-color-072635">
+              {patientName}
+            </h3>
           </div>
           <ul className="hidden lg:flex flex-col gap-y-4 mt-7">
             <PatientDOB />
