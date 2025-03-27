@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Start of button colour styles for sweetalert2 modal */
+.swal-confirm-button {
+  background-color: #dc2626 !important; /* Red */
+  color: white !important;
+}
+
+.swal-cancel-button {
+  background-color: #16a34a !important; /* Green */
+  color: white !important;
+}
+/* End of sweetalert2 modal styles */
+
 .patient-list::-webkit-scrollbar {
   width: 6px;
   /* height: 1em; */

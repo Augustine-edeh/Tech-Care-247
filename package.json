@@ -28,6 +28,7 @@
     "react-clock": "^5.0.0",
     "react-dom": "^18",
     "react-infinite-scroll-component": "^6.1.0",
+    "sweetalert2": "^11.17.2",
     "zustand": "^4.5.4"
   },
   "devDependencies": {

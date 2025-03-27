@@ -13,6 +13,7 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid"; // Month View
 import timeGridPlugin from "@fullcalendar/timegrid"; // Week & Day View
 import interactionPlugin from "@fullcalendar/interaction"; // Enables date selection
+import Swal from "sweetalert2";
 
 import Clock from "@/components/ui/Clock";
 import PatientsList from "@/components/patients/PatientsList";
@@ -23,14 +24,34 @@ const SchedulePage = () => {
     // You can open a modal here to add an event
   };
 
+  // const handleEventClick = (clickInfo: EventClickArg) => {
+  //   if (
+  //     confirm(
+  //       `Are you sure you want to delete the event '${clickInfo.event.title}'?`
+  //     )
+  //   ) {
+  //     clickInfo.event.remove();
+  //   }
+  // };
+
   const handleEventClick = (clickInfo: EventClickArg) => {
-    if (
-      confirm(
-        `Are you sure you want to delete the event '${clickInfo.event.title}'?`
-      )
-    ) {
-      clickInfo.event.remove();
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: `Do you want to delete '${clickInfo.event.title}'?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete!",
+      cancelButtonText: "Cancel",
+      customClass: {
+        confirmButton: "swal-confirm-button",
+        cancelButton: "swal-cancel-button",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        clickInfo.event.remove();
+        Swal.fire("Deleted!", "Event successfully removed.", "success");
+      }
+    });
   };
 
   return (
