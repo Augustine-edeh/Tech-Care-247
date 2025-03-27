@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import {
   EventApi,
   DateSelectArg,
@@ -10,48 +12,40 @@ import {
 } from "@fullcalendar/core";
 
 import FullCalendar from "@fullcalendar/react";
-import dayGridPlugin from "@fullcalendar/daygrid"; // Month View
-import timeGridPlugin from "@fullcalendar/timegrid"; // Week & Day View
-import interactionPlugin from "@fullcalendar/interaction"; // Enables date selection
-import Swal from "sweetalert2";
-
+import dayGridPlugin from "@fullcalendar/daygrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import Clock from "@/components/ui/Clock";
-import PatientsList from "@/components/patients/PatientsList";
 
 const SchedulePage = () => {
-  const handleDateSelect = (selectInfo: DatesSetArg) => {
-    alert(`Selected date: ${selectInfo.startStr}`);
-    // You can open a modal here to add an event
-  };
+  const [events, setEvents] = useState([
+    { id: "1", title: "Event 1", date: "2025-03-26" },
+    { id: "2", title: "Event 2", date: "2025-03-29" },
+  ]);
 
-  // const handleEventClick = (clickInfo: EventClickArg) => {
-  //   if (
-  //     confirm(
-  //       `Are you sure you want to delete the event '${clickInfo.event.title}'?`
-  //     )
-  //   ) {
-  //     clickInfo.event.remove();
-  //   }
-  // };
+  const [selectedEvent, setSelectedEvent] = useState<EventClickArg | null>(
+    null
+  );
 
   const handleEventClick = (clickInfo: EventClickArg) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: `Do you want to delete '${clickInfo.event.title}'?`,
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Yes, delete!",
-      cancelButtonText: "Cancel",
-      customClass: {
-        confirmButton: "swal-confirm-button",
-        cancelButton: "swal-cancel-button",
-      },
-    }).then((result) => {
-      if (result.isConfirmed) {
-        clickInfo.event.remove();
-        Swal.fire("Deleted!", "Event successfully removed.", "success");
-      }
-    });
+    setSelectedEvent(clickInfo);
+  };
+
+  const confirmDelete = () => {
+    if (selectedEvent) {
+      setEvents((prevEvents) =>
+        prevEvents.filter((event) => event.id !== selectedEvent.event.id)
+      );
+      selectedEvent.event.remove(); // Ensure FullCalendar updates
+    }
+    setSelectedEvent(null);
   };
 
   return (
@@ -81,13 +75,10 @@ const SchedulePage = () => {
 
             <div className="overflow-auto flex-1">
               <FullCalendar
-                plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+                plugins={[dayGridPlugin, interactionPlugin]}
                 initialView="dayGridMonth"
                 selectable={true}
-                events={[
-                  { title: "Event 1", date: "2025-03-26" },
-                  { title: "Event 2", date: "2025-03-29" },
-                ]}
+                events={events}
                 eventClick={handleEventClick}
               />
             </div>
@@ -102,12 +93,37 @@ const SchedulePage = () => {
               You have no schedule on your calendar.
             </div>
           </div>
-
-          {/* <div className="col-span-3 overflow-hidden rounded-2xl">
-            <Clock />
-          </div> */}
         </div>
       </main>
+
+      {/* ShadCN Dialog for Confirm Delete */}
+      <Dialog
+        open={!!selectedEvent}
+        onOpenChange={() => setSelectedEvent(null)}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Confirm Deletion</DialogTitle>
+          </DialogHeader>
+          <p>Are you sure you want to delete "{selectedEvent?.event.title}"?</p>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setSelectedEvent(null)}
+              className="bg-green-500 text-white hover:bg-green-600"
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={confirmDelete}
+              className="bg-red-500 text-white hover:bg-red-600"
+            >
+              Yes, Delete
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </>
   );
 };
