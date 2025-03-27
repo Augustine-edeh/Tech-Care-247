@@ -24,13 +24,16 @@ const SchedulePage = () => {
 
         {/* Desktop View */}
         <div className="hidden xl:grid grid-cols-12 gap-10 w-full">
-          <div className="col-span-3 overflow-hidden rounded-2xl bg-unnamed-color-ffffff">
-            <PatientsList />
+          <div className="col-span-8 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
+            {/* <PatientsList /> */}
+            <h3 className="font-manrope font-extrabold text-2xl leading-8 text-unnamed-color-072635">
+              Calendar
+            </h3>
           </div>
 
-          <div className="flex flex-col col-span-6 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
-            <h3 className="font-manrope font-extrabold text-xl leading-8 text-unnamed-color-072635">
-              Schedule
+          <div className="flex flex-col col-span-4 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
+            <h3 className="font-manrope font-extrabold text-2xl leading-8 text-unnamed-color-072635">
+              Upcoming Schedule
             </h3>
 
             <div className="grid place-items-center flex-1">
@@ -38,9 +41,9 @@ const SchedulePage = () => {
             </div>
           </div>
 
-          <div className="col-span-3 overflow-hidden rounded-2xl">
+          {/* <div className="col-span-3 overflow-hidden rounded-2xl">
             <Clock />
-          </div>
+          </div> */}
         </div>
       </main>
     </>
