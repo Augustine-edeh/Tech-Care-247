@@ -3,16 +3,25 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import { DateSelectArg, EventClickArg } from "@fullcalendar/core";
 import Clock from "@/components/ui/Clock";
+import AddEventDialog from "@/components/AddEventDialog";
 import DeleteEventDialog from "@/components/DeleteEventDialog";
 import { useEventStore } from "../../../../store/useEventStore";
-import { EventClickArg } from "@fullcalendar/core";
 
 const SchedulePage = () => {
-  const { events, selectEvent } = useEventStore();
+  const { events, selectEvent, setSelectedDate } = useEventStore();
 
   const handleEventClick = (clickInfo: EventClickArg) => {
-    selectEvent(clickInfo.event);
+    selectEvent({
+      id: clickInfo.event.id,
+      title: clickInfo.event.title,
+      date: clickInfo.event.startStr,
+    });
+  };
+
+  const handleDateSelect = (selectInfo: DateSelectArg) => {
+    setSelectedDate(selectInfo.startStr);
   };
 
   return (
@@ -21,12 +30,10 @@ const SchedulePage = () => {
         {/* Mobile View */}
         <div className="flex flex-col gap-5 w-full xl:hidden bg-unnamed-color-ffffff p-5">
           <Clock className="p-0" />
-
           <div className="flex flex-col flex-1">
             <h3 className="font-manrope font-extrabold text-xl leading-8 text-unnamed-color-072635">
               Schedule
             </h3>
-
             <div className="grid place-items-center flex-1">
               You have no schedule on your calendar.
             </div>
@@ -45,8 +52,9 @@ const SchedulePage = () => {
                 plugins={[dayGridPlugin, interactionPlugin]}
                 initialView="dayGridMonth"
                 selectable={true}
-                events={events}
+                select={handleDateSelect}
                 eventClick={handleEventClick}
+                events={events}
               />
             </div>
           </div>
@@ -57,13 +65,24 @@ const SchedulePage = () => {
             </h3>
 
             <div className="grid place-items-center flex-1">
-              You have no schedule on your calendar.
+              {events.length === 0 ? (
+                "You have no schedule on your calendar."
+              ) : (
+                <ul>
+                  {events.map((event) => (
+                    <li key={event.id} className="p-2 border-b">
+                      {event.date} - {event.title}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>
       </main>
 
-      {/* Delete Event Modal */}
+      {/* Modals */}
+      <AddEventDialog />
       <DeleteEventDialog />
     </>
   );
