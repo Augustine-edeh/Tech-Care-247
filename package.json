@@ -9,9 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.15",
+    "@fullcalendar/daygrid": "^6.1.15",
+    "@fullcalendar/interaction": "^6.1.15",
+    "@fullcalendar/react": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+    "@radix-ui/react-dialog": "^1.1.6",
+    "@radix-ui/react-slot": "^1.1.2",
     "axios": "^1.7.3",
     "base-64": "^1.0.0",
     "chart.js": "^4.4.3",
+    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cors": "^2.8.5",
     "lucide-react": "^0.460.0",
@@ -23,6 +31,9 @@
     "react-clock": "^5.0.0",
     "react-dom": "^18",
     "react-infinite-scroll-component": "^6.1.0",
+    "sweetalert2": "^11.17.2",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss-animate": "^1.0.7",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
