@@ -1,3 +1,4 @@
+import { useEventStore } from "../store/useEventStore";
 import {
   Dialog,
   DialogContent,
@@ -6,21 +7,19 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { useEventStore } from "../../src/store/useEventStore";
 
 const DeleteEventDialog = () => {
-  const { selectedEvent, removeEvent, selectEvent } = useEventStore();
+  const { selectedEvent, removeEvent, closeDeleteDialog } = useEventStore();
 
   const confirmDelete = () => {
     if (selectedEvent) {
-      removeEvent(selectedEvent.id);
-      selectedEvent.remove(); // Ensure FullCalendar updates
-      selectEvent(null);
+      removeEvent(selectedEvent.id); // Remove from Zustand store
+      closeDeleteDialog(); // Close dialog
     }
   };
 
   return (
-    <Dialog open={!!selectedEvent} onOpenChange={() => selectEvent(null)}>
+    <Dialog open={!!selectedEvent} onOpenChange={closeDeleteDialog}>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Confirm Deletion</DialogTitle>
@@ -31,7 +30,7 @@ const DeleteEventDialog = () => {
         <DialogFooter>
           <Button
             variant="outline"
-            onClick={() => selectEvent(null)}
+            onClick={closeDeleteDialog}
             className="bg-green-500 text-white hover:bg-green-600"
           >
             Cancel
