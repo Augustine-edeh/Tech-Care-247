@@ -1,51 +1,18 @@
 "use client";
 
-import { useState } from "react";
-
-import {
-  EventApi,
-  DateSelectArg,
-  EventClickArg,
-  EventContentArg,
-  formatDate,
-  DatesSetArg,
-} from "@fullcalendar/core";
-
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogFooter,
-} from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import Clock from "@/components/ui/Clock";
+import DeleteEventDialog from "@/components/DeleteEventDialog";
+import { useEventStore } from "../../../../store/useEventStore";
+import { EventClickArg } from "@fullcalendar/core";
 
 const SchedulePage = () => {
-  const [events, setEvents] = useState([
-    { id: "1", title: "Event 1", date: "2025-03-26" },
-    { id: "2", title: "Event 2", date: "2025-03-29" },
-  ]);
-
-  const [selectedEvent, setSelectedEvent] = useState<EventClickArg | null>(
-    null
-  );
+  const { events, selectEvent } = useEventStore();
 
   const handleEventClick = (clickInfo: EventClickArg) => {
-    setSelectedEvent(clickInfo);
-  };
-
-  const confirmDelete = () => {
-    if (selectedEvent) {
-      setEvents((prevEvents) =>
-        prevEvents.filter((event) => event.id !== selectedEvent.event.id)
-      );
-      selectedEvent.event.remove(); // Ensure FullCalendar updates
-    }
-    setSelectedEvent(null);
+    selectEvent(clickInfo.event);
   };
 
   return (
@@ -96,34 +63,8 @@ const SchedulePage = () => {
         </div>
       </main>
 
-      {/* ShadCN Dialog for Confirm Delete */}
-      <Dialog
-        open={!!selectedEvent}
-        onOpenChange={() => setSelectedEvent(null)}
-      >
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Confirm Deletion</DialogTitle>
-          </DialogHeader>
-          <p>Are you sure you want to delete "{selectedEvent?.event.title}"?</p>
-          <DialogFooter>
-            <Button
-              variant="outline"
-              onClick={() => setSelectedEvent(null)}
-              className="bg-green-500 text-white hover:bg-green-600"
-            >
-              Cancel
-            </Button>
-            <Button
-              variant="destructive"
-              onClick={confirmDelete}
-              className="bg-red-500 text-white hover:bg-red-600"
-            >
-              Yes, Delete
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+      {/* Delete Event Modal */}
+      <DeleteEventDialog />
     </>
   );
 };
