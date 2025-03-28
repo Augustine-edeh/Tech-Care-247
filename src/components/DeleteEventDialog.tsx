@@ -13,7 +13,7 @@ const DeleteEventDialog = () => {
 
   const confirmDelete = () => {
     if (selectedEvent) {
-      removeEvent(selectedEvent.id); // Remove from Zustand store
+      removeEvent(selectedEvent.id); // Remove from Zustand store (useEventStore)
       closeDeleteDialog(); // Close dialog
     }
   };
