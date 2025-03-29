@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Change background color of today's date on FullCalendar*/
+.fc-day-today {
+  background-color: #fff9c4 !important;
+}
+/* End of FullCalendar styles */
+
 .patient-list::-webkit-scrollbar {
   width: 6px;
   /* height: 1em; */
