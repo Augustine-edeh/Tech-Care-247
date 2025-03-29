@@ -8,6 +8,7 @@ import Clock from "@/components/ui/Clock";
 import AddEventDialog from "@/components/AddEventDialog";
 import DeleteEventDialog from "@/components/DeleteEventDialog";
 import { useEventStore } from "../../../../store/useEventStore";
+import ScheduleList from "@/components/ui/ScheduleList";
 
 const SchedulePage = () => {
   const { events, selectEvent, setSelectedDate } = useEventStore();
@@ -55,26 +56,24 @@ const SchedulePage = () => {
                 select={handleDateSelect}
                 eventClick={handleEventClick}
                 events={events}
+                height="100%"
               />
             </div>
           </div>
 
-          <div className="flex flex-col col-span-4 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
+          <div className="flex flex-col col-span-4 gap-5 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
             <h3 className="font-manrope font-extrabold text-2xl leading-8 text-unnamed-color-072635">
               Upcoming Schedule
             </h3>
 
-            <div className="grid place-items-center flex-1">
+            <div className="flex-1 overflow-auto">
               {events.length === 0 ? (
-                "You have no schedule on your calendar."
+                <p className="text-center">
+                  You have no schedule on your calendar. <br /> Select a date on
+                  the calendar to add a schedule/event.
+                </p>
               ) : (
-                <ul>
-                  {events.map((event) => (
-                    <li key={event.id} className="p-2 border-b">
-                      {event.date} - {event.title}
-                    </li>
-                  ))}
-                </ul>
+                <ScheduleList />
               )}
             </div>
           </div>

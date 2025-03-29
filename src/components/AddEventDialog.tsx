@@ -35,12 +35,19 @@ const AddEventDialog = () => {
         <DialogHeader>
           <DialogTitle>Add Event</DialogTitle>
         </DialogHeader>
-        <Input
-          type="text"
-          placeholder="Enter event title"
-          value={newEventTitle}
-          onChange={(e) => setNewEventTitle(e.target.value)}
-        />
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleAddEvent();
+          }}
+        >
+          <Input
+            type="text"
+            placeholder="Enter event title"
+            value={newEventTitle}
+            onChange={(e) => setNewEventTitle(e.target.value)}
+          />
+        </form>
         <DialogFooter>
           <Button variant="outline" onClick={closeAddDialog}>
             Cancel
