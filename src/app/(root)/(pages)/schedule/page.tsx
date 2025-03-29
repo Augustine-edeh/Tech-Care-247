@@ -59,14 +59,17 @@ const SchedulePage = () => {
             </div>
           </div>
 
-          <div className="flex flex-col col-span-4 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
+          <div className="flex flex-col col-span-4 gap-5 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
             <h3 className="font-manrope font-extrabold text-2xl leading-8 text-unnamed-color-072635">
               Upcoming Schedule
             </h3>
 
-            <div className="grid place-items-center flex-1">
+            <div className="grid place-items-center flex-1 overflow-auto">
               {events.length === 0 ? (
-                "You have no schedule on your calendar."
+                <p className="text-center">
+                  You have no schedule on your calendar. <br /> Select a date on
+                  the calendar to add a schedule/event.
+                </p>
               ) : (
                 <ul>
                   {events.map((event) => (
