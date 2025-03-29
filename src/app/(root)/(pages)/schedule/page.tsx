@@ -64,7 +64,7 @@ const SchedulePage = () => {
               Upcoming Schedule
             </h3>
 
-            <div className="grid place-items-center flex-1 overflow-auto">
+            <div className="flex-1 overflow-auto">
               {events.length === 0 ? (
                 <p className="text-center">
                   You have no schedule on your calendar. <br /> Select a date on
