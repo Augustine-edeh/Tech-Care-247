@@ -8,6 +8,7 @@ import Clock from "@/components/ui/Clock";
 import AddEventDialog from "@/components/AddEventDialog";
 import DeleteEventDialog from "@/components/DeleteEventDialog";
 import { useEventStore } from "../../../../store/useEventStore";
+import ScheduleList from "@/components/ui/ScheduleList";
 
 const SchedulePage = () => {
   const { events, selectEvent, setSelectedDate } = useEventStore();
@@ -55,6 +56,7 @@ const SchedulePage = () => {
                 select={handleDateSelect}
                 eventClick={handleEventClick}
                 events={events}
+                height="100%"
               />
             </div>
           </div>
@@ -71,13 +73,7 @@ const SchedulePage = () => {
                   the calendar to add a schedule/event.
                 </p>
               ) : (
-                <ul>
-                  {events.map((event) => (
-                    <li key={event.id} className="p-2 border-b">
-                      {event.date} - {event.title}
-                    </li>
-                  ))}
-                </ul>
+                <ScheduleList />
               )}
             </div>
           </div>
