@@ -1,3 +1,4 @@
+import PatientInfoCard from "@/components/PatientInfoCard";
 import PatientsList from "@/components/patients/PatientsList";
 import { Button } from "@/components/ui/button";
 import Clock from "@/components/ui/Clock";
@@ -38,9 +39,8 @@ const PatientsPage = () => {
             </Button>
 
             <section className="grid grid-flow-col gap-5 flex-1">
-              <div className="bg-red-500 col-span-8 flex flex-col gap-5">
-                <h1> Left section</h1>
-                <div className="h-64 bg-yellow-300">Patient Profile Card</div>
+              <div className="col-span-8 flex flex-col gap-5">
+                <PatientInfoCard />
                 <div className="flex gap-5 flex-1">
                   <div className="bg-blue-300 w-1/2">Left section, LHS</div>
                   <div className="bg-blue-600 w-1/2">Left section, RHS</div>

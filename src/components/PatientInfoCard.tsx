@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Pencil, MessageSquare, Phone, Calendar } from "lucide-react";
@@ -10,7 +12,7 @@ const PatientInfoCard = () => {
     {
       title: "Edit",
       icon: <Pencil size={16} />,
-      backgroundColor: "bg-blue-500 text-white",
+      backgroundColor: "bg-unnamed-activestate-bg-1 text-black",
     },
     {
       title: "Message",
@@ -30,22 +32,33 @@ const PatientInfoCard = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-5 p-4 border rounded-lg shadow-md bg-white">
+    <div className="flex flex-col gap-5 p-4 border rounded-lg">
       {/* Patient Information */}
       <section className="flex gap-5 items-center">
-        <Image
-          src={selectedPatient?.profile_picture || "/default-profile-image.png"}
-          height={80}
-          width={80}
-          className="rounded-full"
-          alt={selectedPatient?.name || "patient-photo"}
-        />
-        <div className="flex flex-col">
-          <p className="text-lg font-semibold">{selectedPatient?.name}</p>
-          <p className="text-sm text-gray-600">Aged: {selectedPatient?.age}</p>
-          <p className="text-sm text-gray-600">
-            Insurance Provider: {selectedPatient?.insurance_type}
-          </p>
+        <div className="size-36">
+          <Image
+            src={
+              selectedPatient?.profile_picture || "/default-profile-image.png"
+            }
+            height={100}
+            width={100}
+            className="rounded-full h-full w-full"
+            alt={selectedPatient?.name || "patient-photo"}
+          />
+        </div>
+
+        <div className="flex flex-col gap-6 h-full">
+          <h3 className="text-3xl font-bold">
+            {selectedPatient?.name || "-- --"}
+          </h3>
+          <div>
+            <p className="text-lg text-gray-700 mb-3">
+              Aged: {selectedPatient?.age}
+            </p>
+            <p className="text-lg text-gray-700">
+              Insurance Provider: {selectedPatient?.insurance_type}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -54,7 +67,7 @@ const PatientInfoCard = () => {
         {actionButtons.map((button) => (
           <Button
             key={button.title}
-            className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md ${button.backgroundColor}`}
+            className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md ${button.backgroundColor} hover:bg-unnamed-color-0bd984 hover:text-white`}
           >
             {button.icon} {button.title}
           </Button>
