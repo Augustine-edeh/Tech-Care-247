@@ -1,5 +1,3 @@
-import Main from "@/components/layout/Main";
-import PatientProfile from "@/components/patients/PatientProfile";
 import PatientsList from "@/components/patients/PatientsList";
 import { Button } from "@/components/ui/button";
 import Clock from "@/components/ui/Clock";
@@ -33,23 +31,7 @@ const PatientsPage = () => {
             <PatientsList />
           </div>
 
-          {/* <div className="flex flex-col col-span-6 overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
-            <h3 className="font-manrope font-extrabold text-xl leading-8 text-unnamed-color-072635">
-              Patients
-            </h3>
-
-            <div className="grid place-content-center gap-2 flex-1 ">
-              <p>
-                This is the <strong>Patients page</strong>.
-              </p>
-              <p className="opacity-45">All patients will be listed here.</p>
-            </div>
-          </div> */}
-
           <div className="col-span-9 flex flex-col gap-5 overflow-hidden rounded- bg-unnamed-color-ffffff rounded-2xl p-5">
-            {/* <Clock /> */}
-            {/* <PatientProfile /> */}
-
             <Button className="self-end bg-unnamed-activestate-bg-1 text-black text-lg p-6 rounded-2xl">
               <Plus />
               Add New Patient
