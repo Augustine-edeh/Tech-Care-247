@@ -9,10 +9,18 @@ import AddEventDialog from "@/components/AddEventDialog";
 import DeleteEventDialog from "@/components/DeleteEventDialog";
 import { useEventStore } from "../../../../store/useEventStore";
 import ScheduleList from "@/components/ui/ScheduleList";
+import { Checkbox } from "@/components/ui/checkbox";
+import { useState } from "react";
 
 const SchedulePage = () => {
   const { events, selectEvent, setSelectedDate } = useEventStore();
 
+  const [showWeekends, setShowWeekends] = useState(true);
+
+  const handleToggleWeekends = (checked: boolean) => {
+    setShowWeekends(checked);
+    console.log("Weekends visibility:", checked); // Testing weekend toggle feature
+  };
   const handleEventClick = (clickInfo: EventClickArg) => {
     selectEvent({
       id: clickInfo.event.id,
@@ -43,10 +51,27 @@ const SchedulePage = () => {
 
         {/* Desktop View */}
         <div className="hidden xl:grid grid-cols-12 gap-10 w-full">
-          <div className="col-span-8 flex flex-col gap-y-10 h-full overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
-            <h3 className="font-manrope font-extrabold text-2xl leading-8 text-unnamed-color-072635 text-center">
-              Calendar
-            </h3>
+          <div className="col-span-8 flex flex-col gap-y-5 h-full overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
+            <section>
+              <h3 className="font-manrope font-extrabold text-2xl leading-8 text-unnamed-color-072635 text-center">
+                Calendar
+              </h3>
+
+              <div className="flex gap-3 h-6 bg-red -600 justify-center items-center w-fit justify-self-center  ">
+                <Checkbox
+                  id="toggle-weekends"
+                  checked={showWeekends}
+                  onCheckedChange={handleToggleWeekends}
+                />
+
+                <label
+                  htmlFor="toggle-weekends"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Accept terms and conditions
+                </label>
+              </div>
+            </section>
 
             <div className="overflow-auto flex-1">
               <FullCalendar
@@ -56,6 +81,7 @@ const SchedulePage = () => {
                 select={handleDateSelect}
                 eventClick={handleEventClick}
                 events={events}
+                weekends={showWeekends}
                 height="100%"
               />
             </div>
