@@ -15,6 +15,10 @@ const SchedulePage = () => {
   const { events, selectEvent, setSelectedDate, showWeekends } =
     useEventStore();
 
+  const sortedEvents = events.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
   const handleEventClick = (clickInfo: EventClickArg) => {
     selectEvent({
       id: clickInfo.event.id,
@@ -74,7 +78,7 @@ const SchedulePage = () => {
             </h3>
 
             <div className="flex-1 overflow-auto">
-              {events.length === 0 ? (
+              {sortedEvents.length === 0 ? (
                 <p className="text-center">
                   You have no schedule on your calendar. <br /> Select a date on
                   the calendar to add a schedule/event.

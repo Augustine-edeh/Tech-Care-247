@@ -28,8 +28,8 @@ export const useEventStore = create<EventStore>((set) => ({
   showWeekends: true,
   toggleWeekends: () => set((state) => ({ showWeekends: !state.showWeekends })),
   events: [
-    { id: "1", title: "Event 1", date: "2025-03-26" },
-    { id: "2", title: "Event 2", date: "2025-03-29" },
+    { id: "1", title: "Consultation - Emily Williams", date: "2025-03-26" },
+    { id: "2", title: "Post-surgery review", date: "2025-03-29" },
   ],
   selectedEvent: null,
   selectedDate: null,
