@@ -9,9 +9,11 @@ import AddEventDialog from "@/components/AddEventDialog";
 import DeleteEventDialog from "@/components/DeleteEventDialog";
 import { useEventStore } from "../../../../store/useEventStore";
 import ScheduleList from "@/components/ui/ScheduleList";
+import WeekendToggler from "@/components/WeekendToggler";
 
 const SchedulePage = () => {
-  const { events, selectEvent, setSelectedDate } = useEventStore();
+  const { events, selectEvent, setSelectedDate, showWeekends } =
+    useEventStore();
 
   const handleEventClick = (clickInfo: EventClickArg) => {
     selectEvent({
@@ -43,10 +45,14 @@ const SchedulePage = () => {
 
         {/* Desktop View */}
         <div className="hidden xl:grid grid-cols-12 gap-10 w-full">
-          <div className="col-span-8 flex flex-col gap-y-10 h-full overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
-            <h3 className="font-manrope font-extrabold text-2xl leading-8 text-unnamed-color-072635 text-center">
-              Calendar
-            </h3>
+          <div className="col-span-8 flex flex-col gap-y-5 h-full overflow-hidden rounded-2xl bg-unnamed-color-ffffff p-5">
+            <section>
+              <h3 className="font-manrope font-extrabold text-2xl leading-8 text-unnamed-color-072635 text-center">
+                Calendar
+              </h3>
+
+              <WeekendToggler />
+            </section>
 
             <div className="overflow-auto flex-1">
               <FullCalendar
@@ -56,6 +62,7 @@ const SchedulePage = () => {
                 select={handleDateSelect}
                 eventClick={handleEventClick}
                 events={events}
+                weekends={showWeekends}
                 height="100%"
               />
             </div>

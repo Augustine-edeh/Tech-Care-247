@@ -7,6 +7,8 @@ interface Event {
 }
 
 interface EventStore {
+  showWeekends: boolean;
+  toggleWeekends: () => void;
   events: Event[];
   selectedEvent: Event | null;
   selectedDate: string | null;
@@ -23,6 +25,8 @@ interface EventStore {
 }
 
 export const useEventStore = create<EventStore>((set) => ({
+  showWeekends: true,
+  toggleWeekends: () => set((state) => ({ showWeekends: !state.showWeekends })),
   events: [
     { id: "1", title: "Event 1", date: "2025-03-26" },
     { id: "2", title: "Event 2", date: "2025-03-29" },
