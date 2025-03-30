@@ -9,18 +9,12 @@ import AddEventDialog from "@/components/AddEventDialog";
 import DeleteEventDialog from "@/components/DeleteEventDialog";
 import { useEventStore } from "../../../../store/useEventStore";
 import ScheduleList from "@/components/ui/ScheduleList";
-import { Checkbox } from "@/components/ui/checkbox";
-import { useState } from "react";
+import WeekendToggler from "@/components/WeekendToggler";
 
 const SchedulePage = () => {
-  const { events, selectEvent, setSelectedDate } = useEventStore();
+  const { events, selectEvent, setSelectedDate, showWeekends } =
+    useEventStore();
 
-  const [showWeekends, setShowWeekends] = useState(true);
-
-  const handleToggleWeekends = (checked: boolean) => {
-    setShowWeekends(checked);
-    console.log("Weekends visibility:", checked); // Testing weekend toggle feature
-  };
   const handleEventClick = (clickInfo: EventClickArg) => {
     selectEvent({
       id: clickInfo.event.id,
@@ -57,20 +51,7 @@ const SchedulePage = () => {
                 Calendar
               </h3>
 
-              <div className="flex gap-3 h-6 bg-red -600 justify-center items-center w-fit justify-self-center  ">
-                <Checkbox
-                  id="toggle-weekends"
-                  checked={showWeekends}
-                  onCheckedChange={handleToggleWeekends}
-                />
-
-                <label
-                  htmlFor="toggle-weekends"
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  Accept terms and conditions
-                </label>
-              </div>
+              <WeekendToggler />
             </section>
 
             <div className="overflow-auto flex-1">
