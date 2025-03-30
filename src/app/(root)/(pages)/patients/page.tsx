@@ -1,8 +1,10 @@
 import Main from "@/components/layout/Main";
 import PatientProfile from "@/components/patients/PatientProfile";
 import PatientsList from "@/components/patients/PatientsList";
+import { Button } from "@/components/ui/button";
 import Clock from "@/components/ui/Clock";
-import { MessageCirclePlus } from "lucide-react";
+import { Plus } from "lucide-react";
+
 const PatientsPage = () => {
   return (
     <>
@@ -27,7 +29,7 @@ const PatientsPage = () => {
 
         {/* Desktop View */}
         <div className="hidden xl:grid grid-cols-12 gap-10 w-full">
-          <div className="col-span-7 overflow-hidden rounded-2xl bg-unnamed-color-ffffff">
+          <div className="col-span-3 overflow-hidden rounded-2xl bg-unnamed-color-ffffff">
             <PatientsList />
           </div>
 
@@ -44,9 +46,32 @@ const PatientsPage = () => {
             </div>
           </div> */}
 
-          <div className="col-span-5 overflow-hidden rounded-2xl">
+          <div className="col-span-9 flex flex-col gap-5 overflow-hidden rounded- bg-unnamed-color-ffffff rounded-2xl p-5">
             {/* <Clock /> */}
-            <PatientProfile />
+            {/* <PatientProfile /> */}
+
+            <Button className="self-end bg-unnamed-activestate-bg-1 text-black text-lg p-6 rounded-2xl">
+              <Plus />
+              Add New Patient
+            </Button>
+
+            <section className="grid grid-flow-col gap-5 flex-1">
+              <div className="bg-red-500 col-span-8 flex flex-col gap-5">
+                <h1> Left section</h1>
+                <div className="h-64 bg-yellow-300">Patient Profile Card</div>
+                <div className="flex gap-5 flex-1">
+                  <div className="bg-blue-300 w-1/2">Left section, LHS</div>
+                  <div className="bg-blue-600 w-1/2">Left section, RHS</div>
+                </div>
+              </div>
+
+              <div className="bg-green-500 col-span-4 flex flex-col gap-5">
+                <h1>Right section</h1>
+                <div className="bg-slate-400 h-72">Item 1</div>
+                <div className="bg-slate-500 flex-1">Item 2</div>
+                <div className="bg-slate-600 flex-1">Item 3</div>
+              </div>
+            </section>
           </div>
         </div>
       </main>
