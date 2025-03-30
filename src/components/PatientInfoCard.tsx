@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Pencil, MessageSquare, Phone, Calendar } from "lucide-react";
+import usePatientsStore from "@/store/usePatientsStore";
 
-const PatientInfoCard = ({ selectedPatient }) => {
+const PatientInfoCard = () => {
+  const { selectedPatient } = usePatientsStore();
+
   const actionButtons = [
     {
       title: "Edit",
@@ -31,17 +34,17 @@ const PatientInfoCard = ({ selectedPatient }) => {
       {/* Patient Information */}
       <section className="flex gap-5 items-center">
         <Image
-          src={selectedPatient.image}
+          src={selectedPatient?.profile_picture || "/default-profile-image.png"}
           height={80}
           width={80}
           className="rounded-full"
-          alt={selectedPatient.name}
+          alt={selectedPatient?.name || "patient-photo"}
         />
         <div className="flex flex-col">
-          <p className="text-lg font-semibold">{selectedPatient.name}</p>
-          <p className="text-sm text-gray-600">Aged: {selectedPatient.age}</p>
+          <p className="text-lg font-semibold">{selectedPatient?.name}</p>
+          <p className="text-sm text-gray-600">Aged: {selectedPatient?.age}</p>
           <p className="text-sm text-gray-600">
-            Insurance Provider: {selectedPatient.insuranceprovider}
+            Insurance Provider: {selectedPatient?.insurance_type}
           </p>
         </div>
       </section>
