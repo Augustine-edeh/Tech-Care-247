@@ -38,9 +38,7 @@ const PatientProfile = ({ className }: ClassNameType) => {
           <div className="flex flex-col items-center gap-y-6">
             <Image
               src={`${
-                profile_picture
-                  ? profile_picture
-                  : "/defaulat-profile-image.png"
+                profile_picture ? profile_picture : "/default-profile-image.png"
               }`}
               width={200}
               height={200}
