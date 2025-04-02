@@ -8,7 +8,7 @@ import Prescriptions from "@/components/Prescriptions";
 import TreatmentPlan from "@/components/TreatmentPlan";
 import { Button } from "@/components/ui/button";
 import Clock from "@/components/ui/Clock";
-import { Plus, SquareActivity } from "lucide-react";
+import { Download, Plus, SquareActivity } from "lucide-react";
 
 const PatientsPage = () => {
   return (
@@ -53,8 +53,19 @@ const PatientsPage = () => {
 
               <div className="col-span-4 flex flex-col gap-5">
                 <Appointments />
-
                 <TreatmentPlan />
+                <div>
+                  <h4>Lab Results & Reports </h4>
+                  <ul className="list-disc">
+                    <li className="flex gap-3">
+                      <Download />
+                      <div>
+                        <p>Complete Blood Count</p>
+                        <i>Jan 5, 2024</i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </section>
           </div>
