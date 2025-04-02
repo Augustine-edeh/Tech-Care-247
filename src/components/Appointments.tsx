@@ -1,4 +1,4 @@
-const Appointments = () => {
+const Appointments = ({ className = "" }) => {
   const appointments = [
     {
       type: "Consultation",
@@ -27,10 +27,10 @@ const Appointments = () => {
   ];
 
   return (
-    <div className="rounded-2xl border p-5">
+    <div className={`flex flex-col rounded-2xl border p-5 ${className}`}>
       <h4 className="text-2xl">Appointments</h4>
 
-      <ul className="list-disc pl-5 space-y-3  overflow-y-auto">
+      <ul className="flex-1 list-disc pl-5 space-y-3 overflow-y-auto">
         {appointments.map((appointment, index) => (
           <li key={index} className="bg-white/10 p-3 rounded-lg">
             <p className="font-semibold text-lg">{appointment.type}</p>

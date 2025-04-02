@@ -1,6 +1,7 @@
 import AddNewPatientButton from "@/components/AddNewPatientButton";
 import Appointments from "@/components/Appointments";
 import Chart from "@/components/Chart";
+import LabResultsAndReports from "@/components/LabResultsAndReports";
 import MedicalHistoryAndVitals from "@/components/MedicalHistoryAndVitals";
 import PatientInfoCard from "@/components/PatientInfoCard";
 import PatientsList from "@/components/patients/PatientsList";
@@ -52,20 +53,9 @@ const PatientsPage = () => {
               </div>
 
               <div className="col-span-4 flex flex-col gap-5">
-                <Appointments />
-                <TreatmentPlan />
-                <div>
-                  <h4>Lab Results & Reports </h4>
-                  <ul className="list-disc">
-                    <li className="flex gap-3">
-                      <Download />
-                      <div>
-                        <p>Complete Blood Count</p>
-                        <i>Jan 5, 2024</i>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
+                <Appointments className="flex-grow-[2]" />
+                <TreatmentPlan className="flex-grow" />
+                <LabResultsAndReports className="flex-grow-[2]" />
               </div>
             </section>
           </div>
