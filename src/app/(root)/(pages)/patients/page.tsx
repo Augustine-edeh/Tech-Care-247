@@ -93,9 +93,12 @@ const PatientsPage = () => {
               Add New Patient
             </Button>
 
-            <section className="grid grid-flow-col gap-5 flex-1">
-              <div className="col-span-7 flex flex-col gap-5">
-                <PatientInfoCard />
+            <section className="grid grid-cols-12 grid-flow-col gap-5 flex-1">
+              <div className="col-span-8 flex flex-col gap-5">
+                <div>
+                  <PatientInfoCard />
+                </div>
+
                 <div className="flex gap-5 flex-1">
                   <div className="w-1/2 flex flex-col gap-5">
                     <h4 className="text-2xl tracking-wide font-semibold">
@@ -125,31 +128,6 @@ const PatientsPage = () => {
 
                   <div className="border-l-2 w-1/2 flex flex-col px-5 py-2 gap-5 rounded-t-2xl">
                     <div>
-                      <h4 className="text-2xl">Appointments</h4>
-                      <ul className="list-disc pl-5 space-y-3 max-h-48 overflow-y-auto">
-                        {appointments.map((appointment, index) => (
-                          <li
-                            key={index}
-                            className="bg-white/10 p-3 rounded-lg"
-                          >
-                            <p className="font-semibold text-lg">
-                              {appointment.type}
-                            </p>
-                            <p className="text-sm opacity-90">
-                              📅 {appointment.date}
-                            </p>
-                            <p className="text-sm opacity-90">
-                              ⏰ {appointment.time}
-                            </p>
-                            <p className="text-sm opacity-90">
-                              👨‍⚕️ {appointment.doctor}
-                            </p>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="">
                       <h4 className="text-2xl font-medium tracking-wide">
                         Prescriptions
                       </h4>
@@ -166,12 +144,37 @@ const PatientsPage = () => {
                 </div>
               </div>
 
-              {/* <div className="bg-green-500 col-span-5 flex flex-col gap-5">
-                <h1>Right section</h1>
-                <div className="bg-slate-400 h-72">Item 1</div>
-                <div className="bg-slate-500 flex-1">Item 2</div>
-                <div className="bg-slate-600 flex-1">Item 3</div>
-              </div> */}
+              <div className="col-span-4 flex flex-col gap-5">
+                <div className="rounded-2xl border p-5">
+                  <h4 className="text-2xl">Appointments</h4>
+
+                  <ul className="list-disc pl-5 space-y-3  overflow-y-auto">
+                    {appointments.map((appointment, index) => (
+                      <li key={index} className="bg-white/10 p-3 rounded-lg">
+                        <p className="font-semibold text-lg">
+                          {appointment.type}
+                        </p>
+                        <p className="text-sm opacity-90">
+                          📅 {appointment.date}
+                        </p>
+                        <p className="text-sm opacity-90">
+                          ⏰ {appointment.time}
+                        </p>
+                        <p className="text-sm opacity-90">
+                          👨‍⚕️ {appointment.doctor}
+                        </p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="rounded-2xl border p-5">
+                  <h4 className="text-2xl">Treatment Plan</h4>
+                  <ul className="list-disc">
+                    <li>Liposylyn</li>
+                  </ul>
+                </div>
+              </div>
             </section>
           </div>
         </div>
