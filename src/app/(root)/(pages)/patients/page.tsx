@@ -42,8 +42,8 @@ const PatientsPage = () => {
           <div className="col-span-9 flex flex-col gap-5 overflow-hidden bg-unnamed-color-ffffff rounded-2xl p-5">
             <AddNewPatientButton />
 
-            <section className="grid grid-cols-12 gap-5 flex-1">
-              {/* Left section */}
+            <section className="grid grid-cols-12 gap-5 flex-1 min-h-0">
+              {/* Left Column */}
               <div className="col-span-8 flex flex-col gap-5">
                 <PatientInfoCard />
 
@@ -53,11 +53,11 @@ const PatientsPage = () => {
                 </div>
               </div>
 
-              {/* Right section */}
-              <div className="col-span-4 flex flex-col gap-5">
-                <Appointments className="" />
-                <TreatmentPlan className="" />
-                <LabResultsAndReports className="flex-1" />
+              {/* Right Column */}
+              <div className="col-span-4 flex flex-col gap-5 flex-1 min-h-0">
+                <Appointments />
+                <TreatmentPlan />
+                <LabResultsAndReports className="flex-1 min-h-0" />
               </div>
             </section>
           </div>

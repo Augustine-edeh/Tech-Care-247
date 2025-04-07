@@ -23,8 +23,22 @@ const MedicalHistoryAndVitals = () => {
               Normal
             </p>
           </div>
-          <div>Part 2</div>
-          <div>Part 3</div>
+          <div>
+            <h4>Respiratory rate</h4>
+            <p className="font-semibold text-2xl"> 79 bmp</p>
+            <p className="flex gap-2">
+              <SquareActivity />
+              Normal
+            </p>
+          </div>
+          <div>
+            <h4>Respiratory rate</h4>
+            <p className="font-semibold text-2xl"> 79 bmp</p>
+            <p className="flex gap-2">
+              <SquareActivity />
+              Normal
+            </p>
+          </div>
         </div>
       </div>
     </div>
