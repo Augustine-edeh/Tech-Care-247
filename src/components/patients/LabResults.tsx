@@ -18,7 +18,7 @@ const LabResults = ({ className }: ClassNameType) => {
         Lab Results
       </h3>
 
-      <ul className="grid gap-y-1 overflow-y-auto">
+      <ul className="grid flex-1 gap-y-1 pr-2 overflow-y-auto">
         {lab_results?.map((result, index) => (
           <button
             key={index}

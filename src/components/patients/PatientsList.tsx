@@ -5,6 +5,7 @@ import PatientCard from "./PatientCard";
 import SearchPatients from "../ui/SearchPatients";
 import usePatientsStore from "@/store/usePatientsStore";
 import { ClassNameType } from "../../../types/Ui";
+import { PatientDataType } from "../../../types/Patient";
 
 const PatientsList = ({ className }: ClassNameType) => {
   const { patients, isLoading, error, fetchPatientsData, setSelectedPatient } =
@@ -49,6 +50,7 @@ const PatientsList = ({ className }: ClassNameType) => {
         <div className="mb-5">
           <SearchPatients onSearch={handleSearch} />
         </div>
+
         {/* Scrollable List */}
         <div className="flex-1 overflow-y-auto">
           {isLoading ? (
@@ -66,11 +68,8 @@ const PatientsList = ({ className }: ClassNameType) => {
               <p className="text-red-500">Failed to load data: {error}</p>
             </div>
           ) : (
-            <ul
-              className="patient-list flex flex-col overflow-y-scroll w-full"
-              role="list"
-            >
-              {filteredPatients.map((patient, index) => (
+            <ul className="flex flex-col w-full" role="list">
+              {filteredPatients.map((patient: PatientDataType, index) => (
                 <li
                   key={index}
                   onClick={() => setSelectedPatient(patient)}

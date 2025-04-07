@@ -13,21 +13,25 @@ const PatientInfoCard = () => {
       title: "Edit",
       icon: <Pencil size={16} />,
       backgroundColor: "bg-unnamed-activestate-bg-1 text-black",
+      hoverBgColor: "hover:bg-unnamed-activestate-bg-1/60",
     },
     {
       title: "Message",
       icon: <MessageSquare size={16} />,
       backgroundColor: "bg-gray-100 text-gray-700",
+      hoverBgColor: "hover:bg-unnamed-activestate-bg-1/60",
     },
     {
       title: "Call",
       icon: <Phone size={16} />,
       backgroundColor: "bg-gray-100 text-gray-700",
+      hoverBgColor: "hover:bg-unnamed-activestate-bg-1/60",
     },
     {
       title: "Schedule",
       icon: <Calendar size={16} />,
       backgroundColor: "bg-gray-100 text-gray-700",
+      hoverBgColor: "hover:bg-unnamed-activestate-bg-1/60",
     },
   ];
 
@@ -40,10 +44,9 @@ const PatientInfoCard = () => {
             src={
               selectedPatient?.profile_picture || "/default-profile-image.png"
             }
-            height={100}
-            width={100}
-            className="rounded-full h-full w-full"
-            alt={selectedPatient?.name || "patient-photo"}
+            height={200}
+            width={200}
+            alt={"patient-photo"}
           />
         </div>
 
@@ -67,7 +70,7 @@ const PatientInfoCard = () => {
         {actionButtons.map((button) => (
           <Button
             key={button.title}
-            className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md ${button.backgroundColor} hover:bg-unnamed-color-0bd984 hover:text-white`}
+            className={`flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md ${button.backgroundColor} ${button.hoverBgColor}`}
           >
             {button.icon} {button.title}
           </Button>

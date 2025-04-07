@@ -8,25 +8,28 @@
 }
 /* End of FullCalendar styles */
 
-.patient-list::-webkit-scrollbar {
+::-webkit-scrollbar-thumb:hover {
+  /* background: hsl(120 100% 10% / 1); */
+}
+::-webkit-scrollbar {
   width: 6px;
   /* height: 1em; */
 }
 
-.patient-list::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #e3e4e6;
   border-radius: 100vw;
   margin-block: 0.5em;
 }
 
-.patient-list::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   /* background: hsl(120 100% 20% / 1); */
   background: #072635;
   /* border: 0.25em solid hsl(120 75% 50% / 1); */
   border-radius: 3px;
 }
 
-.patient-list::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   /* background: hsl(120 100% 10% / 1); */
 }
 
