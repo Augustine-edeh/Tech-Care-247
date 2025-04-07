@@ -44,10 +44,9 @@ const PatientInfoCard = () => {
             src={
               selectedPatient?.profile_picture || "/default-profile-image.png"
             }
-            height={100}
-            width={100}
-            className="rounded-full h-full w-full"
-            alt={selectedPatient?.name || "patient-photo"}
+            height={200}
+            width={200}
+            alt={"patient-photo"}
           />
         </div>
 
