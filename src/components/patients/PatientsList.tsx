@@ -49,6 +49,7 @@ const PatientsList = ({ className }: ClassNameType) => {
         <div className="mb-5">
           <SearchPatients onSearch={handleSearch} />
         </div>
+
         {/* Scrollable List */}
         <div className="flex-1 overflow-y-auto">
           {isLoading ? (
@@ -66,10 +67,7 @@ const PatientsList = ({ className }: ClassNameType) => {
               <p className="text-red-500">Failed to load data: {error}</p>
             </div>
           ) : (
-            <ul
-              className="patient-list flex flex-col overflow-y-scroll w-full"
-              role="list"
-            >
+            <ul className="patient-list flex flex-col w-full" role="list">
               {filteredPatients.map((patient, index) => (
                 <li
                   key={index}
