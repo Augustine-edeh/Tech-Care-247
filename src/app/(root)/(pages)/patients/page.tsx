@@ -43,6 +43,7 @@ const PatientsPage = () => {
             <AddNewPatientButton />
 
             <section className="grid grid-cols-12 gap-5 flex-1">
+              {/* Left section */}
               <div className="col-span-8 flex flex-col gap-5">
                 <PatientInfoCard />
 
@@ -52,10 +53,11 @@ const PatientsPage = () => {
                 </div>
               </div>
 
+              {/* Right section */}
               <div className="col-span-4 flex flex-col gap-5">
-                <Appointments className="flex-grow-[2]" />
-                <TreatmentPlan className="flex-grow" />
-                <LabResultsAndReports className="flex-grow-[2]" />
+                <Appointments className="" />
+                <TreatmentPlan className="" />
+                <LabResultsAndReports className="flex-1" />
               </div>
             </section>
           </div>

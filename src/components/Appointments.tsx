@@ -29,7 +29,7 @@ const Appointments = ({ className = "" }) => {
   ];
 
   return (
-    <div className={`flex flex-col rounded-2xl border p-5 ${className}`}>
+    <div className={`flex flex-col gap-5 rounded-2xl border p-5 ${className}`}>
       <h4 className="text-2xl">Appointments</h4>
 
       {/* <ul className="flex-1 list-disc pl-5 space-y-3 overflow-y-auto">
@@ -43,14 +43,14 @@ const Appointments = ({ className = "" }) => {
         ))}
       </ul> */}
 
-      <ul className="flex flex-col justify-between">
+      <ul className="flex flex-col gap-5 flex-1">
         <li>
           <div className="flex justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex gap-2">
               <Calendar />
-              <div className="">
+              <div>
                 <p className="font-bold">Consultaion</p>
-                <p className="opacity-70">Scheduled</p>
+                <i className="opacity-70">Scheduled</i>
               </div>
             </div>
             <span>10:00 AM</span>
@@ -59,11 +59,11 @@ const Appointments = ({ className = "" }) => {
 
         <li>
           <div className="flex justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex gap-2">
               <TrendingUp />
-              <div className="">
+              <div>
                 <p className="font-bold">Follow-up</p>
-                <p className="opacity-70">Past</p>
+                <i className="opacity-70">Past</i>
               </div>
             </div>
             <span>Feb 20 2024</span>

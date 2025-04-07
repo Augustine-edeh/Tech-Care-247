@@ -29,18 +29,17 @@ const Prescriptions = () => {
   ];
 
   return (
-    <div className="border-l-2 w-1/2 flex flex-col px-5 py-2 gap-5 rounded-t-2xl">
-      <div>
-        <h4 className="text-2xl font-medium tracking-wide">Prescriptions</h4>
-        <ul className="list-disc pl-5">
-          {prescriptions.map((prescription, index) => (
-            <li key={index}>
-              {prescription.name} ({prescription.dosage}) -{" "}
-              {prescription.frequency} for {prescription.duration}
-            </li>
-          ))}
-        </ul>
-      </div>
+    <div className="border-l-2 w-1/2 flex flex-col gap-5 px-5 py-2 rounded-t-2xl">
+      <h4 className="text-2xl tracking-wide">Prescriptions</h4>
+
+      <ul className="flex flex-col gap-3 list-disc pl-5">
+        {prescriptions.map((prescription, index) => (
+          <li key={index}>
+            {prescription.name} ({prescription.dosage}) -{" "}
+            {prescription.frequency} for {prescription.duration}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
