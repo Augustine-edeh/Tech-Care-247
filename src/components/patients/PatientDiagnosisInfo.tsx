@@ -47,8 +47,8 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
             </div>
           </div>
         </div>
-        {/* {activeTab === "overview" && ( */}
-        <div className="xl:hidden flex-1 overflow-y-auto space-y-6">
+
+        <div className="xl:hidden flex-1 pr-2 overflow-y-auto space-y-6">
           <PatientVitals />
           {/* Blood Pressure Graph */}
           <div className="bg-white rounded-lg flex flex-col gap-5 px-1 py-4">
