@@ -9,19 +9,18 @@ import usePatientsStore from "@/store/usePatientsStore";
 import DateRangeSelector from "../ui/DateRangeSelector";
 
 const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
-  const selectedPatient = usePatientsStore((state) => state.selectedPatient);
+  const { selectedPatient } = usePatientsStore();
 
-  const Systolic_value =
-    selectedPatient?.diagnosis_history[0].blood_pressure.systolic.value;
+  const selectedPatientBlooPressureData =
+    selectedPatient?.diagnosis_history[0].blood_pressure;
 
-  const Systolic_levels =
-    selectedPatient?.diagnosis_history[0].blood_pressure.systolic.levels;
+  const Systolic_value = selectedPatientBlooPressureData?.systolic.value;
 
-  const diastolic_value =
-    selectedPatient?.diagnosis_history[0].blood_pressure.diastolic.value;
+  const Systolic_levels = selectedPatientBlooPressureData?.systolic.levels;
 
-  const diastolic_levels =
-    selectedPatient?.diagnosis_history[0].blood_pressure.diastolic.levels;
+  const diastolic_value = selectedPatientBlooPressureData?.diastolic.value;
+
+  const diastolic_levels = selectedPatientBlooPressureData?.diastolic.levels;
 
   const patientInitials = selectedPatient?.name
     .split(" ")
@@ -48,8 +47,8 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
             </div>
           </div>
         </div>
-        {/* {activeTab === "overview" && ( */}
-        <div className="xl:hidden flex-1 overflow-y-auto space-y-6">
+
+        <div className="xl:hidden flex-1 pr-2 overflow-y-auto space-y-6">
           <PatientVitals />
           {/* Blood Pressure Graph */}
           <div className="bg-white rounded-lg flex flex-col gap-5 px-1 py-4">
@@ -67,7 +66,7 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
         {/* First Div (auto height based on content) */}
         <div className="rounded-2xl p-5 bg-unnamed-color-ffffff">
           <h2 className="font-manrope font-extrabold text-2xl leading-33 text-unnamed-color-072635 mb-10">
-            Diagnosis History
+            Diagnosis Historys
           </h2>
           <div className="flex flex-col">
             <div className="flex flex-col gap-6">
