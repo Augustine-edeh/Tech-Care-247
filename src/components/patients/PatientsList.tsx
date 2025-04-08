@@ -6,6 +6,7 @@ import SearchPatients from "../ui/SearchPatients";
 import usePatientsStore from "@/store/usePatientsStore";
 import { ClassNameType } from "../../../types/Ui";
 import { PatientDataType } from "../../../types/Patient";
+import PatientListItems from "../PatientsListItems";
 
 const PatientsList = ({ className }: ClassNameType) => {
   const { patients, isLoading, error, fetchPatientsData, setSelectedPatient } =
@@ -68,27 +69,10 @@ const PatientsList = ({ className }: ClassNameType) => {
               <p className="text-red-500">Failed to load data: {error}</p>
             </div>
           ) : (
-            <ul className="flex flex-col w-full" role="list">
-              {filteredPatients.map((patient: PatientDataType, index) => (
-                <li
-                  key={index}
-                  onClick={() => setSelectedPatient(patient)}
-                  role="listitem"
-                >
-                  <PatientCard
-                    profile_picture={patient.profile_picture}
-                    name={patient.name}
-                    gender={patient.gender}
-                    age={patient.age}
-                  />
-                </li>
-              ))}
-              {filteredPatients.length === 0 && (
-                <p className="text-center text-gray-500 mt-4">
-                  No patients found.
-                </p>
-              )}
-            </ul>
+            <PatientListItems
+              patients={filteredPatients}
+              onSelectPatient={setSelectedPatient}
+            />
           )}
         </div>
       </div>
