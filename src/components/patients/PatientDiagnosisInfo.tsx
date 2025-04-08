@@ -66,7 +66,7 @@ const PatientDiagnosisInfo = ({ className }: ClassNameType) => {
         {/* First Div (auto height based on content) */}
         <div className="rounded-2xl p-5 bg-unnamed-color-ffffff">
           <h2 className="font-manrope font-extrabold text-2xl leading-33 text-unnamed-color-072635 mb-10">
-            Diagnosis Historys
+            Diagnosis History
           </h2>
           <div className="flex flex-col">
             <div className="flex flex-col gap-6">
