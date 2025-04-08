@@ -6,8 +6,9 @@ const DiagnosticListTable = () => {
   const diagnostics = usePatientsStore(
     (state) => state.selectedPatient?.diagnostic_list
   );
+
   return (
-    <div className="flex flex-col gap-8 bg-unnamed-color-ffffff">
+    <div className="flex flex-col gap-8 bg-unnamed-color-ffffff rounded-2xl xl:rounded-none p-5 xl:p-0">
       <h2 className="font-manrope font-extrabold text-3xl leading-33 text-unnamed-color-072635">
         Diagnostic List
       </h2>
