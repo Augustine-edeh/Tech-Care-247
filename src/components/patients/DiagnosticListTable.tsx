@@ -8,14 +8,14 @@ const DiagnosticListTable = () => {
   );
 
   return (
-    <div className="flex flex-col gap-8 bg-unnamed-color-ffffff rounded-2xl xl:rounded-none p-5 xl:p-0">
-      <h2 className="font-manrope font-extrabold text-3xl leading-33 text-unnamed-color-072635">
+    <div className="flex flex-col gap-8 bg-unnamed-color-ffffff rounded-2xl xl:rounded-none p- 5 xl:p-0">
+      <h2 className="font-manrope font-extrabold text-3xl leading-33 text-unnamed-color-072635 p-5 xl:p-0">
         Diagnostic List
       </h2>
 
-      <table className="bg-white w-full">
-        <thead className="text-gray-700">
-          <tr className="">
+      <table className="bg- yellow-500 white w-full">
+        <thead className="text-gray-700 border border-gray-400">
+          {/* <tr className="">
             <th className="py-3 px-4 text-left bg-unnamed-page-bg rounded-l-3xl">
               Problem/Diagnosis
             </th>
@@ -23,6 +23,18 @@ const DiagnosticListTable = () => {
               Description
             </th>
             <th className="py-3 px-4 text-left bg-unnamed-page-bg rounded-r-3xl">
+              Status
+            </th>
+          </tr> */}
+
+          <tr>
+            <th className="py-3 px-2 xl:px-4 text-left bg-unnamed-page-bg rounded-l-l xl:rounded-3xl">
+              Diagnosis
+            </th>
+            <th className="py-3 px-2 xl:px-4 text-left bg-unnamed-page-bg">
+              Description
+            </th>
+            <th className="py-3 px-2 xl:px-4 text-left bg-unnamed-page-bg rounded-r-l xl:rounded-3xl">
               Status
             </th>
           </tr>
