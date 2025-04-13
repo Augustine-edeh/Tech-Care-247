@@ -1,11 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import PatientCard from "./PatientCard";
 import SearchPatients from "../ui/SearchPatients";
 import usePatientsStore from "@/store/usePatientsStore";
 import { ClassNameType } from "../../../types/Ui";
-import { PatientDataType } from "../../../types/Patient";
 import PatientListItems from "../PatientsListItems";
 
 const PatientsList = ({ className }: ClassNameType) => {
