@@ -56,7 +56,13 @@ const PatientProfile = ({ className }: ClassNameType) => {
             <PatientInsuranceProvider />
           </ul>
           <div className="flex justify-center items-center mt-5">
-            <button className="px-5 py-3 rounded-[41px] bg-unnamed-activestate-bg-1 font-manrope font-bold text-base leading-5 text-unnamed-color-072635">
+            <button
+              className="px-5 py-3 rounded-[41px] bg-unnamed-activestate-bg-1 text-unnamed-color-072635
+  font-manrope font-bold text-base leading-5
+  transition-all duration-200 ease-in-out 
+  hover:bg-unnamed-activestate-bg -1/80 hover:opacity-80 hover:text- unnamed-activestate-bg-1 
+  active:scale-95 active:shadow-inner"
+            >
               Show All Information
             </button>
           </div>
