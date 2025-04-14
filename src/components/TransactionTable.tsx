@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import {
   Table,
   TableBody,
@@ -6,71 +7,55 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-
-const transactions = [
-  {
-    id: "TXN001",
-    patient: "Emily Williams",
-    amount: "₦25,000",
-    date: "2025-04-13",
-    status: "Completed",
-  },
-  {
-    id: "TXN002",
-    patient: "Ryan Johnson",
-    amount: "₦15,500",
-    date: "2025-04-12",
-    status: "Pending",
-  },
-];
+import { transactions } from "@/data/transactions";
+import { getStatusColor } from "@/lib/utils";
 
 const TransactionTable = ({ data }: { data: typeof transactions }) => {
+  const tableHeaderElements = [
+    "ID",
+    "Patient",
+    "Date",
+    "Service",
+    "Amount",
+    "Status",
+  ];
   return (
-    <Table>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Patient</TableHead>
-          <TableHead>Amount</TableHead>
-          <TableHead>Date</TableHead>
-          <TableHead>Status</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {data.map((txn) => (
-          <TableRow key={txn.id}>
-            <TableCell>{txn.patient}</TableCell>
-            <TableCell>{txn.amount}</TableCell>
-            <TableCell>{txn.date}</TableCell>
-            <TableCell>
-              {/* <Badge
-                variant={
-                  txn.status === "Completed"
-                    ? "success"
-                    : txn.status === "Pending"
-                    ? "secondary"
-                    : "outline"
-                }
-              >
-                {txn.status}
-              </Badge> */}
-
-              <Badge
-                variant={
-                  txn.status === "Completed"
-                    ? "default"
-                    : txn.status === "Pending"
-                    ? "secondary"
-                    : "outline"
-                }
-              >
-                {txn.status}
-              </Badge>
-            </TableCell>
+    <div className="border rounded-md overflow-hidden">
+      <Table className="w-full table-fixed">
+        <TableHeader className="bg-gray-100 sticky top-0 z-10">
+          <TableRow className="font-bold">
+            {tableHeaderElements.map((header) => (
+              <TableHead key={header}>{header}</TableHead>
+            ))}
           </TableRow>
-        ))}
-      </TableBody>
-    </Table>
+        </TableHeader>
+      </Table>
+
+      <ScrollArea className="h-full">
+        <Table className="w-full table-fixed">
+          <TableBody>
+            {data.map((txn) => (
+              <TableRow key={txn.id}>
+                <TableCell>{txn.id}</TableCell>
+                <TableCell>{txn.patient}</TableCell>
+                <TableCell>
+                  {format(new Date(txn.date), "MMM d, yyyy")}
+                </TableCell>
+                <TableCell>{txn.service}</TableCell>
+                <TableCell>{txn.amount}</TableCell>
+                <TableCell>
+                  <Badge variant={getStatusColor(txn.status)}>
+                    {txn.status}
+                  </Badge>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </ScrollArea>
+    </div>
   );
 };
 
