@@ -33,7 +33,7 @@ const TransactionTable = ({ data }: { data: typeof transactions }) => {
         </TableHeader>
       </Table>
 
-      <ScrollArea className="h-full">
+      <ScrollArea className="h-full pr-5">
         <Table className="w-full table-fixed">
           <TableBody>
             {data.map((txn) => (
