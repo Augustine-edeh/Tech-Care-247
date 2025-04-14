@@ -15,7 +15,7 @@ const WeekendToggler = () => {
 
       <label
         htmlFor="toggle-weekends"
-        className="text-sm font-medium leading-none"
+        className="text-sm font-medium leading-none cursor-pointer"
       >
         Show Weekends
       </label>
