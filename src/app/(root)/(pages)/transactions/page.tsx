@@ -3,9 +3,27 @@ import Header from "@/components/layout/Header";
 import Main from "@/components/layout/Main";
 
 import PatientsList from "@/components/patients/PatientsList";
+import TransactionTable from "@/components/TransactionTable";
 import Clock from "@/components/ui/Clock";
 
 const TransactionPage = () => {
+  const transactionsData = [
+    {
+      id: "TXN001",
+      patient: "Emily Williams",
+      amount: "₦25,000",
+      date: "2025-04-13",
+      status: "Completed",
+    },
+    {
+      id: "TXN002",
+      patient: "Ryan Johnson",
+      amount: "₦15,500",
+      date: "2025-04-12",
+      status: "Pending",
+    },
+  ];
+
   return (
     <>
       <main className="flex flex-1 h-screen overflow-hidden">
@@ -35,9 +53,11 @@ const TransactionPage = () => {
               Transactions
             </h3>
 
-            <div className="grid place-items-center flex-1">
+            {/* <div className="grid place-items-center flex-1">
               No transaction records yet.
-            </div>
+            </div> */}
+
+            <TransactionTable data={transactionsData} />
           </div>
 
           <div className="col-span-3 overflow-hidden rounded-2xl">
