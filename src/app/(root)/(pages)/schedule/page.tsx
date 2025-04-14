@@ -10,6 +10,7 @@ import DeleteEventDialog from "@/components/DeleteEventDialog";
 import { useEventStore } from "../../../../store/useEventStore";
 import ScheduleList from "@/components/ui/ScheduleList";
 import WeekendToggler from "@/components/WeekendToggler";
+import MobileViewDialog from "@/components/MobileViewInfoDialog";
 
 const SchedulePage = () => {
   const { events, selectEvent, setSelectedDate, showWeekends } =
@@ -36,14 +37,23 @@ const SchedulePage = () => {
       <main className="flex flex-1 h-screen overflow-hidden">
         {/* Mobile View */}
         <div className="flex flex-col gap-5 w-full xl:hidden bg-unnamed-color-ffffff p-5">
-          <Clock className="p-0" />
-          <div className="flex flex-col flex-1">
-            <h3 className="font-manrope font-extrabold text-xl leading-8 text-unnamed-color-072635">
-              Schedule
-            </h3>
-            <div className="grid place-items-center flex-1">
-              You have no schedule on your calendar.
+          <div className="flex flex-col gap-3 flex-1">
+            <div className="flex">
+              <Clock hasLabel={false} className="p-0 bg-gray-500/40" />
+
+              <MobileViewDialog />
             </div>
+
+            <FullCalendar
+              plugins={[dayGridPlugin, interactionPlugin]}
+              initialView="dayGridMonth"
+              selectable={true}
+              select={handleDateSelect}
+              eventClick={handleEventClick}
+              events={events}
+              weekends={showWeekends}
+              height="100%"
+            />
           </div>
         </div>
 

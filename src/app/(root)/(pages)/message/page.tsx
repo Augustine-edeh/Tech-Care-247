@@ -14,11 +14,11 @@ const MessagePage = () => {
               Messages
             </h3>
 
-            <div className="grid place-items-center flex-1">
-              <p>You have no message.</p>
-              <button>
-                Start new chat <MessageCirclePlus />
+            <div className="grid place-content-center gap-2 flex-1">
+              <button className="flex justify-center gap-4 px-4 py-3 rounded-lg bg-primaryBlue hover:bg-secondaryBlue text-white">
+                Start chat <MessageCirclePlus />
               </button>
+              <p>You have no message.</p>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@ const MessagePage = () => {
               Messages
             </h3>
 
-            <div className="grid place-content-center gap-2 flex-1 ">
+            <div className="grid place-content-center gap-2 flex-1">
               <button className="flex justify-center gap-4 px-4 py-3 rounded-lg bg-primaryBlue hover:bg-secondaryBlue text-white">
                 Start chat <MessageCirclePlus />
               </button>

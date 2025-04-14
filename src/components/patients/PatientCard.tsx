@@ -1,4 +1,5 @@
 import useNavigateToOverviewTab from "@/hooks/useNavigateToOverviewTab";
+import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,6 +8,7 @@ type patientCardType = {
   name: string;
   gender: string;
   age: number;
+  isSelected: boolean | null;
 };
 
 const PatientCard = ({
@@ -14,6 +16,7 @@ const PatientCard = ({
   name,
   gender,
   age,
+  isSelected,
 }: patientCardType) => {
   const navigateToOverviewTab = useNavigateToOverviewTab();
 
@@ -21,7 +24,9 @@ const PatientCard = ({
     <Link
       href="#"
       onClick={navigateToOverviewTab}
-      className="flex items-center bg-unnamed-color-ffffff outline-none focus:bg-unnamed-activestate-bg-2 hover:bg-unnamed-activestate-bg-2/40"
+      className={`flex items-center outline-none focus:bg-unnamed-activestate-bg-2 hover:bg-unnamed-activestate-bg-2/40 ${
+        isSelected ? "bg-unnamed-activestate-bg-2" : "bg-unnamed-color-ffffff"
+      }`}
     >
       <div className="flex justify-between w-full h-12 m-4">
         <section className="flex gap-x-3">
