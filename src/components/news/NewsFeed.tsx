@@ -5,6 +5,7 @@ import { useNewsStore } from "@/store/useNewsStore";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loader from "./infiniteScroll/Loader";
 import EndMessage from "./infiniteScroll/EndMessage";
+import InfiniteScrollDemo from "../InfiniteScrollDemo";
 
 const NewsFeed = () => {
   const news = useNewsStore((state) => state.news);
@@ -69,40 +70,42 @@ const NewsFeed = () => {
       ) : error ? (
         <p className="text-gray-600">Error: {error}</p>
       ) : (
-        <ul
-          id="infiniteScrollContainer"
-          className="space-y-4 mt-4 overflow-y-auto flex-1"
-        >
-          <InfiniteScroll
-            dataLength={news.length} // Length of current news array
-            next={fetchMoreNews}
-            hasMore={hasMore}
-            scrollableTarget={"infiniteScrollContainer"}
-            loader={<Loader />}
-            endMessage={<EndMessage />}
-          >
-            {news.map((newsItem, index) => (
-              <li key={index} className="border-b border-gray-200 pb-4">
-                <a
-                  href={newsItem.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline"
-                >
-                  <h4 className="text-lg font-semibold">{newsItem.title}</h4>
-                </a>
-                <p className="text-gray-600 mt-1">{newsItem.description}</p>
-                <p className="text-gray-500 text-sm mt-1">
-                  Source: {newsItem.source.name}
-                </p>
-                <p className="text-gray-500 text-sm">
-                  Published on:
-                  {new Date(newsItem.publishedAt).toLocaleDateString()}
-                </p>
-              </li>
-            ))}
-          </InfiniteScroll>
-        </ul>
+        // <ul
+        //   id="infiniteScrollContainer"
+        //   className="space-y-4 mt-4 overflow-y-auto flex-1"
+        // >
+        //   <InfiniteScroll
+        //     dataLength={news.length} // Length of current news array
+        //     next={fetchMoreNews}
+        //     hasMore={hasMore}
+        //     scrollableTarget={"infiniteScrollContainer"}
+        //     loader={<Loader />}
+        //     endMessage={<EndMessage />}
+        //   >
+        //     {news.map((newsItem, index) => (
+        //       <li key={index} className="border-b border-gray-200 pb-4">
+        //         <a
+        //           href={newsItem.url}
+        //           target="_blank"
+        //           rel="noopener noreferrer"
+        //           className="text-blue-600 hover:underline"
+        //         >
+        //           <h4 className="text-lg font-semibold">{newsItem.title}</h4>
+        //         </a>
+        //         <p className="text-gray-600 mt-1">{newsItem.description}</p>
+        //         <p className="text-gray-500 text-sm mt-1">
+        //           Source: {newsItem.source.name}
+        //         </p>
+        //         <p className="text-gray-500 text-sm">
+        //           Published on:
+        //           {new Date(newsItem.publishedAt).toLocaleDateString()}
+        //         </p>
+        //       </li>
+        //     ))}
+        //   </InfiniteScroll>
+        // </ul>
+
+        <InfiniteScrollDemo />
       )}
     </div>
   );
