@@ -16,8 +16,17 @@ const NewsPage = () => {
       <main className="flex flex-1 h-screen overflow-hidden">
         {/* Mobile view */}
         <div className="w-full xl:hidden">
-          <Clock />
+          <div className="flex items-center justify-between">
+            <h3 className="font-manrope font-bold text-2xl leading-8 text-unnamed-color-072635">
+              News Feed
+            </h3>
+
+            <Clock className="p-0" hasLabel={false} />
+          </div>
           <NewsFeed />
+
+          {/* <Clock />
+          <NewsFeed /> */}
         </div>
 
         {/* Desktop View */}
