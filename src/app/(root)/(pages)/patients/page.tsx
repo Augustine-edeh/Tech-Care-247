@@ -1,15 +1,15 @@
 import AddNewPatientButton from "@/components/AddNewPatientButton";
 import Appointments from "@/components/Appointments";
-import Chart from "@/components/Chart";
+import DesktopOnlyNotice from "@/components/DesktopOnlyNotice /DesktopOnlyNotice";
 import LabResultsAndReports from "@/components/LabResultsAndReports";
 import MedicalHistoryAndVitals from "@/components/MedicalHistoryAndVitals";
 import PatientInfoCard from "@/components/PatientInfoCard";
 import PatientsList from "@/components/patients/PatientsList";
 import Prescriptions from "@/components/Prescriptions";
 import TreatmentPlan from "@/components/TreatmentPlan";
-import { Button } from "@/components/ui/button";
 import Clock from "@/components/ui/Clock";
-import { Download, Plus, SquareActivity } from "lucide-react";
+import { Monitor } from "lucide-react";
+import Link from "next/link";
 
 const PatientsPage = () => {
   return (
@@ -24,12 +24,7 @@ const PatientsPage = () => {
               Patients
             </h3>
 
-            <div className="grid place-items-center flex-1">
-              <p>
-                This is the <strong>Patients page</strong>.
-              </p>
-              <p className="opacity-45">All patients will be listed here.</p>
-            </div>
+            <DesktopOnlyNotice message="Switch to a desktop or larger screen to access the Patients page." />
           </div>
         </div>
 
