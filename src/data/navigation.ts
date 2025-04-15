@@ -21,8 +21,8 @@ export const navLinks = [
   },
   {
     href: "/message",
-    icon: "/group_FILL0_wght300_GRAD0_opsz24.svg",
-    label: "Message",
+    icon: "/mail.svg",
+    label: "Messages",
     iconSize: { width: 19, height: 17 },
   },
   {

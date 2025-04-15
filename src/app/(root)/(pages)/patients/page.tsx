@@ -1,15 +1,13 @@
 import AddNewPatientButton from "@/components/AddNewPatientButton";
 import Appointments from "@/components/Appointments";
-import Chart from "@/components/Chart";
+import DesktopOnlyNotice from "@/components/DesktopOnlyNotice /DesktopOnlyNotice";
 import LabResultsAndReports from "@/components/LabResultsAndReports";
 import MedicalHistoryAndVitals from "@/components/MedicalHistoryAndVitals";
 import PatientInfoCard from "@/components/PatientInfoCard";
 import PatientsList from "@/components/patients/PatientsList";
 import Prescriptions from "@/components/Prescriptions";
 import TreatmentPlan from "@/components/TreatmentPlan";
-import { Button } from "@/components/ui/button";
 import Clock from "@/components/ui/Clock";
-import { Download, Plus, SquareActivity } from "lucide-react";
 
 const PatientsPage = () => {
   return (
@@ -17,20 +15,15 @@ const PatientsPage = () => {
       <main className="flex flex-1 h-screen overflow-hidden">
         {/* Mobile View */}
         <div className="flex flex-col gap-5 w-full xl:hidden bg-unnamed-color-ffffff p-5">
-          <Clock className="p-0" />
-
-          <div className="flex flex-col flex-1">
-            <h3 className="font-manrope font-extrabold text-xl leading-8 text-unnamed-color-072635">
+          <div className="flex items-center justify-between">
+            <h3 className="font-manrope font-bold text-2xl leading-8 text-unnamed-color-072635">
               Patients
             </h3>
 
-            <div className="grid place-items-center flex-1">
-              <p>
-                This is the <strong>Patients page</strong>.
-              </p>
-              <p className="opacity-45">All patients will be listed here.</p>
-            </div>
+            <Clock className="p-0" hasLabel={false} />
           </div>
+
+          <DesktopOnlyNotice message="Switch to a desktop or larger screen to access the Patients page." />
         </div>
 
         {/* Desktop View */}
