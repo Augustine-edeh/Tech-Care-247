@@ -1,5 +1,6 @@
 "use client";
-import React from "react";
+
+import { useState } from "react";
 import InfiniteScroll from "@/components/ui/InfiniteScroll";
 import { Loader2 } from "lucide-react";
 
@@ -32,10 +33,10 @@ const Product = ({ product }: { product: DummyProduct }) => {
 };
 
 const InfiniteScrollDemo = () => {
-  const [page, setPage] = React.useState(0);
-  const [loading, setLoading] = React.useState(false);
-  const [hasMore, setHasMore] = React.useState(true);
-  const [products, setProducts] = React.useState<DummyProduct[]>([]);
+  const [page, setPage] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [products, setProducts] = useState<DummyProduct[]>([]);
 
   const next = async () => {
     setLoading(true);
